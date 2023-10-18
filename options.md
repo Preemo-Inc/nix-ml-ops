@@ -1,8 +1,9 @@
 ## perSystem
 
-A function from system to flake-like attributes omitting the `<system>` attribute.
+A function from system to flake-like attributes omitting the ` <system> ` attribute\.
 
-Modules defined here have access to the suboptions and [some convenient module arguments](../module-arguments.html).
+Modules defined here have access to the suboptions and [some convenient module arguments](\.\./module-arguments\.html)\.
+
 
 
 *Type:*
@@ -13,6 +14,7 @@ module
  - [devcontainer\.nix](flake-modules/devcontainer.nix)
  - [overridable-package\.nix](flake-modules/overridable-package.nix)
  - [nixpkgs\.nix](flake-modules/nixpkgs.nix)
+ - [python-vscode\.nix](flake-modules/python-vscode.nix)
  - [gke-credential\.nix](flake-modules/gke-credential.nix)
  - [nix-ld\.nix](flake-modules/nix-ld.nix)
  - [nix-ide\.nix](flake-modules/nix-ide.nix)
@@ -57,7 +59,9 @@ module
 
 ## perSystem\.ml-ops\.common\.LD_LIBRARY_PATH
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -97,12 +101,14 @@ module
 
 ## perSystem\.ml-ops\.common\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
 *Type:*
-attribute set of string
+lazy attribute set of string
 
 *Declared by:*
  - [common\.nix](flake-modules/common.nix)
@@ -111,7 +117,9 @@ attribute set of string
 
 ## perSystem\.ml-ops\.common\.version
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -130,7 +138,9 @@ string
 
 ## perSystem\.ml-ops\.devcontainer
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -149,7 +159,9 @@ submodule
 
 ## perSystem\.ml-ops\.devcontainer\.LD_LIBRARY_PATH
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -168,12 +180,35 @@ strings concatenated with “:”
 
 ## perSystem\.ml-ops\.devcontainer\.cuda\.packages
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
 *Type:*
 list of package
+
+*Declared by:*
+ - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+
+
+
+## perSystem\.ml-ops\.devcontainer\.cuda\.home
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Default:*
+` <derivation cuda-home> `
 
 *Declared by:*
  - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
@@ -203,40 +238,25 @@ module
 
 ## perSystem\.ml-ops\.devcontainer\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
 *Type:*
-attribute set of string
+lazy attribute set of string
 
 *Declared by:*
  - [common\.nix](flake-modules/common.nix)
 
 
 
-## perSystem\.ml-ops\.devcontainer\.generatedLocalFiles
-
-This option has no description.
-
-
-
-*Type:*
-attribute set of anything
-
-
-
-*Default:*
-` { } `
-
-*Declared by:*
- - [devcontainer\.nix](flake-modules/devcontainer.nix)
-
-
-
 ## perSystem\.ml-ops\.devcontainer\.mkPython
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -255,7 +275,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.devcontainer\.mountVolumeWithSudo
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -274,7 +296,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.devcontainer\.nixLdLibraries
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -286,9 +310,32 @@ list of path
 
 
 
+## perSystem\.ml-ops\.devcontainer\.nixago\.requests
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+attribute set of module
+
+
+
+*Default:*
+` { } `
+
+*Declared by:*
+ - [devcontainer\.nix](flake-modules/devcontainer.nix)
+
+
+
 ## perSystem\.ml-ops\.devcontainer\.pythonEnv
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -307,7 +354,9 @@ package
 
 ## perSystem\.ml-ops\.devcontainer\.pythonEnvArgs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -321,7 +370,9 @@ attribute set of anything
 
 ## perSystem\.ml-ops\.devcontainer\.version
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -340,7 +391,9 @@ string
 
 ## perSystem\.ml-ops\.devcontainer\.volumeMounts\.emptyDir
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -359,7 +412,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.devcontainer\.volumeMounts\.emptyDir\.\<name>\.medium
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -378,7 +433,9 @@ null or value “Memory” (singular enum)
 
 ## perSystem\.ml-ops\.devcontainer\.volumeMounts\.nfs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -397,7 +454,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.devcontainer\.volumeMounts\.nfs\.\<name>\.path
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -416,7 +475,9 @@ string
 
 ## perSystem\.ml-ops\.devcontainer\.volumeMounts\.nfs\.\<name>\.server
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -435,7 +496,9 @@ string
 
 ## perSystem\.ml-ops\.devserver\.gce\.image-bucket
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -454,17 +517,14 @@ string
 
 ## perSystem\.ml-ops\.devserver\.gce\.image-name
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
 *Type:*
 string
-
-
-
-*Default:*
-` "devserver-1vkmyv62vgzln4iix7d2kdchqvajdm3c-google-compute-image" `
 
 *Declared by:*
  - [devserver\.nix](flake-modules/devserver.nix)
@@ -473,17 +533,14 @@ string
 
 ## perSystem\.ml-ops\.devserver\.gce\.image-uri
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
 *Type:*
 string
-
-
-
-*Default:*
-` "gs://ml-ops-vm-images/devserver-1vkmyv62vgzln4iix7d2kdchqvajdm3c-google-compute-image.tar.gz" `
 
 *Declared by:*
  - [devserver\.nix](flake-modules/devserver.nix)
@@ -492,7 +549,9 @@ string
 
 ## perSystem\.ml-ops\.job
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -506,7 +565,9 @@ module
 
 ## perSystem\.ml-ops\.jobs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -525,7 +586,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.LD_LIBRARY_PATH
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -544,12 +607,35 @@ strings concatenated with “:”
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.cuda\.packages
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
 *Type:*
 list of package
+
+*Declared by:*
+ - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.cuda\.home
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Default:*
+` <derivation cuda-home> `
 
 *Declared by:*
  - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
@@ -579,12 +665,14 @@ module
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
 *Type:*
-attribute set of string
+lazy attribute set of string
 
 *Declared by:*
  - [common\.nix](flake-modules/common.nix)
@@ -593,7 +681,9 @@ attribute set of string
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launcher
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -612,7 +702,9 @@ module
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launcher\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -626,7 +718,9 @@ attribute set of string
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -645,7 +739,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -659,7 +755,9 @@ attribute set of string
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -675,7 +773,9 @@ submodule
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -694,7 +794,9 @@ module
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\._module\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -707,10 +809,9 @@ unspecified value
 
 ```
 {
-  CUDA_HOME = "/nix/store/6k40rvw4mimddv6sfmdfrlxi24mmb5jk-cuda-home";
-  LD_LIBRARY_PATH = "/run/opengl-driver/lib:/nix/store/4qz7zqrxd1anyhhi0fyix8dn4hqbifps-cuda_cudart-11.7.60/lib:/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-  NIX_LD = "/nix/store/izfmvcy3hyz09b4fddrjhvvxsx50xwzw-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+  CUDA_HOME = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
+  NIX_LD = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
+  NIX_LD_LIBRARY_PATH = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
 }
 ```
 
@@ -721,7 +822,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.env
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -736,19 +839,15 @@ unspecified value
 [
   {
     name = "CUDA_HOME";
-    value = "/nix/store/6k40rvw4mimddv6sfmdfrlxi24mmb5jk-cuda-home";
-  }
-  {
-    name = "LD_LIBRARY_PATH";
-    value = "/run/opengl-driver/lib:/nix/store/4qz7zqrxd1anyhhi0fyix8dn4hqbifps-cuda_cudart-11.7.60/lib:/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
   }
   {
     name = "NIX_LD";
-    value = "/nix/store/izfmvcy3hyz09b4fddrjhvvxsx50xwzw-ld.so";
+    value = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
   }
   {
     name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
   }
 ]
 ```
@@ -760,7 +859,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.image
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -770,7 +871,7 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20230504200901.dirty" `
+` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20231018231117.03c3329c" `
 
 *Declared by:*
  - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -779,7 +880,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.volumeMounts
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -798,7 +901,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.containers
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -817,7 +922,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.containers\.\<name>\.manifest
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -836,7 +943,9 @@ module
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.gke\.cluster
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -850,7 +959,9 @@ string
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.gke\.region
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -864,7 +975,9 @@ string
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helm-archive
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -883,7 +996,9 @@ package
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helm-chart
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -902,7 +1017,9 @@ package
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helm-push
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -921,7 +1038,9 @@ package
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmChartYaml
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -935,7 +1054,9 @@ attribute set of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -954,7 +1075,9 @@ submodule
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.base-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -973,7 +1096,9 @@ package
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.overridden-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -992,7 +1117,9 @@ applied ` base-package ` with ` override ` and ` overrideAttrs `
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.override
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1011,7 +1138,9 @@ list of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.overrideAttrs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1030,7 +1159,9 @@ list of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmReleaseName
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1049,7 +1180,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1069,7 +1202,9 @@ attribute set of attribute set of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.apiVersion
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1088,7 +1223,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.kind
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1107,7 +1244,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.metadata\.name
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1117,7 +1256,7 @@ unspecified value
 
 
 *Default:*
-` "‹name›-‹name›-1.0.0-20230504200901.dirty" `
+` "‹name›-‹name›-1.0.0-20231018231117.03c3329c" `
 
 *Declared by:*
  - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
@@ -1126,7 +1265,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.backoffLimit
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1145,7 +1286,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.template\.metadata\.labels\."app\.kubernetes\.io/name"
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1164,7 +1307,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.template\.spec\.containers
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1184,7 +1329,9 @@ attribute set of (attribute set of anything)
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.template\.spec\.containers\.\<name>\._module\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1197,10 +1344,9 @@ unspecified value
 
 ```
 {
-  CUDA_HOME = "/nix/store/6k40rvw4mimddv6sfmdfrlxi24mmb5jk-cuda-home";
-  LD_LIBRARY_PATH = "/run/opengl-driver/lib:/nix/store/4qz7zqrxd1anyhhi0fyix8dn4hqbifps-cuda_cudart-11.7.60/lib:/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-  NIX_LD = "/nix/store/izfmvcy3hyz09b4fddrjhvvxsx50xwzw-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+  CUDA_HOME = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
+  NIX_LD = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
+  NIX_LD_LIBRARY_PATH = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
 }
 ```
 
@@ -1211,7 +1357,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.template\.spec\.containers\.\<name>\.env
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1226,19 +1374,15 @@ unspecified value
 [
   {
     name = "CUDA_HOME";
-    value = "/nix/store/6k40rvw4mimddv6sfmdfrlxi24mmb5jk-cuda-home";
-  }
-  {
-    name = "LD_LIBRARY_PATH";
-    value = "/run/opengl-driver/lib:/nix/store/4qz7zqrxd1anyhhi0fyix8dn4hqbifps-cuda_cudart-11.7.60/lib:/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
   }
   {
     name = "NIX_LD";
-    value = "/nix/store/izfmvcy3hyz09b4fddrjhvvxsx50xwzw-ld.so";
+    value = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
   }
   {
     name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
   }
 ]
 ```
@@ -1250,7 +1394,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.template\.spec\.containers\.\<name>\.image
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1260,7 +1406,7 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20230504200901.dirty" `
+` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20231018231117.03c3329c" `
 
 *Declared by:*
  - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -1269,7 +1415,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.template\.spec\.containers\.\<name>\.volumeMounts
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1288,7 +1436,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.template\.spec\.restartPolicy
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1307,7 +1457,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.template\.spec\.volumes
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1326,7 +1478,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1345,7 +1499,9 @@ submodule
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.base-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1364,7 +1520,9 @@ package
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.overridden-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1383,7 +1541,9 @@ applied ` base-package ` with ` override ` and ` overrideAttrs `
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.override
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1402,7 +1562,9 @@ list of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.overrideAttrs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1421,7 +1583,9 @@ list of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.imageRegistry\.host
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1440,7 +1604,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.imageRegistry\.path
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1459,7 +1625,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1478,7 +1646,9 @@ submodule
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.base-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1497,7 +1667,9 @@ package
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.overridden-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1516,7 +1688,9 @@ applied ` base-package ` with ` override ` and ` overrideAttrs `
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.override
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1535,7 +1709,9 @@ list of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.overrideAttrs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1554,7 +1730,9 @@ list of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.volumeMounts
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1568,7 +1746,9 @@ list of attribute set of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.volumes
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1582,7 +1762,9 @@ list of attribute set of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.mkPython
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1601,7 +1783,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.name
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1620,7 +1804,9 @@ string
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.nixLdLibraries
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1634,7 +1820,9 @@ list of path
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.poetryEnv
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1644,7 +1832,7 @@ unspecified value
 
 
 *Default:*
-` <derivation python3-3.10.10-env> `
+` <derivation python3-3.10.12-env> `
 
 *Declared by:*
  - [python-envs-poetry\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/python-envs-poetry.nix)
@@ -1653,7 +1841,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.poetryEnvArgs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1667,7 +1857,9 @@ attribute set of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.pythonEnv
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1686,7 +1878,9 @@ package
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.pythonEnvArgs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1700,7 +1894,9 @@ attribute set of anything
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.version
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1719,7 +1915,9 @@ string
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.volumeMounts\.emptyDir
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1739,7 +1937,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.volumeMounts\.emptyDir\.\<name>\.kubernetesVolume
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1765,7 +1965,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.volumeMounts\.emptyDir\.\<name>\.medium
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1784,7 +1986,9 @@ null or value “Memory” (singular enum)
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.volumeMounts\.nfs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1804,7 +2008,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.volumeMounts\.nfs\.\<name>\.kubernetesVolume
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1822,7 +2028,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.volumeMounts\.nfs\.\<name>\.path
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1841,7 +2049,9 @@ string
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.volumeMounts\.nfs\.\<name>\.server
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1860,7 +2070,7 @@ string
 
 ## perSystem\.ml-ops\.overridablePackage
 
-This option has no description.
+This option has no description\.
 
 
 
@@ -1879,7 +2089,9 @@ module
 
 ## perSystem\.ml-ops\.overridablePackage\.base-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1898,7 +2110,11 @@ package
 
 ## perSystem\.ml-ops\.overridablePackage\.overridden-package
 
-This option has no description.
+
+
+This option has no description\.
+
+
 
 *Type:*
 package
@@ -1915,7 +2131,9 @@ applied ` base-package ` with ` override ` and ` overrideAttrs `
 
 ## perSystem\.ml-ops\.overridablePackage\.override
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1934,7 +2152,9 @@ list of anything
 
 ## perSystem\.ml-ops\.overridablePackage\.overrideAttrs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1974,7 +2194,9 @@ module
 
 ## perSystem\.ml-ops\.runtime\.LD_LIBRARY_PATH
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -1993,12 +2215,35 @@ strings concatenated with “:”
 
 ## perSystem\.ml-ops\.runtime\.cuda\.packages
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
 *Type:*
 list of package
+
+*Declared by:*
+ - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+
+
+
+## perSystem\.ml-ops\.runtime\.cuda\.home
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Default:*
+` <derivation cuda-home> `
 
 *Declared by:*
  - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
@@ -2028,12 +2273,14 @@ module
 
 ## perSystem\.ml-ops\.runtime\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
 *Type:*
-attribute set of string
+lazy attribute set of string
 
 *Declared by:*
  - [common\.nix](flake-modules/common.nix)
@@ -2042,7 +2289,9 @@ attribute set of string
 
 ## perSystem\.ml-ops\.runtime\.launcher
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2061,7 +2310,9 @@ module
 
 ## perSystem\.ml-ops\.runtime\.launcher\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2075,7 +2326,9 @@ attribute set of string
 
 ## perSystem\.ml-ops\.runtime\.mkPython
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2094,7 +2347,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.runtime\.name
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2113,7 +2368,9 @@ string
 
 ## perSystem\.ml-ops\.runtime\.nixLdLibraries
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2127,7 +2384,9 @@ list of path
 
 ## perSystem\.ml-ops\.runtime\.pythonEnv
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2146,7 +2405,9 @@ package
 
 ## perSystem\.ml-ops\.runtime\.pythonEnvArgs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2160,7 +2421,9 @@ attribute set of anything
 
 ## perSystem\.ml-ops\.runtime\.version
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2179,7 +2442,9 @@ string
 
 ## perSystem\.ml-ops\.runtime\.volumeMounts\.emptyDir
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2198,7 +2463,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.runtime\.volumeMounts\.emptyDir\.\<name>\.medium
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2217,7 +2484,9 @@ null or value “Memory” (singular enum)
 
 ## perSystem\.ml-ops\.runtime\.volumeMounts\.nfs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2236,7 +2505,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.runtime\.volumeMounts\.nfs\.\<name>\.path
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2255,7 +2526,9 @@ string
 
 ## perSystem\.ml-ops\.runtime\.volumeMounts\.nfs\.\<name>\.server
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2274,7 +2547,9 @@ string
 
 ## perSystem\.ml-ops\.service
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2288,7 +2563,9 @@ module
 
 ## perSystem\.ml-ops\.services
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2307,7 +2584,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.services\.\<name>\.LD_LIBRARY_PATH
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2326,12 +2605,35 @@ strings concatenated with “:”
 
 ## perSystem\.ml-ops\.services\.\<name>\.cuda\.packages
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
 *Type:*
 list of package
+
+*Declared by:*
+ - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.cuda\.home
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Default:*
+` <derivation cuda-home> `
 
 *Declared by:*
  - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
@@ -2361,12 +2663,14 @@ module
 
 ## perSystem\.ml-ops\.services\.\<name>\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
 *Type:*
-attribute set of string
+lazy attribute set of string
 
 *Declared by:*
  - [common\.nix](flake-modules/common.nix)
@@ -2375,7 +2679,9 @@ attribute set of string
 
 ## perSystem\.ml-ops\.services\.\<name>\.launcher
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2394,7 +2700,9 @@ module
 
 ## perSystem\.ml-ops\.services\.\<name>\.launcher\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2408,7 +2716,9 @@ attribute set of string
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2427,7 +2737,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2441,7 +2753,9 @@ attribute set of string
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2457,7 +2771,9 @@ submodule
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2476,7 +2792,9 @@ module
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\._module\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2489,10 +2807,9 @@ unspecified value
 
 ```
 {
-  CUDA_HOME = "/nix/store/6k40rvw4mimddv6sfmdfrlxi24mmb5jk-cuda-home";
-  LD_LIBRARY_PATH = "/run/opengl-driver/lib:/nix/store/4qz7zqrxd1anyhhi0fyix8dn4hqbifps-cuda_cudart-11.7.60/lib:/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-  NIX_LD = "/nix/store/izfmvcy3hyz09b4fddrjhvvxsx50xwzw-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+  CUDA_HOME = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
+  NIX_LD = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
+  NIX_LD_LIBRARY_PATH = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
 }
 ```
 
@@ -2503,7 +2820,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.env
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2518,19 +2837,15 @@ unspecified value
 [
   {
     name = "CUDA_HOME";
-    value = "/nix/store/6k40rvw4mimddv6sfmdfrlxi24mmb5jk-cuda-home";
-  }
-  {
-    name = "LD_LIBRARY_PATH";
-    value = "/run/opengl-driver/lib:/nix/store/4qz7zqrxd1anyhhi0fyix8dn4hqbifps-cuda_cudart-11.7.60/lib:/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
   }
   {
     name = "NIX_LD";
-    value = "/nix/store/izfmvcy3hyz09b4fddrjhvvxsx50xwzw-ld.so";
+    value = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
   }
   {
     name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
   }
 ]
 ```
@@ -2542,7 +2857,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.image
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2552,7 +2869,7 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20230504200901.dirty" `
+` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20231018231117.03c3329c" `
 
 *Declared by:*
  - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -2561,7 +2878,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.volumeMounts
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2580,7 +2899,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containers
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2599,7 +2920,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containers\.\<name>\.manifest
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2618,7 +2941,9 @@ module
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.gke\.cluster
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2632,7 +2957,9 @@ string
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.gke\.region
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2646,7 +2973,9 @@ string
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helm-archive
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2665,7 +2994,9 @@ package
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helm-chart
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2684,7 +3015,9 @@ package
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helm-push
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2703,7 +3036,9 @@ package
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmChartYaml
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2717,7 +3052,9 @@ attribute set of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2736,7 +3073,9 @@ submodule
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.base-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2755,7 +3094,9 @@ package
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.overridden-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2774,7 +3115,9 @@ applied ` base-package ` with ` override ` and ` overrideAttrs `
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.override
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2793,7 +3136,9 @@ list of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.overrideAttrs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2812,7 +3157,9 @@ list of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmReleaseName
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2831,7 +3178,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2851,7 +3200,9 @@ attribute set of attribute set of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.apiVersion
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2870,7 +3221,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.kind
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2889,7 +3242,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.metadata\.name
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2908,7 +3263,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.spec\.selector\.matchLabels\."app\.kubernetes\.io/name"
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2927,7 +3284,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.spec\.template\.metadata\.labels\."app\.kubernetes\.io/name"
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2946,7 +3305,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.spec\.template\.spec\.containers
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2960,7 +3321,9 @@ attribute set of (attribute set of anything)
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.spec\.template\.spec\.containers\.\<name>\._module\.environmentVariables
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -2973,10 +3336,9 @@ unspecified value
 
 ```
 {
-  CUDA_HOME = "/nix/store/6k40rvw4mimddv6sfmdfrlxi24mmb5jk-cuda-home";
-  LD_LIBRARY_PATH = "/run/opengl-driver/lib:/nix/store/4qz7zqrxd1anyhhi0fyix8dn4hqbifps-cuda_cudart-11.7.60/lib:/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-  NIX_LD = "/nix/store/izfmvcy3hyz09b4fddrjhvvxsx50xwzw-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+  CUDA_HOME = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
+  NIX_LD = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
+  NIX_LD_LIBRARY_PATH = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
 }
 ```
 
@@ -2987,7 +3349,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.spec\.template\.spec\.containers\.\<name>\.env
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3002,19 +3366,15 @@ unspecified value
 [
   {
     name = "CUDA_HOME";
-    value = "/nix/store/6k40rvw4mimddv6sfmdfrlxi24mmb5jk-cuda-home";
-  }
-  {
-    name = "LD_LIBRARY_PATH";
-    value = "/run/opengl-driver/lib:/nix/store/4qz7zqrxd1anyhhi0fyix8dn4hqbifps-cuda_cudart-11.7.60/lib:/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
   }
   {
     name = "NIX_LD";
-    value = "/nix/store/izfmvcy3hyz09b4fddrjhvvxsx50xwzw-ld.so";
+    value = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
   }
   {
     name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/2ldgh1qis9p4zf8bgsdm7897gw8vv36g-zlib-1.2.13/lib:/nix/store/sn9qq7c4myim20c6gc9b5xnz3hxqrmgq-zstd-1.5.4/lib:/nix/store/g012c53brxmb0if3lpmkjwmxk74hjflh-gcc-12.2.0-lib/lib:/nix/store/jra54hsq61cg2m9nyssm4ikijiw4w2qd-curl-8.0.1/lib:/nix/store/ijk9j536zs30kha06rr966gplwxd7fbg-openssl-3.0.8/lib:/nix/store/qgjrd7fj77877x1w3qg0d619cqqd8wm8-attr-2.5.1/lib:/nix/store/147gjk19qzrdsxkbkbd286v16iv5slif-libssh-0.10.4/lib:/nix/store/by4gv37sharnf370ki60zam5s7qklqqh-bzip2-1.0.8/lib:/nix/store/s44s0yzxw4s7nq108css5lcqck6dg6dz-libxml2-2.10.3/lib:/nix/store/ddygk5wqzmz69yqirrpcby2a28fam4g1-acl-2.3.1/lib:/nix/store/49rfngz7fbmwnvickglsys81bscm2c2x-libsodium-1.0.18/lib:/nix/store/wlgzc9k7dqhwg6ynd72r0n8v0frlcl9n-util-linux-2.38.1-lib/lib:/nix/store/5533i5qzsxysjf38p1nlza9g9wvh09wk-xz-5.4.2/lib:/nix/store/28njqxn2gywvz45pfgwim5b2g1dqdymv-systemd-253.2/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
   }
 ]
 ```
@@ -3026,7 +3386,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.spec\.template\.spec\.containers\.\<name>\.image
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3036,7 +3398,7 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20230504200901.dirty" `
+` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20231018231117.03c3329c" `
 
 *Declared by:*
  - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -3045,7 +3407,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.spec\.template\.spec\.containers\.\<name>\.volumeMounts
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3064,7 +3428,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.spec\.template\.spec\.volumes
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3083,7 +3449,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.service\.apiVersion
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3102,7 +3470,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.service\.kind
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3121,7 +3491,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.service\.metadata\.name
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3131,7 +3503,7 @@ unspecified value
 
 
 *Default:*
-` "‹name›-‹name›-20230504200901-dirty" `
+` "‹name›-‹name›-20231018231117-03c3329c" `
 
 *Declared by:*
  - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
@@ -3140,7 +3512,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.service\.spec\.selector\."app\.kubernetes\.io/name"
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3159,7 +3533,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.service\.spec\.type
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3178,7 +3554,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3197,7 +3575,9 @@ submodule
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.base-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3216,7 +3596,9 @@ package
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.overridden-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3235,7 +3617,9 @@ applied ` base-package ` with ` override ` and ` overrideAttrs `
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.override
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3254,7 +3638,9 @@ list of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.overrideAttrs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3273,7 +3659,9 @@ list of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.imageRegistry\.host
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3292,7 +3680,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.imageRegistry\.path
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3311,7 +3701,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3330,7 +3722,9 @@ submodule
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.base-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3349,7 +3743,9 @@ package
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.overridden-package
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3368,7 +3764,9 @@ applied ` base-package ` with ` override ` and ` overrideAttrs `
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.override
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3387,7 +3785,9 @@ list of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.overrideAttrs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3406,7 +3806,9 @@ list of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.volumeMounts
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3420,7 +3822,9 @@ list of attribute set of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.volumes
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3434,7 +3838,9 @@ list of attribute set of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.mkPython
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3453,7 +3859,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.name
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3472,7 +3880,9 @@ string
 
 ## perSystem\.ml-ops\.services\.\<name>\.nixLdLibraries
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3486,7 +3896,9 @@ list of path
 
 ## perSystem\.ml-ops\.services\.\<name>\.poetryEnv
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3496,7 +3908,7 @@ unspecified value
 
 
 *Default:*
-` <derivation python3-3.10.10-env> `
+` <derivation python3-3.10.12-env> `
 
 *Declared by:*
  - [python-envs-poetry\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/python-envs-poetry.nix)
@@ -3505,7 +3917,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.poetryEnvArgs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3519,7 +3933,9 @@ attribute set of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.pythonEnv
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3538,7 +3954,9 @@ package
 
 ## perSystem\.ml-ops\.services\.\<name>\.pythonEnvArgs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3552,7 +3970,9 @@ attribute set of anything
 
 ## perSystem\.ml-ops\.services\.\<name>\.version
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3571,7 +3991,9 @@ string
 
 ## perSystem\.ml-ops\.services\.\<name>\.volumeMounts\.emptyDir
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3591,7 +4013,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.services\.\<name>\.volumeMounts\.emptyDir\.\<name>\.kubernetesVolume
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3617,7 +4041,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.volumeMounts\.emptyDir\.\<name>\.medium
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3636,7 +4062,9 @@ null or value “Memory” (singular enum)
 
 ## perSystem\.ml-ops\.services\.\<name>\.volumeMounts\.nfs
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3656,7 +4084,9 @@ attribute set of (submodule)
 
 ## perSystem\.ml-ops\.services\.\<name>\.volumeMounts\.nfs\.\<name>\.kubernetesVolume
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3674,7 +4104,9 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.volumeMounts\.nfs\.\<name>\.path
 
-This option has no description.
+
+
+This option has no description\.
 
 
 
@@ -3693,7 +4125,7 @@ string
 
 ## perSystem\.ml-ops\.services\.\<name>\.volumeMounts\.nfs\.\<name>\.server
 
-This option has no description.
+This option has no description\.
 
 
 
