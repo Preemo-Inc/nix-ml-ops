@@ -1,0 +1,2 @@
+# generated from `nix run .#copy-options-document-to-current-directory`
+options.md linguist-generated
