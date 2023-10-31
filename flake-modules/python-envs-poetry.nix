@@ -3,6 +3,7 @@
     ./jobs.nix
     ./common.nix
     ./vscode.nix
+    ./python-vscode.nix
   ];
   options.perSystem = flake-parts-lib.mkPerSystemOption ({ lib, inputs', pkgs, ... }:
     let
@@ -13,11 +14,6 @@
     in
     {
       ml-ops.devcontainer = {
-        nixago.requests.".vscode/extensions.json".data = {
-          "recommendations" = [
-            "ms-python.python"
-          ];
-        };
         devenvShellModule.scripts.import-requirements-to-poetry.exec = ''
           if [ ! -f ./pyproject.toml ]
           then
