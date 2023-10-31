@@ -1,6 +1,7 @@
 {
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.tabSize": 4
   },
   "jupyter.debugJustMyCode": false,
   "python.terminal.activateEnvironment": false
