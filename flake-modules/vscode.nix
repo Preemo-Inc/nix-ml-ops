@@ -8,7 +8,7 @@
         };
         ".vscode/settings.json" = {
           data = lib.mkOption {
-            type = lib.types.attrs;
+            type = lib.types.attrsOf lib.types.anything;
             default = { };
           };
           hook.mode = lib.mkOption {
@@ -26,7 +26,7 @@
             if builtins.isList value
             then builtins.map mkRecursiveDefault value
             else if builtins.isAttrs value
-            then lib.attrsets.mapAttrsRecursive (name_path:mkRecursiveDefault) value
+            then lib.attrsets.mapAttrs (name: mkRecursiveDefault) value
             else lib.mkDefault value;
         in
         {
