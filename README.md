@@ -71,11 +71,21 @@ Here is an example of the ml-ops config. In the example: `."${"key"}".` denotes 
 
 ### on devserver
 
-```
+```bash
 nix build .#devserver-gce
 ```
 
-### The additional steps are required on Debian
+```bash
+nix build .#devserver-amazon
+```
+
+```bash
+nix build .#devserver-azure
+```
+
+Note that KVM must be enabled on the devserver. See [this document](https://cloud.google.com/compute/docs/instances/nested-virtualization/enabling) for enabling KVM on GCE.
+
+Also the following steps are required on Debian to install kvm kernel modules:
 
 ``` bash
 sudo apt-get install qemu-kvm
@@ -85,9 +95,10 @@ extra-experimental-features = nix-command flakes
 extra-system-features = kvm
 EOF
 ```
+
 ## Upload the devserver image to Google Cloud
 
-```
+``` bash
 nix run .#upload-devserver-gce-image
 ```
 
