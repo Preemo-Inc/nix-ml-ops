@@ -41,6 +41,11 @@ topLevel@{ config, flake-parts-lib, inputs, ... }: {
               image-uri = "gs://${config.ml-ops.devserver.gce.image-bucket}/${config.ml-ops.devserver.gce.image-name}.tar.gz";
             };
           packages = {
+            devserver-azure = inputs.nixos-generators.nixosGenerate {
+              inherit system;
+              format = "azure";
+              modules = [ topLevel.config.flake.nixosModules.devserver ];
+            };
             devserver-gce = inputs.nixos-generators.nixosGenerate {
               inherit system;
               format = "gce";
