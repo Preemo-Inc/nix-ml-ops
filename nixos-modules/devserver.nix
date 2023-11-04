@@ -10,5 +10,6 @@
     ./state-version.nix
     ./swap.nix
     ./cudart.nix
+    ./nvme.nix
   ];
 }
