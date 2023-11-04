@@ -1,11 +1,17 @@
-{ self, inputs, flake-parts-lib, ... }: {
+topLevel@{ self, inputs, flake-parts-lib, ... }: {
   imports = [
     ./systems.nix
+    inputs.flake-parts.flakeModules.flakeModules
   ];
-  options.perSystem = flake-parts-lib.mkPerSystemOption({ lib, config, pkgs, system, ... }: {
+  flake.flakeModules.nixpkgs = {
     imports = [
-      "${inputs.nixpkgs}/nixos/modules/misc/nixpkgs.nix"
+      topLevel.config.flake.flakeModules.systems
     ];
-    nixpkgs.hostPlatform = system;
-  });
+    options.perSystem = flake-parts-lib.mkPerSystemOption ({ lib, config, pkgs, system, ... }: {
+      imports = [
+        "${inputs.nixpkgs}/nixos/modules/misc/nixpkgs.nix"
+      ];
+      nixpkgs.hostPlatform = system;
+    });
+  };
 }
