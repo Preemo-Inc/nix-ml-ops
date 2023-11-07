@@ -6,7 +6,6 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
   flake.flakeModules.devcontainer = {
     imports = [
       topLevel.config.flake.flakeModules.common
-      inputs.devenv.flakeModule
     ];
     options.perSystem = flake-parts-lib.mkPerSystemOption (perSystem @{ system, pkgs, ... }: {
       options.ml-ops.devcontainer = lib.mkOption {
