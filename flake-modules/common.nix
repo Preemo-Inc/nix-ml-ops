@@ -6,6 +6,7 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
   flake.flakeModules.common = {
     imports = [
       topLevel.config.flake.flakeModules.nixpkgs
+      inputs.devenv.flakeModule
     ];
     options.perSystem = flake-parts-lib.mkPerSystemOption ({ lib, ... }: {
       config.nixpkgs.config.allowUnsupportedSystem = true;
@@ -32,7 +33,9 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
                   Common config that will be copied to `config.devenv.shells.`*<shell_name>*`.config` for each shell
                 '';
                 default = { };
-                type = lib.types.deferredModule;
+                type = lib.types.deferredModuleWith {
+                  staticModules = [ ];
+                };
               };
               config.devenvShellModule.env = config.environmentVariables;
               config.devenvShellModule.devenv.root = ".";

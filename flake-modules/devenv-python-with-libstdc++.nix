@@ -1,25 +1,25 @@
-topLevel@{ flake-parts-lib, inputs, ... }: {
+topLevel@{ flake-parts-lib, lib, inputs, ... }: {
   imports = [
     inputs.flake-parts.flakeModules.flakeModules
-    ./common.nix
+    ./python-package.nix
   ];
   flake.flakeModules.devenvPythonWithLibstdcxx = {
     imports = [
-      topLevel.config.flake.flakeModules.common
+      topLevel.config.flake.flakeModules.pythonPackage
     ];
-    options.perSystem = flake-parts-lib.mkPerSystemOption ({ lib, pkgs, ... }: {
-
-      ml-ops.common.devenvShellModule.languages.python.package =
-        pkgs.python3.override (old: lib.attrsets.optionalAttrs pkgs.stdenv.isLinux {
-          self = old.self.overrideAttrs
+    options.perSystem = flake-parts-lib.mkPerSystemOption
+      (perSystem@{ pkgs, system, ... }: {
+        ml-ops.common.pythonPackage = pythonPackage: {
+          overrideAttrs = lib.mkIf pythonPackage.config.base-package.stdenv.isLinux [
             (self: super: {
               env = super.env // {
                 # Link libstdc++ to python interpreter so that packages in manylinux ABI can find it out-of-the-box without LD_LIBRARY_PATH
                 # TODO: Add more libraries here when encountering an ImportError
                 NIX_LDFLAGS = "--no-as-needed -lstdc++ --as-needed ${super.env.NIX_LDFLAGS}";
               };
-            });
-        });
-    });
+            })
+          ];
+        };
+      });
   };
 }
