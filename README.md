@@ -80,7 +80,13 @@ nix build .#devserver-amazon
 ```
 
 ```bash
+# Azure Image Generation 1
 nix build .#devserver-azure
+```
+
+```bash
+# Azure Image Generation 2
+nix build .#devserver-hyperv
 ```
 
 Note that KVM must be enabled on the devserver. See [this document](https://cloud.google.com/compute/docs/instances/nested-virtualization/enabling) for enabling KVM on GCE.
@@ -103,6 +109,20 @@ nix run .#upload-devserver-gce-image
 ```
 
 Then the image will be uploaded to https://console.cloud.google.com/compute/images?tab=images&project=ml-solutions-371721&pageState=(%22images%22:(%22f%22:%22%255B%257B_22k_22_3A_22%25E5%2588%259B%25E5%25BB%25BA%25E8%2580%2585_22_2C_22t_22_3A10_2C_22v_22_3A_22_5C_22ml-solutions-371721_5C_22_22_2C_22s_22_3Atrue_2C_22i_22_3A_22creator_22%257D%255D%22))
+
+
+## Upload the devserver image to Azure Blob Storage
+
+### Generation 1
+``` bash
+nix run .#upload-devserver-azure-image
+```
+
+### Generation 2
+
+``` bash
+nix run .#upload-devserver-azure-hyperv
+```
 
 ## Update devserver to the latest configuration
 
