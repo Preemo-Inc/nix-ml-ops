@@ -9,6 +9,6 @@
       "flakes"
       "repl-flake"
     ];
-  }
-  ;
+    nix.settings.trusted-users = [ "@wheel" ];
+  };
 }
