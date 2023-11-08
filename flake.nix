@@ -48,6 +48,7 @@
       url = "github:Preemo-Inc/nixago?ref=no-gitignore";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-ld-rs.url = "github:nix-community/nix-ld-rs";
   };
   outputs = inputs:
     let
