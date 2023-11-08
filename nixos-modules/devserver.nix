@@ -11,6 +11,7 @@ topLevel: {
     ./swap.nix
     ./cudart.nix
     ./nvme.nix
+    ./sudo.nix
   ];
 
   flake.nixosModules.devserver = {
@@ -26,6 +27,7 @@ topLevel: {
       topLevel.config.flake.nixosModules.swap
       topLevel.config.flake.nixosModules.cudart
       topLevel.config.flake.nixosModules.nvme
+      topLevel.config.flake.nixosModules.sudo
     ];
   };
 }
