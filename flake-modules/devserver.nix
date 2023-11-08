@@ -2,7 +2,6 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
   imports = [
     ./nixpkgs.nix
     ../nixos-modules/devserver.nix
-    ../nixos-modules/azureuser.nix
     inputs.flake-parts.flakeModules.flakeModules
   ];
 
@@ -22,7 +21,6 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
       devserverAzure = inputs.nixpkgs.lib.nixosSystem {
         modules = [
           topLevel.config.flake.nixosModules.devserver
-          topLevel.config.flake.nixosModules.azureuser
           "${inputs.nixpkgs}/nixos/modules/virtualisation/azure-image.nix"
         ];
         system = "x86_64-linux";
@@ -86,7 +84,6 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
               format = "azure";
               modules = [
                 topLevel.config.flake.nixosModules.devserver
-                topLevel.config.flake.nixosModules.azureuser
               ];
             };
             devserver-hyperv = inputs.nixos-generators.nixosGenerate {
