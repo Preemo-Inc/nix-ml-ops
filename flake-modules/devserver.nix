@@ -31,6 +31,9 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
 
     options.perSystem = flake-parts-lib.mkPerSystemOption
       (perSystem@{ lib, pkgs, system, ... }: {
+        options.ml-ops.devserver.azure.imageName = lib.mkOption {
+          type = lib.types.str;
+        };
         options.ml-ops.devserver.azure.stgaccountname = lib.mkOption rec {
           type = lib.types.str;
           default = "mlsolutionimages";
@@ -69,6 +72,7 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
           type = lib.types.str;
         };
         config = {
+          ml-ops.devserver.azure.imageName = "devserver-${builtins.baseNameOf perSystem.config.packages.devserver-azure}";
           ml-ops.devserver.azure.blobname = "devserver-${builtins.baseNameOf perSystem.config.packages.devserver-azure}.vhd";
           ml-ops.devserver.hyperv.blobname = "devserver-${builtins.baseNameOf perSystem.config.packages.devserver-azure}.vhdx";
           ml-ops.devserver.gce =
@@ -135,6 +139,14 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                     "--account-name" perSystem.config.ml-ops.devserver.azure.stgaccountname
                   ]
                 })"
+                ${
+                  lib.strings.escapeShellArgs [
+                    "az" "image" "create"
+                    "--name" perSystem.config.ml-ops.devserver.azure.imageName
+                    "--os-type" "Linux"
+                    "--source" "https://${perSystem.config.ml-ops.devserver.azure.stgaccountname}.blob.core.windows.net/${perSystem.config.ml-ops.devserver.azure.containername}/${perSystem.config.ml-ops.devserver.azure.blobname}"
+                  ]
+                }
               '';
             };
             upload-devserver-hyperv-image = pkgs.writeShellApplication {
@@ -145,12 +157,12 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
               text = ''
                 ${
                   lib.strings.escapeShellArgs [
-                  "az" "storage" "blob" "upload" 
-                  "--account-name" perSystem.config.ml-ops.devserver.hyperv.stgaccountname
-                  "--container-name" perSystem.config.ml-ops.devserver.hyperv.containername
-                  "--name" perSystem.config.ml-ops.devserver.hyperv.blobname
-                  "--file" "${perSystem.config.packages.devserver-hyperv}/*.vhdx"
-                ]
+                    "az" "storage" "blob" "upload" 
+                    "--account-name" perSystem.config.ml-ops.devserver.hyperv.stgaccountname
+                    "--container-name" perSystem.config.ml-ops.devserver.hyperv.containername
+                    "--name" perSystem.config.ml-ops.devserver.hyperv.blobname
+                    "--file" "${perSystem.config.packages.devserver-hyperv}/*.vhdx"
+                  ]
                 }
               '';
             };
