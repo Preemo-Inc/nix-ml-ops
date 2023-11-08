@@ -142,8 +142,16 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                     "--name" perSystem.config.ml-ops.devserver.azure.imageName
                     "--os-type" "Linux"
                     "--source" "https://${perSystem.config.ml-ops.devserver.azure.stgaccountname}.blob.core.windows.net/${perSystem.config.ml-ops.devserver.azure.containername}/${perSystem.config.ml-ops.devserver.azure.blobname}"
+                    "--resource-group"
                   ]
-                }
+                } "$(${
+                  lib.strings.escapeShellArgs [
+                    "az" "storage" "account" "show"
+                    "--name" perSystem.config.ml-ops.devserver.azure.stgaccountname
+                    "--query" "resourceGroup"
+                    "--output" "tsv"
+                  ]
+                })"
               '';
             };
             upload-devserver-hyperv-image = pkgs.writeShellApplication {
