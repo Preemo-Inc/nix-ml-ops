@@ -577,16 +577,16 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1699113406,
-        "narHash": "sha256-Fhu1yiZcvi6Cp+ioFzlDGTm7VBbbzF/e03od0V5yaNI=",
+        "lastModified": 1699467797,
+        "narHash": "sha256-AZCoNWOGKbN8vNv9U+U+s/zwSfLM3MFysebg3HBU9WI=",
         "owner": "Preemo-Inc",
         "repo": "nixpkgs",
-        "rev": "03e4221db9044c2b06f890ad087ad928eaca9e63",
+        "rev": "ff60c0a8f3b2f54db4cf08723bee6d4b18bd9676",
         "type": "github"
       },
       "original": {
         "owner": "Preemo-Inc",
-        "ref": "gce-image-uefi-nvme",
+        "ref": "nix-ml-ops",
         "repo": "nixpkgs",
         "type": "github"
       }

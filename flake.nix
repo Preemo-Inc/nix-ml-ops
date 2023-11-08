@@ -23,7 +23,7 @@
       flake = false;
     };
     nixpkgs_22_05.url = "nixpkgs/nixos-22.05";
-    nixpkgs.url = "github:Preemo-Inc/nixpkgs/gce-image-uefi-nvme";
+    nixpkgs.url = "github:Preemo-Inc/nixpkgs/nix-ml-ops";
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     systems.url = "github:nix-systems/default";
