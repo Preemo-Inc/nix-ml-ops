@@ -91,34 +91,56 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
             };
             upload-devserver-azure-image = pkgs.writeShellApplication {
               name = "upload-devserver-azure-image.sh";
-              runtimeInputs = [ pkgs.azure-cli ];
+              runtimeInputs = [
+                pkgs.azure-cli
+                (
+                  pkgs.buildGoModule {
+                    name = "azure-vhd-utils";
+                    vendorSha256 = "sha256-KumgBgBI0oBJMKQX8d6z37fd5cxE+B+5ytFYqsFqbfo=";
+                    src = pkgs.fetchFromGitHub {
+                      owner = "microsoft";
+                      repo = "azure-vhd-utils";
+                      rev = "7c30a3748a1bf172fec4c41ae7cd398f6206baaf";
+                      sha256 = "sha256-WFhrZeuWiKnwPW50MURQLtBRqM4r68Bvobkwzjqm888=";
+                    };
+                  }
+                )
+              ];
               text = ''
                 ${
                   lib.strings.escapeShellArgs [
-                    "az" "storage" "blob" "upload" 
-                    "--account-name" perSystem.config.ml-ops.devserver.azure.stgaccountname
-                    "--container-name" perSystem.config.ml-ops.devserver.azure.containername
-                    "--name" perSystem.config.ml-ops.devserver.azure.blobname
-                    "--type" "page"
-                    "--file" "${perSystem.config.packages.devserver-azure}/disk.vhd"
+                    "azure-vhd-utils" "upload"
+                    "--stgaccountname" perSystem.config.ml-ops.devserver.azure.stgaccountname
+                    "--containername" perSystem.config.ml-ops.devserver.azure.containername
+                    "--blobname" perSystem.config.ml-ops.devserver.azure.blobname
+                    "--localvhdpath" "${perSystem.config.packages.devserver-azure}/disk.vhd"
+                    "--stgaccountkey"
                   ]
-                }
+                } "$(${
+                  lib.strings.escapeShellArgs [
+                    "az" "storage" "account" "keys" "list"
+                    "--query" "[0].value"
+                    "--output" "tsv"
+                    "--account-name" perSystem.config.ml-ops.devserver.azure.stgaccountname
+                  ]
+                })"
               '';
             };
             upload-devserver-hyperv-image = pkgs.writeShellApplication {
               name = "upload-devserver-hyperv-image.sh";
-              runtimeInputs = [ pkgs.azure-cli ];
+              runtimeInputs = [
+                pkgs.azure-cli
+              ];
               text = ''
                 ${
                   lib.strings.escapeShellArgs [
-                    "az" "storage" "blob" "upload" 
-                    "--account-name" perSystem.config.ml-ops.devserver.hyperv.stgaccountname
-                    "--container-name" perSystem.config.ml-ops.devserver.hyperv.containername
-                    "--name" perSystem.config.ml-ops.devserver.hyperv.blobname
-                    "--type" "page"
-                    "--file" perSystem.config.packages.devserver-hyperv
-                  ]
-                }/*.vhdx
+                  "az" "storage" "blob" "upload" 
+                  "--account-name" perSystem.config.ml-ops.devserver.hyperv.stgaccountname
+                  "--container-name" perSystem.config.ml-ops.devserver.hyperv.containername
+                  "--name" perSystem.config.ml-ops.devserver.hyperv.blobname
+                  "--file" "${perSystem.config.packages.devserver-hyperv}/*.vhdx"
+                ]
+                }
               '';
             };
             upload-devserver-gce-image = pkgs.writeShellApplication {
