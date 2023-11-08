@@ -1,3 +1,5 @@
 {
-  system.stateVersion = "22.11";
+  flake.nixosModules.stateVersion = {
+    system.stateVersion = "22.11";
+  };
 }

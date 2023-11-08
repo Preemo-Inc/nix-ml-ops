@@ -1,3 +1,6 @@
-{ pkgs, lib, ... }: {
-  programs.direnv.enable = true;
+{
+  flake.nixosModules.direnv = { pkgs, lib, ... }: {
+    programs.direnv.enable = true;
+  };
 }
+
