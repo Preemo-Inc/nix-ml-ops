@@ -10,12 +10,18 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
       topLevel.config.flake.flakeModules.nixpkgs
     ];
 
-    config.flake = {
-
-      nixosConfigurations.devserverGce = inputs.nixpkgs.lib.nixosSystem {
+    config.flake.nixosConfigurations = {
+      devserverGce = inputs.nixpkgs.lib.nixosSystem {
         modules = [
           topLevel.config.flake.nixosModules.devserver
           "${inputs.nixpkgs}/nixos/modules/virtualisation/google-compute-image.nix"
+        ];
+        system = "x86_64-linux";
+      };
+      devserverAzure = inputs.nixpkgs.lib.nixosSystem {
+        modules = [
+          topLevel.config.flake.nixosModules.devserver
+          "${inputs.nixpkgs}/nixos/modules/virtualisation/azure-image.nix"
         ];
         system = "x86_64-linux";
       };
