@@ -23,7 +23,6 @@ topLevel: {
       topLevel.config.flake.nixosModules.nixLd
       topLevel.config.flake.nixosModules.nvidiaDocker
       topLevel.config.flake.nixosModules.stateVersion
-      topLevel.config.flake.nixosModules.swap
       topLevel.config.flake.nixosModules.cudart
       topLevel.config.flake.nixosModules.nvme
     ];
