@@ -49,34 +49,36 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs: 
-  let 
-    bootstrap = inputs.flake-parts.lib.mkFlake { inherit inputs; moduleLocation = ./flake.nix; } ({lib, ...}:{
+  outputs = inputs:
+    let
+      bootstrap = inputs.flake-parts.lib.mkFlake { inherit inputs; moduleLocation = ./flake.nix; } ({ lib, ... }: {
+        imports = [
+          ./flake-modules/nix-ide.nix
+          ./flake-modules/devserver.nix
+          ./flake-modules/devcontainer-gcp-cli-tools.nix
+          ./flake-modules/devcontainer-azure-cli-tools.nix
+          ./flake-modules/nix-ld.nix
+          ./flake-modules/options-document.nix
+        ];
+
+      });
+    in
+    inputs.flake-parts.lib.mkFlake { inherit inputs; } ({ lib, ... }: {
       imports = [
-        ./flake-modules/nix-ide.nix
-        ./flake-modules/devserver.nix
-        ./flake-modules/devcontainer-gcp-cli-tools.nix
-        ./flake-modules/nix-ld.nix
-        ./flake-modules/options-document.nix
-      ];
-     
-    });
-  in
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } ({lib, ...}:{
-    imports = [
-      ./lib.nix
-      bootstrap.flakeModules.nixIde
-      bootstrap.flakeModules.devserver
-      bootstrap.flakeModules.devcontainerGcpCliTools
-      bootstrap.flakeModules.nixLd
-      bootstrap.flakeModules.optionsDocument
-    ] ++ 
+        ./lib.nix
+        bootstrap.flakeModules.nixIde
+        bootstrap.flakeModules.devserver
+        bootstrap.flakeModules.devcontainerGcpCliTools
+        bootstrap.flakeModules.devcontainerAzureCliTools
+        bootstrap.flakeModules.nixLd
+        bootstrap.flakeModules.optionsDocument
+      ] ++
       # import all nix files under ./flake-modules/
-    (lib.trivial.pipe ./flake-modules [
-      builtins.readDir
-      (lib.attrsets.filterAttrs (name: type: type == "regular" && lib.strings.hasSuffix ".nix" name))
-      builtins.attrNames
-      (builtins.map (name: ./flake-modules/${name}))
-    ]);
-  });
+      (lib.trivial.pipe ./flake-modules [
+        builtins.readDir
+        (lib.attrsets.filterAttrs (name: type: type == "regular" && lib.strings.hasSuffix ".nix" name))
+        builtins.attrNames
+        (builtins.map (name: ./flake-modules/${name}))
+      ]);
+    });
 }
