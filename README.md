@@ -126,16 +126,21 @@ nix run .#upload-devserver-azure-hyperv
 
 ## Update devserver to the latest configuration
 
-If you already checked out this repository, run the following command in the work tree
+If you already checked out this repository, run the following command in the work tree:
+For VM on GCE:
 ``` bash
 sudo nixos-rebuild switch --flake .#devserverGce
+```
+For Azure VM:
+``` bash
+sudo nixos-rebuild switch --flake .#devserverAzure
 ```
 
 Or under an abitrary path, run 
 ``` bash
-sudo nixos-rebuild switch --flake git+ssh://git@github.com/Preemo-Inc/ml-ops.git#devserverGce
+sudo nixos-rebuild switch --flake github:Preemo-Inc/nix-ml-ops#devserverGce
 ```
 or
 ``` bash
-sudo nixos-rebuild switch --flake git+https://github.com/Preemo-Inc/ml-ops.git#devserverGce
+sudo nixos-rebuild switch --flake github:Preemo-Inc/nix-ml-ops#devserverAzure
 ```
