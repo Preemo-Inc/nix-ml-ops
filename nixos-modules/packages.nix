@@ -1,8 +1,11 @@
-{ pkgs, ... }: {
-  environment.systemPackages = [
-    pkgs.asdf-vm
-    pkgs.gh
-    pkgs.git
-    pkgs.git-lfs
-  ];
+{
+  flake.nixosModules.packages = { pkgs, ... }: {
+    environment.systemPackages = [
+      pkgs.asdf-vm
+      pkgs.gh
+      pkgs.git
+      pkgs.git-lfs
+    ];
+  }
+  ;
 }

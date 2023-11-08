@@ -1,9 +1,9 @@
 topLevel@{ flake-parts-lib, inputs, ... }: {
   imports = [
     ./nixpkgs.nix
+    ../nixos-modules/devserver.nix
     inputs.flake-parts.flakeModules.flakeModules
   ];
-  flake.nixosModules.devserver = ../nixos-modules/devserver.nix;
 
   flake.flakeModules.devserver = {
     imports = [

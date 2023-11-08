@@ -1,3 +1,5 @@
 {
-  boot.initrd.availableKernelModules = [ "nvme" ];
+  flake.nixosModules.nvme = {
+    boot.initrd.availableKernelModules = [ "nvme" ];
+  };
 }
