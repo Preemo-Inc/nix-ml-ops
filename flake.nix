@@ -5,9 +5,7 @@
       flake = false;
     };
     poetry2nix = {
-      # TODO: Use nix-community/poetry2nix when https://github.com/nix-community/poetry2nix/pull/1128 get merged
-      # url = "github:nix-community/poetry2nix";
-      url = "github:Preemo-Inc/poetry2nix";
+      url = "github:nix-community/poetry2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     conda-channels = {
