@@ -49,7 +49,7 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
             topLevel.config.flake.flakeModules.nixpkgs
           ];
           options.perSystem = flake-parts-lib.mkPerSystemOption (
-            perSystem@{ lib, pkgs, inputs', ... }: {
+            perSystem@{ lib, pkgs, system, ... }: {
               ml-ops.runtime = runtime: {
                 config.launcher = launcher: {
                   options.kubernetes = lib.mkOption {
@@ -139,7 +139,7 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                                       __impure = true;
                                       nativeBuildInputs = [
                                         pkgs.cacert
-                                        inputs'.nix2container.packages.skopeo-nix2container
+                                        inputs.nix2container.packages.${system}.skopeo-nix2container
                                       ];
                                       HOME = ".";
                                       remoteImage =

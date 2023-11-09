@@ -8,7 +8,7 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
       topLevel.config.flake.flakeModules.kubernetes
     ];
     options.perSystem = flake-parts-lib.mkPerSystemOption
-      (perSystem@{ lib, pkgs, inputs', ... }: {
+      (perSystem@{ lib, pkgs, ... }: {
         ml-ops.runtime = runtime: {
           config.launcher = launcher: {
             options.kubernetes = lib.mkOption {
