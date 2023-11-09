@@ -577,11 +577,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1699490850,
-        "narHash": "sha256-q/sEYbHgdf68k4ETU4/BuCm4re3v1xIx/08m0bmk8lk=",
+        "lastModified": 1699558852,
+        "narHash": "sha256-z2pQivuiPvqzURGpOPO9+iYpagF1GcyjLhJHcsPaP/c=",
         "owner": "Preemo-Inc",
         "repo": "nixpkgs",
-        "rev": "ff984b160340ee56dca043a0fea58eaa15f6fc50",
+        "rev": "9f157a16e63a51310526aba115c9b3a487df291e",
         "type": "github"
       },
       "original": {
