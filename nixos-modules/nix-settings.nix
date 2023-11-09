@@ -9,6 +9,8 @@
       "flakes"
       "repl-flake"
     ];
-    nix.settings.trusted-users = [ "@wheel" ];
+    nix.settings.trusted-users = [
+      "@users" # Trust all normal users
+    ];
   };
 }
