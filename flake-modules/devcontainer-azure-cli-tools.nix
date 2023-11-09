@@ -11,7 +11,6 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
       ml-ops.devcontainer = {
         config.devenvShellModule.packages = lib.mkAfter [
           pkgs.azure-cli
-          pkgs.azure-storage-azcopy
         ];
       };
     });
