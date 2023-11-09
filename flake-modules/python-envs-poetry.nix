@@ -1,6 +1,5 @@
 topLevel@{ self, inputs, flake-parts-lib, ... }: {
   imports = [
-    ./jobs.nix
     ./common.nix
     ./vscode.nix
     ./python-vscode.nix
@@ -8,14 +7,15 @@ topLevel@{ self, inputs, flake-parts-lib, ... }: {
   ];
   flake.flakeModules.pythonEnvsPoetry = {
     imports = [
-      topLevel.config.flake.flakeModules.jobs
       topLevel.config.flake.flakeModules.common
       topLevel.config.flake.flakeModules.vscode
       topLevel.config.flake.flakeModules.pythonVscode
     ];
-    options.perSystem = flake-parts-lib.mkPerSystemOption ({ lib, inputs', pkgs, ... }:
+    options.perSystem = flake-parts-lib.mkPerSystemOption ({ lib, system, pkgs, ... }:
       let
-        poetry-add-requirements-txt = inputs'.poetry2nix.legacyPackages.mkPoetryApplication {
+        poetry2nix = (inputs.poetry2nix.lib.mkPoetry2Nix { inherit pkgs; });
+
+        poetry-add-requirements-txt = poetry2nix.mkPoetryApplication {
           projectDir = inputs.poetry-add-requirements-txt;
           preferWheels = true;
         };
@@ -52,7 +52,7 @@ topLevel@{ self, inputs, flake-parts-lib, ... }: {
             groups = [ ];
           };
           options.poetryEnv = lib.mkOption {
-            default = inputs'.poetry2nix.legacyPackages.mkPoetryEnv config.poetryEnvArgs;
+            default = poetry2nix.mkPoetryEnv config.poetryEnvArgs;
           };
           config.devenvShellModule.packages = lib.mkIf (builtins.pathExists "${self}/poetry.lock") [
             config.poetryEnv
