@@ -1,20 +1,25 @@
 {
   inputs = {
-    ml-ops.url = "git+file:./../..?ref=HEAD&shallow=1";
+    call-flake.url = "github:divnix/call-flake";
   };
   outputs =
-    inputs @ { ml-ops, ... }:
-    ml-ops.lib.mkFlake { inherit inputs; } {
+    lockedInputs:
+    let
+      unlockedInputs = {
+        nix-ml-ops = lockedInputs.call-flake ./../..;
+      };
+      inputs = unlockedInputs // lockedInputs;
+    in
+    inputs.nix-ml-ops.lib.mkFlake { inherit inputs; } {
       imports = [
-        ml-ops.flakeModules.cuda
-        ml-ops.flakeModules.devcontainer
-        ml-ops.flakeModules.nixIde
-        ml-ops.flakeModules.nixLd
-        ml-ops.flakeModules.pythonEnvsPoetry
-        ml-ops.flakeModules.kubernetesJob
-        ml-ops.flakeModules.gkeCredential
+        inputs.nix-ml-ops.flakeModules.cuda
+        inputs.nix-ml-ops.flakeModules.devcontainer
+        inputs.nix-ml-ops.flakeModules.nixIde
+        inputs.nix-ml-ops.flakeModules.nixLd
+        inputs.nix-ml-ops.flakeModules.pythonEnvsPoetry
+        inputs.nix-ml-ops.flakeModules.kubernetesJob
+        inputs.nix-ml-ops.flakeModules.gkeCredential
       ];
-
       perSystem = { pkgs, config, lib, ... }: {
         ml-ops.jobs.my-job.launchers.my-launcher.kubernetes = {
           gke = {

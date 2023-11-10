@@ -1,10 +1,19 @@
 {
-  inputs.ml-ops.url = "git+file:./../..?ref=HEAD&shallow=1";
-  outputs = inputs @ { ml-ops, ... }:
-    ml-ops.lib.mkFlake { inherit inputs; } {
+  inputs = {
+    call-flake.url = "github:divnix/call-flake";
+  };
+  outputs =
+    lockedInputs:
+    let
+      unlockedInputs = {
+        nix-ml-ops = lockedInputs.call-flake ./../..;
+      };
+      inputs = unlockedInputs // lockedInputs;
+    in
+    inputs.nix-ml-ops.lib.mkFlake { inherit inputs; } {
       imports = [
-        ml-ops.flakeModules.devenvPythonWithLibstdcxx
-        ml-ops.flakeModules.devcontainer
+        inputs.nix-ml-ops.flakeModules.devenvPythonWithLibstdcxx
+        inputs.nix-ml-ops.flakeModules.devcontainer
       ];
       perSystem = { pkgs, ... }: {
         ml-ops.devcontainer = {
