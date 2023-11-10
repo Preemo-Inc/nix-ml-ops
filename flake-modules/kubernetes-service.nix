@@ -48,10 +48,7 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                         {
                           config.deployment.spec.template.spec.containers =
                             lib.mapAttrs
-                              (containerName: container: {
-                                imports = [ container.manifest ];
-                                name = containerName;
-                              })
+                              (containerName: container: container.manifest)
                               kubernetes.config.containers;
 
                           options.deployment.spec.template.spec.containers = lib.mkOption {
@@ -60,7 +57,11 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                                 kubernetes.config.containerManifest
                               ];
                             });
-                            apply = builtins.attrValues;
+                            apply = lib.attrsets.mapAttrsToList (name: value:
+                              value // {
+                                inherit name;
+                              }
+                            );
                           };
                         }
                       ];
