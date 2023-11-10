@@ -310,58 +310,6 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                                 ];
                               };
                             };
-
-                            # Push the Helm archive to an OCI registry. Currently unused
-                            # because we provide a script to directly deploy the helm YAML
-                            # source directory to Kubernetes
-                            options.helm-push = lib.mkOption
-                              {
-                                type = lib.types.package;
-                                default = pkgs.runCommand
-                                  "${runtime.config._module.args.name}-helm-push.txt"
-                                  rec {
-                                    # Use fixed-output derivation in order to access network
-                                    # See https://nixos.org/manual/nix/stable/language/advanced-attributes.html?highlight=outputHash#adv-attr-outputHash
-                                    __impure = true;
-
-                                    nativeBuildInputs = [
-                                      pkgs.cacert
-                                      pkgs.google-cloud-sdk
-                                      pkgs.kubernetes-helm
-                                    ];
-                                    HOME = ".";
-                                    remoteImage =
-                                      "${
-                                        hostPath
-                                      }/${
-                                        runtime.config._module.args.name
-                                      }-${
-                                        launcher.config._module.args.name
-                                      }:${
-                                        runtime.config.version
-                                      }";
-                                  }
-                                  # TODO: Move gcloud auth to gke-credential.nix
-                                  ''
-                                    gcloud auth print-access-token |
-                                      ${
-                                        lib.strings.escapeShellArgs [
-                                          "helm" "registry" "login"
-                                          "-u" "oauth2accesstoken"
-                                          "--password-stdin"
-                                          "https://${kubernetes.config.imageRegistry.host}"
-                                        ]
-                                      } &&
-                                      ${
-                                        lib.strings.escapeShellArgs [
-                                          "helm" "push"
-                                          kubernetes.config.helm-archive
-                                          "oci://${hostPath}"
-                                        ]
-                                      } &&
-                                      echo -n "$remoteImage" > "$out"
-                                  '';
-                              };
                           })
                       ];
                     };
