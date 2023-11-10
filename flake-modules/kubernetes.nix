@@ -128,6 +128,9 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                                   (container: {
                                     config._module.freeformType = lib.types.attrsOf lib.types.anything;
                                     options = {
+                                      name = lib.mkOption {
+                                        type = lib.types.str;
+                                      };
                                       image = lib.mkOption { default = kubernetes.config.pushImage.overridden-package.remoteImage; };
                                       env = lib.mkOption {
                                         default = lib.attrsets.mapAttrsToList

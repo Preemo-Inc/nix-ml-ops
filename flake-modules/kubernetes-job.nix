@@ -33,19 +33,13 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                                 spec.backoffLimit = 0;
                                 spec.template.metadata.labels."app.kubernetes.io/name" = "${job.config._module.args.name}-${launcher.config._module.args.name}";
                                 spec.template.spec.restartPolicy = "Never";
-                                spec.template.spec.containers = lib.attrsets.mapAttrsToList
-                                  (name: value: value.manifest)
-                                  kubernetes.config.containers;
                                 spec.template.spec.volumes = kubernetes.config.volumes;
                               };
                           }
                           {
                             config.job.spec.template.spec.containers =
                               lib.mapAttrs
-                                (containerName: container: {
-                                  imports = [ container.manifest ];
-                                  name = containerName;
-                                })
+                                (containerName: container: container.manifest)
                                 kubernetes.config.containers;
                             options.job.spec.template.spec.containers = lib.mkOption {
                               type = lib.types.attrsOf (lib.types.submoduleWith {
@@ -53,13 +47,16 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                                   kubernetes.config.containerManifest
                                 ];
                               });
-                              apply = builtins.attrValues;
+                              apply = lib.attrsets.mapAttrsToList (name: value:
+                                value // {
+                                  inherit name;
+                                }
+                              );
                             };
                           }
                         ];
                       };
                     };
-
                   }
                 )
               ];
