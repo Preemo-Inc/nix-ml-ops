@@ -18,6 +18,9 @@
       ];
 
       perSystem = { pkgs, config, lib, ... }: {
+        ml-ops.devcontainer.nixDirenvFlakeFlags = lib.mkAfter [
+          "--no-write-lock-file"
+        ];
         ml-ops.jobs.my-job.launchers.my-launcher.kubernetes = {
           aks = {
             # region = "us-central1";

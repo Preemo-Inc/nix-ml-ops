@@ -22,15 +22,25 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                 };
                 default = { };
               };
+              options.nixDirenvFlakeFlags = lib.mkOption {
+                type = lib.types.listOf lib.types.str;
+              };
+              config.nixDirenvFlakeFlags = [
+                # Disable Nix's eval-cache so that we can always see error messages if any.
+                "--no-eval-cache"
+
+                # Environment variables are cached by direnv, so we don't need Nix's eval-cache.
+                "--show-trace"
+              ];
               config.nixago.requests.".envrc" = {
                 data = ''
                   if ! has nix_direnv_version || ! nix_direnv_version 2.3.0; then
                     source_url "https://raw.githubusercontent.com/nix-community/nix-direnv/2.3.0/direnvrc" "sha256-Dmd+j63L84wuzgyjITIfSxSD57Tx7v51DMxVZOsiUD8="
                   fi
 
-                  # Environment variables are cached by direnv, so we don't need Nix's eval-cache.
-                  # Disable Nix's eval-cache so that we can always see error messages if any.
-                  use flake --no-eval-cache --show-trace
+                  use flake . ${
+                    lib.escapeShellArgs devcontainer.config.nixDirenvFlakeFlags
+                  }
                 '';
                 hook.mode = "copy";
                 engine = { data, output, ... }: pkgs.writeTextFile {
