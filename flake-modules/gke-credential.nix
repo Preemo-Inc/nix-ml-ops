@@ -56,7 +56,7 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                       config.pushImage.overrideAttrs = [
                         (old: {
                           buildCommand = ''
-                            export destRegistryToken="$(gcloud auth print-access-token)"
+                            export skopeoCopyArgs="$(printf "%q " --dest-registry-token "$(gcloud auth print-access-token)")"
                             ${old.buildCommand}
                           '';
                           nativeBuildInputs = old.nativeBuildInputs ++ [
