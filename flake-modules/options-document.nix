@@ -4,7 +4,7 @@ topLevel@{ inputs, lib, flake-parts-lib, ... }: {
     ./devcontainer.nix
     inputs.flake-parts.flakeModules.flakeModules
   ];
-  flake.flakeModules.optionsDocument = {
+  flake.flakeModules.optionsDocument = flakeModule: {
     imports = [
       topLevel.config.flake.flakeModules.devcontainer
     ];
@@ -42,11 +42,11 @@ topLevel@{ inputs, lib, flake-parts-lib, ... }: {
             transformOptions = option: option // rec {
               declarations = lib.concatMap
                 (declaration:
-                  if lib.hasPrefix "${inputs.self}/flake-modules/" declaration
+                  if lib.hasPrefix "${flakeModule.self}/flake-modules/" declaration
                   then
                     [
                       rec {
-                        name = lib.removePrefix "${inputs.self}/flake-modules/" declaration;
+                        name = lib.removePrefix "${flakeModule.self}/flake-modules/" declaration;
                         url = "flake-modules/${builtins.head (builtins.split "," name)}";
                       }
                     ]

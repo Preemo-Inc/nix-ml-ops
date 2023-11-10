@@ -1,11 +1,11 @@
-topLevel@{ self, inputs, flake-parts-lib, ... }: {
+topLevel@{ inputs, flake-parts-lib, ... }: {
   imports = [
     ./common.nix
     ./vscode.nix
     ./python-vscode.nix
     inputs.flake-parts.flakeModules.flakeModules
   ];
-  flake.flakeModules.pythonEnvsPoetry = {
+  flake.flakeModules.pythonEnvsPoetry = flakeModule: {
     imports = [
       topLevel.config.flake.flakeModules.common
       topLevel.config.flake.flakeModules.vscode
@@ -48,13 +48,13 @@ topLevel@{ self, inputs, flake-parts-lib, ... }: {
           };
           config.poetryEnvArgs = {
             preferWheels = lib.mkDefault true;
-            projectDir = lib.mkDefault "${self}";
+            projectDir = lib.mkDefault "${flakeModule.self}";
             groups = [ ];
           };
           options.poetryEnv = lib.mkOption {
             default = poetry2nix.mkPoetryEnv config.poetryEnvArgs;
           };
-          config.devenvShellModule.packages = lib.mkIf (builtins.pathExists "${self}/poetry.lock") [
+          config.devenvShellModule.packages = lib.mkIf (builtins.pathExists "${flakeModule.self}/poetry.lock") [
             config.poetryEnv
           ];
         };

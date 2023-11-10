@@ -6,7 +6,7 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
     ./devcontainer.nix
     inputs.flake-parts.flakeModules.flakeModules
   ];
-  flake.flakeModules.kubernetesService = {
+  flake.flakeModules.kubernetesService = flakeModule: {
     imports = [
       topLevel.config.flake.flakeModules.services
       topLevel.config.flake.flakeModules.kubernetes
@@ -30,7 +30,7 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                               service = {
                                 apiVersion = "v1";
                                 kind = "Service";
-                                metadata.name = "${service.config._module.args.name}-${launcher.config._module.args.name}-${inputs.self.lastModifiedDate}-${builtins.substring 0 8 inputs.self.rev or "dirty"}";
+                                metadata.name = "${service.config._module.args.name}-${launcher.config._module.args.name}-${flakeModule.self.lastModifiedDate}-${builtins.substring 0 8 flakeModule.self.rev or "dirty"}";
                                 spec.selector."app.kubernetes.io/name" = "${service.config._module.args.name}-${launcher.config._module.args.name}";
                                 spec.type = "LoadBalancer";
                               };

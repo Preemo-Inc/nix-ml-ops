@@ -3,7 +3,7 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
     inputs.flake-parts.flakeModules.flakeModules
     ./nixpkgs.nix
   ];
-  flake.flakeModules.common = {
+  flake.flakeModules.common = flakeModule: {
     imports = [
       topLevel.config.flake.flakeModules.nixpkgs
       inputs.devenv.flakeModule
@@ -19,7 +19,7 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
               options.version = lib.mkOption {
                 type = lib.types.str;
                 defaultText = lib.literalMD "1.0.0+<lastModifiedDate>.<hash>";
-                default = "1.0.0+${inputs.self.lastModifiedDate}.${builtins.substring 0 8 inputs.self.rev or "dirty"}";
+                default = "1.0.0+${flakeModule.self.lastModifiedDate}.${builtins.substring 0 8 flakeModule.self.rev or "dirty"}";
               };
               options.LD_LIBRARY_PATH = lib.mkOption {
                 type = lib.types.envVar;
