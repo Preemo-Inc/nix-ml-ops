@@ -14,7 +14,6 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
       devserverGce = inputs.nixpkgs.lib.nixosSystem {
         modules = [
           topLevel.config.flake.nixosModules.devserver
-          topLevel.config.flake.nixosModules.swap
           "${inputs.nixpkgs}/nixos/modules/virtualisation/google-compute-image.nix"
         ];
         system = "x86_64-linux";
@@ -95,10 +94,7 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
             devserver-gce = inputs.nixos-generators.nixosGenerate {
               inherit system;
               format = "gce";
-              modules = [
-                topLevel.config.flake.nixosModules.devserver
-                topLevel.config.flake.nixosModules.swap
-              ];
+              modules = [ topLevel.config.flake.nixosModules.devserver ];
             };
             devserver-amazon = inputs.nixos-generators.nixosGenerate {
               inherit system;
