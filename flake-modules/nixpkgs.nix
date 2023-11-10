@@ -1,4 +1,4 @@
-topLevel@{ self, inputs, flake-parts-lib, ... }: {
+topLevel@{ inputs, flake-parts-lib, ... }: {
   imports = [
     ./systems.nix
     inputs.flake-parts.flakeModules.flakeModules

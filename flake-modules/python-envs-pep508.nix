@@ -1,10 +1,10 @@
-topLevel@{ self, inputs, flake-parts-lib, ... }: {
+topLevel@{ inputs, flake-parts-lib, ... }: {
   imports = [
     ./jobs.nix
     ./common.nix
     inputs.flake-parts.flakeModules.flakeModules
   ];
-  flake.flakeModules.pythonEnvsPep508 = {
+  flake.flakeModules.pythonEnvsPep508 = flakeModule: {
     imports = [
       topLevel.config.flake.flakeModules.jobs
       topLevel.config.flake.flakeModules.common
@@ -13,19 +13,19 @@ topLevel@{ self, inputs, flake-parts-lib, ... }: {
       ml-ops.devcontainer.pythonEnvArgs.requirements = ''
         ${
           lib.strings.optionalString
-            (builtins.pathExists "${self}/requirements.txt")
-            (builtins.readFile "${self}/requirements.txt")
+            (builtins.pathExists "${flakeModule.self}/requirements.txt")
+            (builtins.readFile "${flakeModule.self}/requirements.txt")
         }
         ${
           lib.strings.optionalString
-            (builtins.pathExists "${self}/requirements-dev.txt")
-            (builtins.readFile "${self}/requirements-dev.txt")
+            (builtins.pathExists "${flakeModule.self}/requirements-dev.txt")
+            (builtins.readFile "${flakeModule.self}/requirements-dev.txt")
         }
       '';
       ml-ops.job.pythonEnvArgs.requirements =
         lib.strings.optionalString
-          (builtins.pathExists "${self}/requirements.txt")
-          (builtins.readFile "${self}/requirements.txt");
+          (builtins.pathExists "${flakeModule.self}/requirements.txt")
+          (builtins.readFile "${flakeModule.self}/requirements.txt");
       ml-ops.common = { config, ... }: {
         options.mkPython = lib.mkOption {
           default = (inputs.nixpkgs_22_05.legacyPackages.${system}.callPackage inputs.mach-nix {
