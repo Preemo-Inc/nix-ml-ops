@@ -1,18 +1,27 @@
 {
-  inputs.ml-ops.url = "git+file:./../..?ref=HEAD&shallow=1";
-  outputs = inputs @ { ml-ops, ... }:
-    ml-ops.lib.mkFlake { inherit inputs; } {
+  inputs = {
+    call-flake.url = "github:divnix/call-flake";
+  };
+  outputs =
+    lockedInputs:
+    let
+      unlockedInputs = {
+        nix-ml-ops = lockedInputs.call-flake ./../..;
+      };
+      inputs = unlockedInputs // lockedInputs;
+    in
+    inputs.nix-ml-ops.lib.mkFlake { inherit inputs; } {
       imports = [
-        ml-ops.flakeModules.common
-        ml-ops.flakeModules.skypilot
-        ml-ops.flakeModules.kubernetesJob
-        ml-ops.flakeModules.kubernetesService
-        ml-ops.flakeModules.devcontainer
-        ml-ops.flakeModules.linkNvidiaDrivers
-        ml-ops.flakeModules.volumeMountNfs
-        ml-ops.flakeModules.devcontainerGcpCliTools
-        ml-ops.flakeModules.gkeCredential
-        ml-ops.flakeModules.pythonVscode
+        inputs.nix-ml-ops.flakeModules.common
+        inputs.nix-ml-ops.flakeModules.skypilot
+        inputs.nix-ml-ops.flakeModules.kubernetesJob
+        inputs.nix-ml-ops.flakeModules.kubernetesService
+        inputs.nix-ml-ops.flakeModules.devcontainer
+        inputs.nix-ml-ops.flakeModules.linkNvidiaDrivers
+        inputs.nix-ml-ops.flakeModules.volumeMountNfs
+        inputs.nix-ml-ops.flakeModules.devcontainerGcpCliTools
+        inputs.nix-ml-ops.flakeModules.gkeCredential
+        inputs.nix-ml-ops.flakeModules.pythonVscode
       ];
       perSystem = { pkgs, config, lib, ... }: {
         ml-ops.common.volumeMounts.nfs."/mnt/ml-data/" = {
