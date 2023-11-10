@@ -1,0 +1,11 @@
+/.direnv/
+/result
+/.devenv/
+/.devcontainer.json
+/.venv
+
+# nixago: ignore-linked-files
+/.vscode/settings.json
+/.vscode/extensions.json
+.vscode/settings.json
+.vscode/extensions.json
