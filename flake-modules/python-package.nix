@@ -11,20 +11,26 @@ topLevel@{ flake-parts-lib, lib, inputs, ... }: {
     ];
     options.perSystem = flake-parts-lib.mkPerSystemOption
       (perSystem@{ pkgs, system, ... }: {
-        options.ml-ops.common = flake-parts-lib.mkDeferredModuleOption (common: {
-          options.pythonPackage = lib.mkOption
-            {
-              default = { };
-              type = lib.types.submoduleWith {
-                modules = [
-                  perSystem.config.ml-ops.overridablePackage
-                ];
-              };
-            };
-          options.devenvShellModule = flake-parts-lib.mkPerSystemOption {
-            languages.python.package = common.config.pythonPackage.overridden-package;
+        options.ml-ops.common = lib.mkOption {
+          type = lib.types.deferredModuleWith {
+            staticModules = [
+              (common: {
+                options.pythonPackage = lib.mkOption {
+                  default = { };
+                  type = lib.types.submoduleWith {
+                    modules = [
+                      {
+                        imports = [ perSystem.config.ml-ops.overridablePackage ];
+                        config.base-package = lib.mkDefault pkgs.python3;
+                      }
+                    ];
+                  };
+                };
+                config.devenvShellModule.languages.python.package = common.config.pythonPackage.overridden-package;
+              })
+            ];
           };
-        });
+        };
       });
   };
 }
