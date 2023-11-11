@@ -37,6 +37,9 @@
               "--version"
             ];
           };
+          ml-ops.devcontainer.devenvShellModule.packages = [
+            pkgs.kubectl
+          ];
         };
       };
 }
