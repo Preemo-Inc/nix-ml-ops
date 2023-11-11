@@ -227,25 +227,6 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                                 };
                             };
 
-                            # Create a Helm archive. Currently unused because we provide a
-                            # script to directly deploy the helm YAML source directory to
-                            # Kubernetes
-                            options.helm-archive = lib.mkOption {
-                              type = lib.types.package;
-                              default = pkgs.runCommand
-                                "${runtime.config._module.args.name}-helm-archive.tgz"
-                                { }
-                                ''
-                                  ${
-                                  lib.strings.escapeShellArgs [
-                                  "${pkgs.kubernetes-helm}/bin/helm" "package"
-                                  kubernetes.config.helm-chart
-                                  ]
-                                  } &&
-                                  mv ./*.tgz "$out"
-                                '';
-                            };
-
                             options.helmReleaseName = lib.mkOption {
                               default = "${runtime.config._module.args.name}-${launcher.config._module.args.name}";
                             };
