@@ -29,7 +29,7 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
             )
           then
             # Create the symbolic links to drivers when running the container
-            # with --gpu=all
+            # with `nvidia-docker --gpus=all`
             mkdir -p /run/opengl-driver/lib
 
             (
