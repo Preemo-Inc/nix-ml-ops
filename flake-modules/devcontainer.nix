@@ -86,7 +86,6 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                         (builtins.attrValues (devcontainer.config.volumeMounts or { }))
                     ));
               };
-              config.environmentVariables.GIT_EDITOR = "code --wait";
             })
           ];
         };
