@@ -34,8 +34,7 @@
           ml-ops.jobs.my-job.launchers.my-launcher.kubernetes = {
             aks = { };
             imageRegistry = { };
-            helmTemplates.job.spec.template.spec.containers.master-node = {
-              resources.limits."nvidia.com/gpu" = 1;
+            helmTemplates.job.spec.template.spec = {
               tolerations = [
                 {
                   key = "sku";
@@ -43,17 +42,26 @@
                   value = "gpu";
                   effect = "NoSchedule";
                 }
+                {
+                  key = "kubernetes.azure.com/scalesetpriority";
+                  operator = "Equal";
+                  value = "spot";
+                  effect = "NoSchedule";
+                }
               ];
-              args = [
-                "python"
-                "-c"
-                ''
-                  import sys
-                  import torch
-                  print("sys.version =", sys.version)
-                  print("torch.cuda.is_available() = ", torch.cuda.is_available())
-                ''
-              ];
+              containers.master-node = {
+                resources.limits."nvidia.com/gpu" = 1;
+                args = [
+                  "python"
+                  "-c"
+                  ''
+                    import sys
+                    import torch
+                    print("sys.version =", sys.version)
+                    print("torch.cuda.is_available() = ", torch.cuda.is_available())
+                  ''
+                ];
+              };
             };
           };
           ml-ops.devcontainer.devenvShellModule.packages = [
