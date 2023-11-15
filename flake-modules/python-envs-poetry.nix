@@ -42,20 +42,21 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
           devenvShellModule.languages.python.enable = true;
           devenvShellModule.languages.python.poetry.enable = true;
         };
-        ml-ops.runtime = { config, ... }: {
+        ml-ops.runtime = runtime: {
           options.poetryEnvArgs = lib.mkOption {
             type = lib.types.attrsOf lib.types.anything;
           };
           config.poetryEnvArgs = {
             preferWheels = lib.mkDefault true;
             projectDir = lib.mkDefault "${flakeModule.self}";
+            python = runtime.config.pythonPackage.overridden-package;
             groups = [ ];
           };
           options.poetryEnv = lib.mkOption {
-            default = poetry2nix.mkPoetryEnv config.poetryEnvArgs;
+            default = poetry2nix.mkPoetryEnv runtime.config.poetryEnvArgs;
           };
           config.devenvShellModule.packages = lib.mkIf (builtins.pathExists "${flakeModule.self}/poetry.lock") [
-            config.poetryEnv
+            runtime.config.poetryEnv
           ];
         };
       });
