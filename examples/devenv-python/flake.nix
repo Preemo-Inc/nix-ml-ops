@@ -16,8 +16,9 @@
         inputs.nix-ml-ops.flakeModules.devcontainer
       ];
       perSystem = { pkgs, ... }: {
+        ml-ops.common.pythonPackage.base-package = pkgs.python310;
+
         ml-ops.devcontainer = {
-          pythonPackage.base-package = pkgs.python310;
           devenvShellModule.languages.python = {
             enable = true;
             venv.enable = true;
