@@ -1,15 +1,22 @@
 [tool.poetry]
-name = "poetry-docker-job"
+name = "poetry-docker-job-azure"
 version = "0.1.0"
 description = ""
 authors = ["Yang, Bo <bo@preemo.io>"]
 readme = "README.md"
-packages = [{include = "poetry_docker_job"}]
+
+[[tool.poetry.source]]
+name = "cuda-torch"
+url = "https://download.pytorch.org/whl/cu118"
+# Don't set the priority to "explicit", because `custom-kernels/pyproject.toml`'s build-system cannot find packages from a explicit source.
+priority = "supplemental"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-transformers = "^4.28.1"
-
+torch = [
+  { platform = "darwin", version = "2.0.1", source = "pypi" },
+  { platform = "linux", version = "2.0.1+cu118", source = "cuda-torch" },
+]
 
 [build-system]
 requires = ["poetry-core"]

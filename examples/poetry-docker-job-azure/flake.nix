@@ -26,15 +26,24 @@
           inputs.nix-ml-ops.flakeModules.kubernetesJob
           inputs.nix-ml-ops.flakeModules.aksCredential
           inputs.nix-ml-ops.flakeModules.devcontainerAzureCliTools
+          inputs.nix-ml-ops.flakeModules.devenvPythonWithLibstdcxx
         ];
 
         perSystem = { pkgs, config, lib, ... }: {
+          ml-ops.common.pythonPackage.base-package = pkgs.python310;
           ml-ops.jobs.my-job.launchers.my-launcher.kubernetes = {
             aks = { };
             imageRegistry = { };
             helmTemplates.job.spec.template.spec.containers.master-node.args = [
               "python"
-              "--version"
+              "-c"
+              ''
+                import torch
+                print(
+                  "torch.cuda.is_available() = "
+                  torch.cuda.is_available(),
+                )
+              ''
             ];
           };
           ml-ops.devcontainer.devenvShellModule.packages = [
