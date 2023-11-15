@@ -17,28 +17,30 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                   (kubernetes:
                     let
                       authModule = {
-                        overrideAttrs = [
-                          (old: {
-                            gkeCluster = kubernetes.config.gke.cluster;
-                            gkeRegion = kubernetes.config.gke.region;
-                            USE_GKE_GCLOUD_AUTH_PLUGIN = "True";
-                            buildCommand = ''
-                              gcloud container clusters get-credentials \
-                                "$gkeCluster" \
-                                --region "$gkeRegion"
+                        pipe = [
+                          (previousPackage: previousPackage.overrideAttrs
+                            (previousAttrs: {
+                              gkeCluster = kubernetes.config.gke.cluster;
+                              gkeRegion = kubernetes.config.gke.region;
+                              USE_GKE_GCLOUD_AUTH_PLUGIN = "True";
+                              buildCommand = ''
+                                gcloud container clusters get-credentials \
+                                  "$gkeCluster" \
+                                  --region "$gkeRegion"
 
-                              ${old.buildCommand}
-                            '';
-                            nativeBuildInputs = old.nativeBuildInputs ++ [
-                              pkgs.cacert
-                              (
-                                pkgs.google-cloud-sdk.withExtraComponents [
-                                  pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
-                                  pkgs.google-cloud-sdk.components.kubectl
-                                ]
-                              )
-                            ];
-                          })
+                                ${previousAttrs.buildCommand}
+                              '';
+                              nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [
+                                pkgs.cacert
+                                (
+                                  pkgs.google-cloud-sdk.withExtraComponents [
+                                    pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
+                                    pkgs.google-cloud-sdk.components.kubectl
+                                  ]
+                                )
+                              ];
+                            })
+                          )
                         ];
                       };
                     in
@@ -52,18 +54,19 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                         type = lib.types.str;
                       };
 
-
-                      config.pushImage.overrideAttrs = [
-                        (old: {
-                          buildCommand = ''
-                            export skopeoCopyArgs="$(printf "%q " --dest-registry-token "$(gcloud auth print-access-token)")"
-                            ${old.buildCommand}
-                          '';
-                          nativeBuildInputs = old.nativeBuildInputs ++ [
-                            pkgs.cacert
-                            pkgs.google-cloud-sdk
-                          ];
-                        })
+                      config.pushImage.pipe = [
+                        (previousPackage: previousPackage.overrideAttrs
+                          (previousAttrs: {
+                            buildCommand = ''
+                              export skopeoCopyArgs="$(printf "%q " --dest-registry-token "$(gcloud auth print-access-token)")"
+                              ${previousAttrs.buildCommand}
+                            '';
+                            nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [
+                              pkgs.cacert
+                              pkgs.google-cloud-sdk
+                            ];
+                          })
+                        )
                       ];
 
                       config.helmUpgrade.imports = [

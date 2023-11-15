@@ -19,10 +19,18 @@ topLevel@{ flake-parts-lib, lib, inputs, ... }: {
                   default = { };
                   type = lib.types.submoduleWith {
                     modules = [
-                      {
+                      (pythonPackage: {
                         imports = [ perSystem.config.ml-ops.overridablePackage ];
                         config.base-package = lib.mkDefault pkgs.python3;
-                      }
+                        config.pipe = lib.mkAfter [
+                          (python:
+                            let
+                              self = python.override { inherit self; };
+                            in
+                            self
+                          )
+                        ];
+                      })
                     ];
                   };
                 };
