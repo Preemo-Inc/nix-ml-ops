@@ -26,11 +26,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1691777852,
-        "narHash": "sha256-DPufHYaJcArEJfuZ234sDXr8qUvqbN7zYSs5yhvU6jA=",
+        "lastModified": 1700068135,
+        "narHash": "sha256-MN/NqiEjCg3UeFAJ7Uz7t5LyBwRsUEolBwA1DrdSC5w=",
         "owner": "Preemo-Inc",
         "repo": "devenv",
-        "rev": "cea2fc8c82d29ab8bd0a3dbad0f8574052aeee8a",
+        "rev": "804f935a71811ece03ea489a4253593838900ae1",
         "type": "github"
       },
       "original": {

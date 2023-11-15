@@ -26,7 +26,7 @@
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
     systems.url = "github:nix-systems/default";
     devenv = {
-      # TODO: Use cachix/devenv when https://github.com/cachix/devenv/pull/718 gets merged
+      # TODO: Switch to `github:cachix/devenv` when https://github.com/cachix/devenv/pull/718, https://github.com/cachix/devenv/pull/820, https://github.com/cachix/devenv/pull/872 and https://github.com/cachix/devenv/pull/873 get merged
       # url = "github:cachix/devenv";
       url = "github:Preemo-Inc/devenv";
       inputs.nixpkgs.follows = "nixpkgs";
