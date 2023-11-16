@@ -1,4 +1,4 @@
-topLevel@{ flake-parts-lib, inputs, ... }: {
+topLevel@{ flake-parts-lib, inputs, lib, ... }: {
   imports = [
     ./nixpkgs.nix
     ../nixos-modules/devserver.nix
@@ -15,6 +15,14 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
         modules = [
           topLevel.config.flake.nixosModules.devserver
           "${inputs.nixpkgs}/nixos/modules/virtualisation/google-compute-image.nix"
+        ];
+        system = "x86_64-linux";
+      };
+      devserverGceEfi = inputs.nixpkgs.lib.nixosSystem {
+        modules = [
+          topLevel.config.flake.nixosModules.devserver
+          "${inputs.nixpkgs}/nixos/modules/virtualisation/google-compute-image.nix"
+          { virtualisation.googleComputeImage.efi = true; }
         ];
         system = "x86_64-linux";
       };
@@ -69,14 +77,30 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
         options.ml-ops.devserver.gce.image-uri = lib.mkOption rec {
           type = lib.types.str;
         };
+        options.ml-ops.devserver.gceEfi.image-bucket = lib.mkOption rec {
+          type = lib.types.str;
+          default = "ml-ops-vm-images";
+          defaultText = default;
+        };
+        options.ml-ops.devserver.gceEfi.image-name = lib.mkOption {
+          type = lib.types.str;
+        };
+        options.ml-ops.devserver.gceEfi.image-uri = lib.mkOption rec {
+          type = lib.types.str;
+        };
         config = {
           ml-ops.devserver.azure.imageName = "devserver-${builtins.baseNameOf perSystem.config.packages.devserver-azure}";
           ml-ops.devserver.azure.blobname = "devserver-${builtins.baseNameOf perSystem.config.packages.devserver-azure}.vhd";
           ml-ops.devserver.hyperv.blobname = "devserver-${builtins.baseNameOf perSystem.config.packages.devserver-azure}.vhdx";
           ml-ops.devserver.gce =
             {
-              image-name = "devserver-${builtins.baseNameOf perSystem.config.packages.devserver-gce}";
+              image-name = builtins.baseNameOf perSystem.config.packages.devserver-gce;
               image-uri = "gs://${perSystem.config.ml-ops.devserver.gce.image-bucket}/${perSystem.config.ml-ops.devserver.gce.image-name}.tar.gz";
+            };
+          ml-ops.devserver.gceEfi =
+            {
+              image-name = "${builtins.baseNameOf perSystem.config.packages.devserver-gce-efi}-efi";
+              image-uri = "gs://${perSystem.config.ml-ops.devserver.gceEfi.image-bucket}/${perSystem.config.ml-ops.devserver.gceEfi.image-name}.tar.gz";
             };
           packages = {
             devserver-azure = inputs.nixos-generators.nixosGenerate {
@@ -95,6 +119,14 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
               inherit system;
               format = "gce";
               modules = [ topLevel.config.flake.nixosModules.devserver ];
+            };
+            devserver-gce-efi = inputs.nixos-generators.nixosGenerate {
+              inherit system;
+              format = "gce";
+              modules = [
+                topLevel.config.flake.nixosModules.devserver 
+                { virtualisation.googleComputeImage.efi = true; }
+              ];
             };
             devserver-amazon = inputs.nixos-generators.nixosGenerate {
               inherit system;
@@ -190,6 +222,29 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                     "gcloud" "compute" "images" "create"
                     perSystem.config.ml-ops.devserver.gce.image-name
                     "--source-uri=${perSystem.config.ml-ops.devserver.gce.image-uri}"
+                  ]
+                }
+              '';
+            };
+            upload-devserver-gce-efi-image = pkgs.writeShellApplication {
+              name = "upload-devserver-gce-efi-image.sh";
+              runtimeInputs = [
+                pkgs.google-cloud-sdk
+              ];
+              text = ''
+                set -ex
+                ${
+                  lib.strings.escapeShellArgs [
+                    "gsutil" "cp" "-r"
+                    "${perSystem.config.packages.devserver-gce-efi}/*.tar.gz"
+                    perSystem.config.ml-ops.devserver.gceEfi.image-uri
+                  ]
+                }
+                ${
+                  lib.strings.escapeShellArgs [
+                    "gcloud" "compute" "images" "create"
+                    perSystem.config.ml-ops.devserver.gceEfi.image-name
+                    "--source-uri=${perSystem.config.ml-ops.devserver.gceEfi.image-uri}"
                   ]
                 }
               '';
