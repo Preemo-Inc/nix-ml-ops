@@ -23,8 +23,8 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                               [
                                 (previousPackage: previousPackage.overrideAttrs
                                   (previousAttrs: {
-                                    aksCluster = kubernetes.config.aks.cluster;
-                                    aksResourceGroup = kubernetes.config.aks.resourcegroup;
+                                    aksCluster = aks.cluster;
+                                    aksResourceGroup = aks.resourcegroup;
                                     buildCommand = ''
                                       # TODO(bo@preemo.io, 11/09/2023): Supports credentials other than managed identity. See https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
                                       az login --identity
@@ -83,28 +83,26 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
 
                       config.pushImage.pipe =
                         lib.mkIf (kubernetes.config.aks != null)
-                          (lib.mkDerivedConfig
-                            kubernetes.options.aks
-                            (aks: [
-                              (previousPackage: previousPackage.overrideAttrs
-                                (previousAttrs: {
-                                  aksRegistryName = aks.registryName;
+                          (lib.mkDerivedConfig kubernetes.options.aks (aks: [
+                            (previousPackage: previousPackage.overrideAttrs
+                              (previousAttrs: {
+                                aksRegistryName = aks.registryName;
 
-                                  buildCommand = ''
-                                    # TODO(bo@preemo.io, 11/09/2023): Supports credentials other than managed identity. See https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
-                                    az login --identity
+                                buildCommand = ''
+                                  # TODO(bo@preemo.io, 11/09/2023): Supports credentials other than managed identity. See https://nixos.wiki/wiki/Comparison_of_secret_managing_schemes
+                                  az login --identity
 
-                                    export skopeoCopyArgs="$(printf "%q " --dest-username 00000000-0000-0000-0000-000000000000 --dest-password "$(az acr login --name "$aksRegistryName" --expose-token --output tsv --query accessToken)")"
+                                  export skopeoCopyArgs="$(printf "%q " --dest-username 00000000-0000-0000-0000-000000000000 --dest-password "$(az acr login --name "$aksRegistryName" --expose-token --output tsv --query accessToken)")"
 
-                                    ${previousAttrs.buildCommand}
-                                  '';
-                                  nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [
-                                    # pkgs.cacert
-                                    pkgs.azure-cli
-                                  ];
-                                })
-                              )
-                            ]));
+                                  ${previousAttrs.buildCommand}
+                                '';
+                                nativeBuildInputs = previousAttrs.nativeBuildInputs ++ [
+                                  # pkgs.cacert
+                                  pkgs.azure-cli
+                                ];
+                              })
+                            )
+                          ]));
 
                       config.helmUpgrade.imports = [
                         authModule
