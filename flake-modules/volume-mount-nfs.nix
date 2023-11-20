@@ -15,6 +15,10 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
           default = { };
           type = lib.types.attrsOf (lib.types.submoduleWith {
             modules = [{
+              options.mountOptions = lib.mkOption {
+                default = [ "rw" "intr" "nolock" ];
+                type = lib.types.listOf lib.types.str;
+              };
               options.path = lib.mkOption {
                 example = "/ml_data";
                 type = lib.types.str;
@@ -61,13 +65,17 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
                       ]
                     }
                     ${
-                      lib.strings.escapeShellArgs [
-                        "mount.nfs"
-                        "-o"
-                        "rw,intr,nolock"
-                        "${config.server}:${config.path}"
-                        config._module.args.name
-                      ]
+                      lib.strings.escapeShellArgs (
+                        [
+                          "mount.nfs"
+                        ] ++ lib.lists.optionals (config.mountOptions != []) [
+                          "-o"
+                          (lib.strings.concatStringsSep "," config.mountOptions)
+                        ] ++ [
+                          "${config.server}:${config.path}"
+                          config._module.args.name
+                        ]
+                      )
                     }
                   '';
                 };
