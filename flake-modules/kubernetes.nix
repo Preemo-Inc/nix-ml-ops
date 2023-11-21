@@ -33,7 +33,7 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
           };
 
           lib.pathToKubernetesName = lib.mkOption {
-            type = lib.types.functionTo lib.types.string;
+            type = lib.types.functionTo lib.types.str;
             default = path: lib.trivial.pipe path [
               (builtins.split "/")
               (builtins.filter (s: builtins.isString s && s != ""))
