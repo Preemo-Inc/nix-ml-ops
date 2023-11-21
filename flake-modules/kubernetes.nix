@@ -97,8 +97,9 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                             config.volumes = builtins.concatMap
                               (lib.attrsets.mapAttrsToList
                                 (mountPath: protocolConfig:
-                                  protocolConfig.kubernetesVolume // {
+                                  {
                                     name = topLevel.config.flake.lib.pathToKubernetesName mountPath;
+                                    persistentVolumeClaim.claimName = "${topLevel.config.flake.lib.pathToKubernetesName mountPath}-claim";
                                   }
                                 )
                               )
@@ -195,10 +196,92 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                               };
                               default = { };
                             };
+                            config.helmTemplates = lib.attrsets.mergeAttrsList [
+                              kubernetes.config.persistentVolumeManifests
+                              kubernetes.config.persistentVolumeClaimManifests
+                            ];
+                            options.persistentVolumeManifests = lib.mkOption {
+                              type = lib.types.attrsOf (lib.types.submoduleWith {
+                                modules = [
+                                  (persistentVolumeManifest: {
+                                    options = {
+                                      apiVersion = lib.mkOption {
+                                        default = "v1";
+                                      };
+                                      kind = lib.mkOption {
+                                        default = "PersistentVolume";
+                                      };
+                                      metadata.name = lib.mkOption {
+                                        type = lib.types.str;
+                                      };
+                                      spec = lib.mkOption {
+                                        type = lib.types.attrsOf lib.types.anything;
+                                      };
+                                    };
 
-                            options.helmChartYaml = lib.mkOption {
-                              type = lib.types.attrsOf lib.types.anything;
+                                  })
+                                ];
+                              });
                             };
+                            config.persistentVolumeManifests =
+                              lib.attrsets.concatMapAttrs
+                                (mountPath: protocolConfig: {
+                                  "${topLevel.config.flake.lib.pathToKubernetesName mountPath}-volume" = {
+                                    spec = protocolConfig.kubernetesVolume // {
+                                      # # TODO(bo@preemo.io, 11/21/2023): Make it be configurable
+                                      accessModes = [ "ReadWriteMany" ];
+                                      capacity.storage = "1000Ti";
+                                    };
+                                    metadata.name = "${topLevel.config.flake.lib.pathToKubernetesName mountPath}-volume";
+                                  };
+                                })
+                                (lib.attrsets.mergeAttrsList (builtins.attrValues runtime.config.volumeMounts or { }));
+
+                            options.persistentVolumeClaimManifests = lib.mkOption {
+                              type = lib.types.attrsOf (lib.types.submoduleWith {
+                                modules = [
+                                  (persistentVolumeClaimManifest: {
+                                    options = {
+                                      apiVersion = lib.mkOption {
+                                        default = "v1";
+                                      };
+                                      kind = lib.mkOption {
+                                        default = "PersistentVolumeClaim";
+                                      };
+                                      metadata.name = lib.mkOption {
+                                        type = lib.types.str;
+                                      };
+                                      spec.volumeName = lib.mkOption {
+                                        type = lib.types.str;
+                                      };
+                                      spec.storageClassName = lib.mkOption {
+                                        default = "";
+                                      };
+                                      spec.accessModes = lib.mkOption {
+                                        default = [ "ReadWriteMany" ];
+                                      };
+                                      spec.resources.requests.storage = lib.mkOption {
+                                        default = "1000Ti";
+                                      };
+                                    };
+                                  })
+                                ];
+                              });
+                            };
+                            config.persistentVolumeClaimManifests =
+                              lib.attrsets.concatMapAttrs
+                                (mountPath: protocolConfig: {
+                                  "${topLevel.config.flake.lib.pathToKubernetesName mountPath}-claim" = {
+                                    spec.volumeName = "${topLevel.config.flake.lib.pathToKubernetesName mountPath}-volume";
+                                    metadata.name = "${topLevel.config.flake.lib.pathToKubernetesName mountPath}-claim";
+                                  };
+                                })
+                                (lib.attrsets.mergeAttrsList (builtins.attrValues runtime.config.volumeMounts or { }));
+
+                            options.helmChartYaml = lib.mkOption
+                              {
+                                type = lib.types.attrsOf lib.types.anything;
+                              };
 
                             config.helmChartYaml = {
                               apiVersion = "v2";

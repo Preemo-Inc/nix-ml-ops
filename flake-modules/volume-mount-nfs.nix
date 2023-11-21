@@ -42,6 +42,7 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
                     nfs = {
                       inherit (config) server path;
                     };
+                    mountOptions = config.mountOptions;
                   };
                 };
               })
