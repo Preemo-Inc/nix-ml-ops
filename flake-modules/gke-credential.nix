@@ -49,13 +49,20 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                       };
                     in
                     {
-
-                      options.gke.region = lib.mkOption {
-                        type = lib.types.str;
-                      };
-
-                      options.gke.cluster = lib.mkOption {
-                        type = lib.types.str;
+                      options.gke = lib.mkOption {
+                        default = null;
+                        type = lib.types.nullOr (lib.types.submoduleWith {
+                          modules = [
+                            {
+                              options.region = lib.mkOption {
+                                type = lib.types.str;
+                              };
+                              options.cluster = lib.mkOption {
+                                type = lib.types.str;
+                              };
+                            }
+                          ];
+                        });
                       };
 
                       config.pushImage.pipe =
