@@ -132,14 +132,27 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                                       name = lib.mkOption {
                                         type = lib.types.str;
                                       };
-                                      image = lib.mkOption { default = kubernetes.config.pushImage.overridden-package.remoteImage; };
+                                      image = lib.mkOption {
+                                        defaultText = lib.literalExpression "perSystem.services|jobs.<name>.launchers.<name>.kubernetes.<name>.overridden-package.remoteImage";
+                                        default = kubernetes.config.pushImage.overridden-package.remoteImage;
+                                      };
                                       env = lib.mkOption {
+                                        defaultText = lib.literalExpression ''
+                                          lib.attrsets.mapAttrsToList
+                                            lib.attrsets.nameValuePair
+                                            perSystem.ml-ops.services|jobs.<name>.launchers.<name>.kubernetes.containerManifest._module.environmentVariables
+                                        '';
                                         default = lib.attrsets.mapAttrsToList
                                           lib.attrsets.nameValuePair
                                           container.config._module.environmentVariables;
                                       };
-                                      volumeMounts = lib.mkOption { default = kubernetes.config.volumeMounts; };
-                                      _module.environmentVariables = lib.mkOption { default = launcher.config.environmentVariables; };
+                                      volumeMounts = lib.mkOption {
+                                        default = kubernetes.config.volumeMounts;
+                                      };
+                                      _module.environmentVariables = lib.mkOption {
+                                        default = launcher.config.environmentVariables;
+                                        defaultText = lib.literalExpression "launchers.<name>.environmentVariables";
+                                      };
                                     };
                                   })
                                 ];

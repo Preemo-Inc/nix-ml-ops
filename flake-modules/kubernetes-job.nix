@@ -29,7 +29,6 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                               {
                                 apiVersion = "batch/v1";
                                 kind = "Job";
-                                metadata.name = "${job.config._module.args.name}-${launcher.config._module.args.name}-${builtins.replaceStrings ["+"] ["-"] job.config.version}";
                                 spec.backoffLimit = 0;
                                 spec.template.metadata.labels."app.kubernetes.io/name" = "${job.config._module.args.name}-${launcher.config._module.args.name}";
                                 spec.template.spec.restartPolicy = "Never";
@@ -37,6 +36,13 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                               };
                           }
                           {
+                            options.job.metadata.name = lib.mkOption {
+                              default = "${job.config._module.args.name}-${launcher.config._module.args.name}-${builtins.replaceStrings ["+"] ["-"] job.config.version}";
+                              defaultText = lib.literalExpression ''
+                                "''${job.config._module.args.name}-''${launcher.config._module.args.name}-''${builtins.replaceStrings ["+"] ["-"] job.config.version}"
+                              '';
+                            };
+
                             config.job.spec.template.spec.containers =
                               lib.mapAttrs
                                 (containerName: container: container.manifest)

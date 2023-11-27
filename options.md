@@ -463,11 +463,15 @@ unspecified value
 
 
 *Default:*
-pkgs\.appendOverlays \[
-(self: super: {
-${common\.config\.pythonPackage\.base-package\.pythonAttr} = lib\.pipe super\.${common\.config\.pythonPackage\.base-package\.pythonAttr} common\.config\.pythonPackage\.pipe;
-})
+
+```
+pkgs.appendOverlays [
+  (self: super: {
+    ${common.config.pythonPackage.base-package.pythonAttr} = lib.pipe super.${common.config.pythonPackage.base-package.pythonAttr} common.config.pythonPackage.pipe;
+  })
 ]
+
+```
 
 *Declared by:*
  - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
@@ -1400,14 +1404,7 @@ unspecified value
 
 
 *Default:*
-
-```
-{
-  CUDA_HOME = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
-  NIX_LD = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-}
-```
+` launchers.<name>.environmentVariables `
 
 *Declared by:*
  - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -1430,20 +1427,10 @@ unspecified value
 *Default:*
 
 ```
-[
-  {
-    name = "CUDA_HOME";
-    value = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
-  }
-  {
-    name = "NIX_LD";
-    value = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
-  }
-  {
-    name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-  }
-]
+lib.attrsets.mapAttrsToList
+  lib.attrsets.nameValuePair
+  perSystem.ml-ops.services|jobs.<name>.launchers.<name>.kubernetes.containerManifest._module.environmentVariables
+
 ```
 
 *Declared by:*
@@ -1465,7 +1452,7 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/‹name›-‹name›:1.0.0_20231122210615.dirty" `
+` perSystem.services|jobs.<name>.launchers.<name>.kubernetes.<name>.overridden-package.remoteImage `
 
 *Declared by:*
  - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -1824,7 +1811,11 @@ unspecified value
 
 
 *Default:*
-` "‹name›-‹name›-1.0.0-20231122210615.dirty" `
+
+```
+"${job.config._module.args.name}-${launcher.config._module.args.name}-${builtins.replaceStrings ["+"] ["-"] job.config.version}"
+
+```
 
 *Declared by:*
  - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
@@ -1903,14 +1894,7 @@ unspecified value
 
 
 *Default:*
-
-```
-{
-  CUDA_HOME = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
-  NIX_LD = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-}
-```
+` launchers.<name>.environmentVariables `
 
 *Declared by:*
  - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -1933,20 +1917,10 @@ unspecified value
 *Default:*
 
 ```
-[
-  {
-    name = "CUDA_HOME";
-    value = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
-  }
-  {
-    name = "NIX_LD";
-    value = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
-  }
-  {
-    name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-  }
-]
+lib.attrsets.mapAttrsToList
+  lib.attrsets.nameValuePair
+  perSystem.ml-ops.services|jobs.<name>.launchers.<name>.kubernetes.containerManifest._module.environmentVariables
+
 ```
 
 *Declared by:*
@@ -1968,7 +1942,7 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/‹name›-‹name›:1.0.0_20231122210615.dirty" `
+` perSystem.services|jobs.<name>.launchers.<name>.kubernetes.<name>.overridden-package.remoteImage `
 
 *Declared by:*
  - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -2635,11 +2609,15 @@ unspecified value
 
 
 *Default:*
-pkgs\.appendOverlays \[
-(self: super: {
-${common\.config\.pythonPackage\.base-package\.pythonAttr} = lib\.pipe super\.${common\.config\.pythonPackage\.base-package\.pythonAttr} common\.config\.pythonPackage\.pipe;
-})
+
+```
+pkgs.appendOverlays [
+  (self: super: {
+    ${common.config.pythonPackage.base-package.pythonAttr} = lib.pipe super.${common.config.pythonPackage.base-package.pythonAttr} common.config.pythonPackage.pipe;
+  })
 ]
+
+```
 
 *Declared by:*
  - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
@@ -3391,11 +3369,15 @@ unspecified value
 
 
 *Default:*
-pkgs\.appendOverlays \[
-(self: super: {
-${common\.config\.pythonPackage\.base-package\.pythonAttr} = lib\.pipe super\.${common\.config\.pythonPackage\.base-package\.pythonAttr} common\.config\.pythonPackage\.pipe;
-})
+
+```
+pkgs.appendOverlays [
+  (self: super: {
+    ${common.config.pythonPackage.base-package.pythonAttr} = lib.pipe super.${common.config.pythonPackage.base-package.pythonAttr} common.config.pythonPackage.pipe;
+  })
 ]
+
+```
 
 *Declared by:*
  - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
@@ -4090,14 +4072,7 @@ unspecified value
 
 
 *Default:*
-
-```
-{
-  CUDA_HOME = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
-  NIX_LD = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-}
-```
+` launchers.<name>.environmentVariables `
 
 *Declared by:*
  - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -4120,20 +4095,10 @@ unspecified value
 *Default:*
 
 ```
-[
-  {
-    name = "CUDA_HOME";
-    value = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
-  }
-  {
-    name = "NIX_LD";
-    value = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
-  }
-  {
-    name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-  }
-]
+lib.attrsets.mapAttrsToList
+  lib.attrsets.nameValuePair
+  perSystem.ml-ops.services|jobs.<name>.launchers.<name>.kubernetes.containerManifest._module.environmentVariables
+
 ```
 
 *Declared by:*
@@ -4155,7 +4120,7 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/‹name›-‹name›:1.0.0_20231122210615.dirty" `
+` perSystem.services|jobs.<name>.launchers.<name>.kubernetes.<name>.overridden-package.remoteImage `
 
 *Declared by:*
  - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -4512,7 +4477,11 @@ unspecified value
 
 
 *Default:*
-` "‹name›-‹name›" `
+
+```
+"${service.config._module.args.name}-${launcher.config._module.args.name}"
+
+```
 
 *Declared by:*
  - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
@@ -4591,14 +4560,7 @@ unspecified value
 
 
 *Default:*
-
-```
-{
-  CUDA_HOME = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
-  NIX_LD = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-}
-```
+` launchers.<name>.environmentVariables `
 
 *Declared by:*
  - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -4621,20 +4583,10 @@ unspecified value
 *Default:*
 
 ```
-[
-  {
-    name = "CUDA_HOME";
-    value = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
-  }
-  {
-    name = "NIX_LD";
-    value = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
-  }
-  {
-    name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
-  }
-]
+lib.attrsets.mapAttrsToList
+  lib.attrsets.nameValuePair
+  perSystem.ml-ops.services|jobs.<name>.launchers.<name>.kubernetes.containerManifest._module.environmentVariables
+
 ```
 
 *Declared by:*
@@ -4656,7 +4608,7 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/‹name›-‹name›:1.0.0_20231122210615.dirty" `
+` perSystem.services|jobs.<name>.launchers.<name>.kubernetes.<name>.overridden-package.remoteImage `
 
 *Declared by:*
  - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
@@ -4777,7 +4729,11 @@ unspecified value
 
 
 *Default:*
-` "‹name›-‹name›-20231122210615-dirty" `
+
+```
+"${service.config._module.args.name}-${launcher.config._module.args.name}-${flakeModule.self.lastModifiedDate}-${builtins.substring 0 8 flakeModule.self.rev or "dirty"}"
+
+```
 
 *Declared by:*
  - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
@@ -5388,11 +5344,15 @@ unspecified value
 
 
 *Default:*
-pkgs\.appendOverlays \[
-(self: super: {
-${common\.config\.pythonPackage\.base-package\.pythonAttr} = lib\.pipe super\.${common\.config\.pythonPackage\.base-package\.pythonAttr} common\.config\.pythonPackage\.pipe;
-})
+
+```
+pkgs.appendOverlays [
+  (self: super: {
+    ${common.config.pythonPackage.base-package.pythonAttr} = lib.pipe super.${common.config.pythonPackage.base-package.pythonAttr} common.config.pythonPackage.pipe;
+  })
 ]
+
+```
 
 *Declared by:*
  - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
