@@ -17,6 +17,13 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
       ({ lib, system, pkgs, ... }: {
         ml-ops.common = common: {
           options.poetry2nix.pkgs = lib.mkOption {
+            defaultText = lib.literalMD ''
+              pkgs.appendOverlays [
+                (self: super: {
+                  ''${common.config.pythonPackage.base-package.pythonAttr} = lib.pipe super.''${common.config.pythonPackage.base-package.pythonAttr} common.config.pythonPackage.pipe;
+                })
+              ]
+            '';
             default = pkgs.appendOverlays [
               (self: super: {
                 # Set the config.pythonPackage to poetry2nix's `pkgs` so that Python's dependents are rebuilt against the custom Python specified in config.pythonPackage.
@@ -67,6 +74,7 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
         ml-ops.runtime = runtime: {
           options.poetryEnvArgs = lib.mkOption {
             type = lib.types.attrsOf lib.types.anything;
+            default = { };
           };
           config.poetryEnvArgs = {
             preferWheels = lib.mkDefault true;

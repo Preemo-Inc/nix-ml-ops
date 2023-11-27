@@ -27,6 +27,7 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
               };
               options.environmentVariables = lib.mkOption {
                 type = lib.types.lazyAttrsOf lib.types.str;
+                default = { };
               };
               options.devenvShellModule = lib.mkOption {
                 description = lib.mdDoc ''

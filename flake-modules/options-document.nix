@@ -24,7 +24,7 @@ topLevel@{ inputs, lib, flake-parts-lib, ... }: {
               inputs.flake-parts.lib.evalFlakeModule
                 { inherit inputs; }
                 {
-                  imports = builtins.attrValues topLevel.config.flake.flakeModules;
+                  imports = builtins.attrValues flakeModule.config.flake.flakeModules;
 
                   options.perSystem = flake-parts-lib.mkPerSystemOption {
                     config._module.args = {

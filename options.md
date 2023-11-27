@@ -10,29 +10,36 @@ Modules defined here have access to the suboptions and [some convenient module a
 module
 
 *Declared by:*
- - [vscode\.nix](flake-modules/vscode.nix)
- - [devcontainer\.nix](flake-modules/devcontainer.nix)
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
- - [nixpkgs\.nix](flake-modules/nixpkgs.nix)
- - [python-vscode\.nix](flake-modules/python-vscode.nix)
- - [gke-credential\.nix](flake-modules/gke-credential.nix)
- - [nix-ld\.nix](flake-modules/nix-ld.nix)
- - [nix-ide\.nix](flake-modules/nix-ide.nix)
- - [link-nvidia-drivers\.nix](flake-modules/link-nvidia-drivers.nix)
- - [devserver\.nix](flake-modules/devserver.nix)
- - [volume-mount-empty-dir\.nix](flake-modules/volume-mount-empty-dir.nix)
- - [volume-mount-nfs\.nix](flake-modules/volume-mount-nfs.nix)
- - [cuda\.nix](flake-modules/cuda.nix)
- - [devcontainer-gcp-cli-tools\.nix](flake-modules/devcontainer-gcp-cli-tools.nix)
- - [python-envs-poetry\.nix](flake-modules/python-envs-poetry.nix)
- - [python-envs-pep508\.nix](flake-modules/python-envs-pep508.nix)
- - [kubernetes-service\.nix](flake-modules/kubernetes-service.nix)
- - [kubernetes-job\.nix](flake-modules/kubernetes-job.nix)
- - [kubernetes\.nix](flake-modules/kubernetes.nix)
- - [runtime\.nix](flake-modules/runtime.nix)
- - [services\.nix](flake-modules/services.nix)
- - [jobs\.nix](flake-modules/jobs.nix)
- - [common\.nix](flake-modules/common.nix)
+ - [vscode\.nix, via option flake\.flakeModules\.vscode](flake-modules/vscode.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir](flake-modules/volume-mount-empty-dir.nix)
+ - [skypilot\.nix, via option flake\.flakeModules\.skypilot](flake-modules/skypilot.nix)
+ - [services\.nix, via option flake\.flakeModules\.services](flake-modules/services.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
+ - [python-vscode\.nix, via option flake\.flakeModules\.pythonVscode](flake-modules/python-vscode.nix)
+ - [python-package\.nix, via option flake\.flakeModules\.pythonPackage](flake-modules/python-package.nix)
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry](flake-modules/python-envs-poetry.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508](flake-modules/python-envs-pep508.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
+ - [options-document\.nix, via option flake\.flakeModules\.optionsDocument](flake-modules/options-document.nix)
+ - [nixpkgs\.nix, via option flake\.flakeModules\.nixpkgs](flake-modules/nixpkgs.nix)
+ - [nix-ld\.nix, via option flake\.flakeModules\.nixLd](flake-modules/nix-ld.nix)
+ - [nix-ide\.nix, via option flake\.flakeModules\.nixIde](flake-modules/nix-ide.nix)
+ - [link-nvidia-drivers\.nix, via option flake\.flakeModules\.linkNvidiaDrivers](flake-modules/link-nvidia-drivers.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService](flake-modules/kubernetes-service.nix)
+ - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob](flake-modules/kubernetes-job.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes](flake-modules/kubernetes.nix)
+ - [jobs\.nix, via option flake\.flakeModules\.jobs](flake-modules/jobs.nix)
+ - [gke-credential\.nix, via option flake\.flakeModules\.gkeCredential](flake-modules/gke-credential.nix)
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
+ - [devenv-python-with-libstdc++\.nix, via option flake\.flakeModules\.devenvPythonWithLibstdcxx](flake-modules/devenv-python-with-libstdc++.nix)
+ - [devcontainer-gcp-cli-tools\.nix, via option flake\.flakeModules\.devcontainerGcpCliTools](flake-modules/devcontainer-gcp-cli-tools.nix)
+ - [devcontainer-azure-cli-tools\.nix, via option flake\.flakeModules\.devcontainerAzureCliTools](flake-modules/devcontainer-azure-cli-tools.nix)
+ - [devcontainer\.nix, via option flake\.flakeModules\.devcontainer](flake-modules/devcontainer.nix)
+ - [cuda\.nix, via option flake\.flakeModules\.cuda](flake-modules/cuda.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
+ - [aks-credential\.nix, via option flake\.flakeModules\.aksCredential](flake-modules/aks-credential.nix)
+ - [options-document\.nix](flake-modules/options-document.nix)
 
 
 
@@ -53,7 +60,8 @@ module
 ` { } `
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [python-package\.nix, via option flake\.flakeModules\.pythonPackage](flake-modules/python-package.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -74,7 +82,7 @@ strings concatenated with “:”
 ` "" `
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -95,7 +103,7 @@ module
 ` { } `
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -110,8 +118,97 @@ This option has no description\.
 *Type:*
 lazy attribute set of string
 
+
+
+*Default:*
+` { } `
+
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
+
+
+
+## perSystem\.ml-ops\.common\.pythonPackage
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+submodule
+
+
+
+*Default:*
+` { } `
+
+*Declared by:*
+ - [python-package\.nix, via option flake\.flakeModules\.pythonPackage](flake-modules/python-package.nix)
+
+
+
+## perSystem\.ml-ops\.common\.pythonPackage\.base-package
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Example:*
+` <derivation hello-2.12.1> `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
+
+
+
+## perSystem\.ml-ops\.common\.pythonPackage\.overridden-package
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Default:*
+applied ` base-package ` with ` pipe `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
+
+
+
+## perSystem\.ml-ops\.common\.pythonPackage\.pipe
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+list of function that evaluates to a(n) package
+
+
+
+*Default:*
+` [ ] `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -132,7 +229,7 @@ string
 1\.0\.0+\<lastModifiedDate>\.\<hash>
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -153,7 +250,7 @@ submodule
 ` { } `
 
 *Declared by:*
- - [devcontainer\.nix](flake-modules/devcontainer.nix)
+ - [devcontainer\.nix, via option flake\.flakeModules\.devcontainer](flake-modules/devcontainer.nix)
 
 
 
@@ -174,7 +271,7 @@ strings concatenated with “:”
 ` "" `
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -190,7 +287,7 @@ This option has no description\.
 list of package
 
 *Declared by:*
- - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+ - [cuda\.nix, via option flake\.flakeModules\.cuda, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
 
 
 
@@ -211,7 +308,7 @@ package
 ` <derivation cuda-home> `
 
 *Declared by:*
- - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+ - [cuda\.nix, via option flake\.flakeModules\.cuda, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
 
 
 
@@ -232,7 +329,7 @@ module
 ` { } `
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -247,8 +344,13 @@ This option has no description\.
 *Type:*
 lazy attribute set of string
 
+
+
+*Default:*
+` { } `
+
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -269,7 +371,7 @@ unspecified value
 ` <function> `
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
 
 
 
@@ -290,7 +392,23 @@ unspecified value
 ` true `
 
 *Declared by:*
- - [devcontainer\.nix](flake-modules/devcontainer.nix)
+ - [devcontainer\.nix, via option flake\.flakeModules\.devcontainer](flake-modules/devcontainer.nix)
+
+
+
+## perSystem\.ml-ops\.devcontainer\.nixDirenvFlakeFlags
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+list of string
+
+*Declared by:*
+ - [devcontainer\.nix, via option flake\.flakeModules\.devcontainer](flake-modules/devcontainer.nix)
 
 
 
@@ -306,7 +424,7 @@ This option has no description\.
 list of path
 
 *Declared by:*
- - [nix-ld\.nix, via option perSystem\.ml-ops\.common](flake-modules/nix-ld.nix)
+ - [nix-ld\.nix, via option flake\.flakeModules\.nixLd, via option perSystem\.ml-ops\.common](flake-modules/nix-ld.nix)
 
 
 
@@ -327,7 +445,96 @@ attribute set of module
 ` { } `
 
 *Declared by:*
- - [devcontainer\.nix](flake-modules/devcontainer.nix)
+ - [devcontainer\.nix, via option flake\.flakeModules\.devcontainer](flake-modules/devcontainer.nix)
+
+
+
+## perSystem\.ml-ops\.devcontainer\.poetry2nix\.pkgs
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+pkgs\.appendOverlays \[
+(self: super: {
+${common\.config\.pythonPackage\.base-package\.pythonAttr} = lib\.pipe super\.${common\.config\.pythonPackage\.base-package\.pythonAttr} common\.config\.pythonPackage\.pipe;
+})
+]
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
+
+
+
+## perSystem\.ml-ops\.devcontainer\.poetry2nix\.poetry2nixLib
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+
+```
+{
+  callPackage = <function>;
+  cleanPythonSources = <function, args: {src}>;
+  cli = <derivation poetry2nix-cli-0>;
+  defaultPoetryOverrides = <function>;
+  mkDefaultPoetryOverrides = <function>;
+  mkPoetryApplication = <function, args: {checkGroups?, extras?, groups?, meta?, overrides?, poetrylock?, preferWheels?, projectDir?, pwd?, pyproject?, python?, src?}>;
+  mkPoetryEditablePackage = <function, args: {editablePackageSources, projectDir?, pyProject?, pyproject?, python?}>;
+  mkPoetryEnv = <function, args: {checkGroups?, editablePackageSources?, extraPackages?, extras?, groups?, overrides?, poetrylock?, preferWheels?, projectDir?, pwd?, pyproject?, python?}>;
+  mkPoetryPackages = <function, args: {checkGroups?, editablePackageSources?, extras?, groups?, overrides?, poetrylock?, poetrylockPos?, preferWheels?, projectDir?, pwd?, pyProject?, pyproject?, python?}>;
+  mkPoetryScriptsPackage = <function, args: {projectDir?, pyProject?, pyproject?, python?, scripts?}>;
+  newScope = <function>;
+  overrideScope = <function>;
+  overrideScope' = <function>;
+  overrides = {
+    withDefaults = <function>;
+    withoutDefaults = <function>;
+  };
+  packages = <function>;
+}
+```
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
+
+
+
+## perSystem\.ml-ops\.devcontainer\.poetry2nix\.python
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` <derivation python3-3.11.5> `
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
 
 
 
@@ -348,7 +555,7 @@ package
 ` <derivation python3-3.9.16-env> `
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
 
 
 
@@ -364,7 +571,91 @@ This option has no description\.
 attribute set of anything
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+
+
+
+## perSystem\.ml-ops\.devcontainer\.pythonPackage
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+submodule
+
+
+
+*Default:*
+` { } `
+
+*Declared by:*
+ - [python-package\.nix, via option flake\.flakeModules\.pythonPackage](flake-modules/python-package.nix)
+
+
+
+## perSystem\.ml-ops\.devcontainer\.pythonPackage\.base-package
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Example:*
+` <derivation hello-2.12.1> `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
+
+
+
+## perSystem\.ml-ops\.devcontainer\.pythonPackage\.overridden-package
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Default:*
+applied ` base-package ` with ` pipe `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
+
+
+
+## perSystem\.ml-ops\.devcontainer\.pythonPackage\.pipe
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+list of function that evaluates to a(n) package
+
+
+
+*Default:*
+` [ ] `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -385,7 +676,7 @@ string
 1\.0\.0+\<lastModifiedDate>\.\<hash>
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -406,7 +697,7 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
 
 
 
@@ -427,7 +718,7 @@ null or value “Memory” (singular enum)
 ` null `
 
 *Declared by:*
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
 
 
 
@@ -448,7 +739,35 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+
+
+
+## perSystem\.ml-ops\.devcontainer\.volumeMounts\.nfs\.\<name>\.mountOptions
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+list of string
+
+
+
+*Default:*
+
+```
+[
+  "rw"
+  "intr"
+  "nolock"
+]
+```
+
+*Declared by:*
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
 
 
 
@@ -469,7 +788,7 @@ string
 ` "/ml_data" `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
 
 
 
@@ -490,7 +809,81 @@ string
 ` "nfs.example.com" `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+
+
+
+## perSystem\.ml-ops\.devserver\.azure\.blobname
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
+
+
+
+## perSystem\.ml-ops\.devserver\.azure\.containername
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "images" `
+
+*Declared by:*
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
+
+
+
+## perSystem\.ml-ops\.devserver\.azure\.imageName
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
+
+
+
+## perSystem\.ml-ops\.devserver\.azure\.stgaccountname
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "mlsolutionimages" `
+
+*Declared by:*
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
 
 
 
@@ -511,7 +904,7 @@ string
 ` "ml-ops-vm-images" `
 
 *Declared by:*
- - [devserver\.nix](flake-modules/devserver.nix)
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
 
 
 
@@ -527,7 +920,7 @@ This option has no description\.
 string
 
 *Declared by:*
- - [devserver\.nix](flake-modules/devserver.nix)
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
 
 
 
@@ -543,7 +936,118 @@ This option has no description\.
 string
 
 *Declared by:*
- - [devserver\.nix](flake-modules/devserver.nix)
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
+
+
+
+## perSystem\.ml-ops\.devserver\.gceEfi\.image-bucket
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "ml-ops-vm-images" `
+
+*Declared by:*
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
+
+
+
+## perSystem\.ml-ops\.devserver\.gceEfi\.image-name
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
+
+
+
+## perSystem\.ml-ops\.devserver\.gceEfi\.image-uri
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
+
+
+
+## perSystem\.ml-ops\.devserver\.hyperv\.blobname
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
+
+
+
+## perSystem\.ml-ops\.devserver\.hyperv\.containername
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "images" `
+
+*Declared by:*
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
+
+
+
+## perSystem\.ml-ops\.devserver\.hyperv\.stgaccountname
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "mlsolutionimages" `
+
+*Declared by:*
+ - [devserver\.nix, via option flake\.flakeModules\.devserver](flake-modules/devserver.nix)
 
 
 
@@ -559,7 +1063,7 @@ This option has no description\.
 module
 
 *Declared by:*
- - [jobs\.nix](flake-modules/jobs.nix)
+ - [jobs\.nix, via option flake\.flakeModules\.jobs](flake-modules/jobs.nix)
 
 
 
@@ -580,7 +1084,7 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [jobs\.nix](flake-modules/jobs.nix)
+ - [jobs\.nix, via option flake\.flakeModules\.jobs](flake-modules/jobs.nix)
 
 
 
@@ -601,7 +1105,7 @@ strings concatenated with “:”
 ` "" `
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -617,7 +1121,7 @@ This option has no description\.
 list of package
 
 *Declared by:*
- - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+ - [cuda\.nix, via option flake\.flakeModules\.cuda, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
 
 
 
@@ -638,7 +1142,7 @@ package
 ` <derivation cuda-home> `
 
 *Declared by:*
- - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+ - [cuda\.nix, via option flake\.flakeModules\.cuda, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
 
 
 
@@ -659,7 +1163,7 @@ module
 ` { } `
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -674,8 +1178,13 @@ This option has no description\.
 *Type:*
 lazy attribute set of string
 
+
+
+*Default:*
+` { } `
+
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -696,7 +1205,7 @@ module
 ` { } `
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -712,7 +1221,7 @@ This option has no description\.
 attribute set of string
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -733,7 +1242,7 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [jobs\.nix, via option perSystem\.ml-ops\.job](flake-modules/jobs.nix)
+ - [jobs\.nix, via option flake\.flakeModules\.jobs, via option perSystem\.ml-ops\.job](flake-modules/jobs.nix)
 
 
 
@@ -749,7 +1258,7 @@ This option has no description\.
 attribute set of string
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -765,9 +1274,94 @@ This option has no description\.
 submodule
 
 *Declared by:*
- - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
- - [gke-credential\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/gke-credential.nix)
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [gke-credential\.nix, via option flake\.flakeModules\.gkeCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/gke-credential.nix)
+ - [aks-credential\.nix, via option flake\.flakeModules\.aksCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/aks-credential.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.aks
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+null or (submodule)
+
+
+
+*Default:*
+` null `
+
+*Declared by:*
+ - [aks-credential\.nix, via option flake\.flakeModules\.aksCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/aks-credential.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.aks\.cluster
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "ml-aks" `
+
+*Declared by:*
+ - [aks-credential\.nix, via option flake\.flakeModules\.aksCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/aks-credential.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.aks\.registryName
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "mlsolutionregistry" `
+
+*Declared by:*
+ - [aks-credential\.nix, via option flake\.flakeModules\.aksCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/aks-credential.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.aks\.resourcegroup
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "ml-solutions" `
+
+*Declared by:*
+ - [aks-credential\.nix, via option flake\.flakeModules\.aksCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/aks-credential.nix)
 
 
 
@@ -788,7 +1382,7 @@ module
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -809,14 +1403,14 @@ unspecified value
 
 ```
 {
-  CUDA_HOME = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
-  NIX_LD = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+  CUDA_HOME = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
+  NIX_LD = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
+  NIX_LD_LIBRARY_PATH = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
 }
 ```
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -839,21 +1433,21 @@ unspecified value
 [
   {
     name = "CUDA_HOME";
-    value = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
+    value = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
   }
   {
     name = "NIX_LD";
-    value = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
+    value = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
   }
   {
     name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
   }
 ]
 ```
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -871,10 +1465,26 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20231018231117.03c3329c" `
+` "registry.hub.docker.com/‹name›-‹name›:1.0.0_20231122210615.dirty" `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.name
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -895,7 +1505,7 @@ unspecified value
 ` [ ] `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -916,7 +1526,7 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -937,7 +1547,28 @@ module
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.gke
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+null or (submodule)
+
+
+
+*Default:*
+` null `
+
+*Declared by:*
+ - [gke-credential\.nix, via option flake\.flakeModules\.gkeCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/gke-credential.nix)
 
 
 
@@ -953,7 +1584,7 @@ This option has no description\.
 string
 
 *Declared by:*
- - [gke-credential\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/gke-credential.nix)
+ - [gke-credential\.nix, via option flake\.flakeModules\.gkeCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/gke-credential.nix)
 
 
 
@@ -969,28 +1600,7 @@ This option has no description\.
 string
 
 *Declared by:*
- - [gke-credential\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/gke-credential.nix)
-
-
-
-## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helm-archive
-
-
-
-This option has no description\.
-
-
-
-*Type:*
-package
-
-
-
-*Default:*
-` <derivation -name--helm-archive.tgz> `
-
-*Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [gke-credential\.nix, via option flake\.flakeModules\.gkeCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/gke-credential.nix)
 
 
 
@@ -1011,28 +1621,7 @@ package
 ` <derivation helm-chart> `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
-
-
-
-## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helm-push
-
-
-
-This option has no description\.
-
-
-
-*Type:*
-package
-
-
-
-*Default:*
-` <derivation -name--helm-push.txt> `
-
-*Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1048,7 +1637,7 @@ This option has no description\.
 attribute set of anything
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1069,7 +1658,7 @@ submodule
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1090,7 +1679,7 @@ package
 ` <derivation hello-2.12.1> `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -1108,14 +1697,14 @@ package
 
 
 *Default:*
-applied ` base-package ` with ` override ` and ` overrideAttrs `
+applied ` base-package ` with ` pipe `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
-## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.override
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.pipe
 
 
 
@@ -1124,7 +1713,7 @@ This option has no description\.
 
 
 *Type:*
-list of anything
+list of function that evaluates to a(n) package
 
 
 
@@ -1132,28 +1721,7 @@ list of anything
 ` [ ] `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
-
-
-
-## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.overrideAttrs
-
-
-
-This option has no description\.
-
-
-
-*Type:*
-list of anything
-
-
-
-*Default:*
-` [ ] `
-
-*Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -1174,7 +1742,7 @@ unspecified value
 ` "‹name›-‹name›" `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1195,8 +1763,8 @@ attribute set of attribute set of anything
 ` { } `
 
 *Declared by:*
- - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1217,7 +1785,7 @@ unspecified value
 ` "batch/v1" `
 
 *Declared by:*
- - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
+ - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
 
 
 
@@ -1238,7 +1806,7 @@ unspecified value
 ` "Job" `
 
 *Declared by:*
- - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
+ - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
 
 
 
@@ -1256,10 +1824,10 @@ unspecified value
 
 
 *Default:*
-` "‹name›-‹name›-1.0.0-20231018231117.03c3329c" `
+` "‹name›-‹name›-1.0.0-20231122210615.dirty" `
 
 *Declared by:*
- - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
+ - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
 
 
 
@@ -1280,7 +1848,7 @@ unspecified value
 ` 0 `
 
 *Declared by:*
- - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
+ - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
 
 
 
@@ -1301,7 +1869,7 @@ unspecified value
 ` "‹name›-‹name›" `
 
 *Declared by:*
- - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
+ - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
 
 
 
@@ -1316,14 +1884,8 @@ This option has no description\.
 *Type:*
 attribute set of (attribute set of anything)
 
-
-
-*Default:*
-` [ ] `
-
 *Declared by:*
- - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
- - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
+ - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
 
 
 
@@ -1344,14 +1906,14 @@ unspecified value
 
 ```
 {
-  CUDA_HOME = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
-  NIX_LD = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+  CUDA_HOME = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
+  NIX_LD = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
+  NIX_LD_LIBRARY_PATH = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
 }
 ```
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1374,21 +1936,21 @@ unspecified value
 [
   {
     name = "CUDA_HOME";
-    value = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
+    value = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
   }
   {
     name = "NIX_LD";
-    value = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
+    value = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
   }
   {
     name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
   }
 ]
 ```
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1406,10 +1968,26 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20231018231117.03c3329c" `
+` "registry.hub.docker.com/‹name›-‹name›:1.0.0_20231122210615.dirty" `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.template\.spec\.containers\.\<name>\.name
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1430,7 +2008,7 @@ unspecified value
 ` [ ] `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1451,7 +2029,7 @@ unspecified value
 ` "Never" `
 
 *Declared by:*
- - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
+ - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
 
 
 
@@ -1472,7 +2050,7 @@ unspecified value
 ` [ ] `
 
 *Declared by:*
- - [kubernetes-job\.nix, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
+ - [kubernetes-job\.nix, via option flake\.flakeModules\.kubernetesJob, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes-job.nix)
 
 
 
@@ -1493,7 +2071,7 @@ submodule
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1514,13 +2092,11 @@ package
 ` <derivation hello-2.12.1> `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.overridden-package
-
-
 
 This option has no description\.
 
@@ -1532,14 +2108,14 @@ package
 
 
 *Default:*
-applied ` base-package ` with ` override ` and ` overrideAttrs `
+applied ` base-package ` with ` pipe `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
-## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.override
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.pipe
 
 
 
@@ -1548,7 +2124,7 @@ This option has no description\.
 
 
 *Type:*
-list of anything
+list of function that evaluates to a(n) package
 
 
 
@@ -1556,28 +2132,7 @@ list of anything
 ` [ ] `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
-
-
-
-## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.overrideAttrs
-
-
-
-This option has no description\.
-
-
-
-*Type:*
-list of anything
-
-
-
-*Default:*
-` [ ] `
-
-*Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -1590,7 +2145,7 @@ This option has no description\.
 
 
 *Type:*
-unspecified value
+string
 
 
 
@@ -1598,11 +2153,48 @@ unspecified value
 ` "registry.hub.docker.com" `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.imageRegistry\.path
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+null or string
+
+
+
+*Default:*
+` null `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+attribute set of (submodule)
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.apiVersion
 
 
 
@@ -1616,10 +2208,221 @@ unspecified value
 
 
 *Default:*
-` "library" `
+` "v1" `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.kind
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` "PersistentVolumeClaim" `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.metadata\.name
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.spec\.accessModes
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+
+```
+[
+  "ReadWriteMany"
+]
+```
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.spec\.resources\.requests\.storage
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` "1000Ti" `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.spec\.storageClassName
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` "" `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.spec\.volumeName
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeManifests
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+attribute set of (submodule)
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeManifests\.\<name>\.apiVersion
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` "v1" `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeManifests\.\<name>\.kind
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` "PersistentVolume" `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeManifests\.\<name>\.metadata\.name
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeManifests\.\<name>\.spec
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+attribute set of anything
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1640,7 +2443,7 @@ submodule
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1661,7 +2464,7 @@ package
 ` <derivation hello-2.12.1> `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -1679,14 +2482,14 @@ package
 
 
 *Default:*
-applied ` base-package ` with ` override ` and ` overrideAttrs `
+applied ` base-package ` with ` pipe `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
-## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.override
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.pipe
 
 
 
@@ -1695,7 +2498,7 @@ This option has no description\.
 
 
 *Type:*
-list of anything
+list of function that evaluates to a(n) package
 
 
 
@@ -1703,28 +2506,7 @@ list of anything
 ` [ ] `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
-
-
-
-## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.overrideAttrs
-
-
-
-This option has no description\.
-
-
-
-*Type:*
-list of anything
-
-
-
-*Default:*
-` [ ] `
-
-*Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -1740,7 +2522,7 @@ This option has no description\.
 list of attribute set of anything
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -1756,7 +2538,28 @@ This option has no description\.
 list of attribute set of anything
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.skypilot\.options\.todo-placeholder
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` "blah blah" `
+
+*Declared by:*
+ - [skypilot\.nix, via option flake\.flakeModules\.skypilot, via option perSystem\.ml-ops\.job, via option perSystem\.ml-ops\.jobs\.\<name>\.launcher](flake-modules/skypilot.nix)
 
 
 
@@ -1777,7 +2580,7 @@ unspecified value
 ` <function> `
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
 
 
 
@@ -1798,7 +2601,7 @@ string
 ` "‹name›" `
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -1814,11 +2617,11 @@ This option has no description\.
 list of path
 
 *Declared by:*
- - [nix-ld\.nix, via option perSystem\.ml-ops\.common](flake-modules/nix-ld.nix)
+ - [nix-ld\.nix, via option flake\.flakeModules\.nixLd, via option perSystem\.ml-ops\.common](flake-modules/nix-ld.nix)
 
 
 
-## perSystem\.ml-ops\.jobs\.\<name>\.poetryEnv
+## perSystem\.ml-ops\.jobs\.\<name>\.poetry2nix\.pkgs
 
 
 
@@ -1832,10 +2635,99 @@ unspecified value
 
 
 *Default:*
-` <derivation python3-3.10.12-env> `
+pkgs\.appendOverlays \[
+(self: super: {
+${common\.config\.pythonPackage\.base-package\.pythonAttr} = lib\.pipe super\.${common\.config\.pythonPackage\.base-package\.pythonAttr} common\.config\.pythonPackage\.pipe;
+})
+]
 
 *Declared by:*
- - [python-envs-poetry\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/python-envs-poetry.nix)
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.poetry2nix\.poetry2nixLib
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+
+```
+{
+  callPackage = <function>;
+  cleanPythonSources = <function, args: {src}>;
+  cli = <derivation poetry2nix-cli-0>;
+  defaultPoetryOverrides = <function>;
+  mkDefaultPoetryOverrides = <function>;
+  mkPoetryApplication = <function, args: {checkGroups?, extras?, groups?, meta?, overrides?, poetrylock?, preferWheels?, projectDir?, pwd?, pyproject?, python?, src?}>;
+  mkPoetryEditablePackage = <function, args: {editablePackageSources, projectDir?, pyProject?, pyproject?, python?}>;
+  mkPoetryEnv = <function, args: {checkGroups?, editablePackageSources?, extraPackages?, extras?, groups?, overrides?, poetrylock?, preferWheels?, projectDir?, pwd?, pyproject?, python?}>;
+  mkPoetryPackages = <function, args: {checkGroups?, editablePackageSources?, extras?, groups?, overrides?, poetrylock?, poetrylockPos?, preferWheels?, projectDir?, pwd?, pyProject?, pyproject?, python?}>;
+  mkPoetryScriptsPackage = <function, args: {projectDir?, pyProject?, pyproject?, python?, scripts?}>;
+  newScope = <function>;
+  overrideScope = <function>;
+  overrideScope' = <function>;
+  overrides = {
+    withDefaults = <function>;
+    withoutDefaults = <function>;
+  };
+  packages = <function>;
+}
+```
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.poetry2nix\.python
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` <derivation python3-3.11.5> `
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.poetryEnv
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Default:*
+` <derivation python3-3.11.5-env> `
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.runtime](flake-modules/python-envs-poetry.nix)
 
 
 
@@ -1850,8 +2742,13 @@ This option has no description\.
 *Type:*
 attribute set of anything
 
+
+
+*Default:*
+` { } `
+
 *Declared by:*
- - [python-envs-poetry\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/python-envs-poetry.nix)
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.runtime](flake-modules/python-envs-poetry.nix)
 
 
 
@@ -1872,7 +2769,7 @@ package
 ` <derivation python3-3.9.16-env> `
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
 
 
 
@@ -1888,7 +2785,91 @@ This option has no description\.
 attribute set of anything
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.pythonPackage
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+submodule
+
+
+
+*Default:*
+` { } `
+
+*Declared by:*
+ - [python-package\.nix, via option flake\.flakeModules\.pythonPackage](flake-modules/python-package.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.pythonPackage\.base-package
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Example:*
+` <derivation hello-2.12.1> `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.pythonPackage\.overridden-package
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Default:*
+applied ` base-package ` with ` pipe `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.pythonPackage\.pipe
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+list of function that evaluates to a(n) package
+
+
+
+*Default:*
+` [ ] `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -1909,7 +2890,7 @@ string
 1\.0\.0+\<lastModifiedDate>\.\<hash>
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -1930,8 +2911,8 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-empty-dir.nix)
 
 
 
@@ -1959,7 +2940,7 @@ unspecified value
 ```
 
 *Declared by:*
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-empty-dir.nix)
 
 
 
@@ -1980,7 +2961,7 @@ null or value “Memory” (singular enum)
 ` null `
 
 *Declared by:*
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
 
 
 
@@ -2001,8 +2982,8 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-nfs.nix)
 
 
 
@@ -2022,7 +3003,35 @@ unspecified value
 *Default:*
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-nfs.nix)
+
+
+
+## perSystem\.ml-ops\.jobs\.\<name>\.volumeMounts\.nfs\.\<name>\.mountOptions
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+list of string
+
+
+
+*Default:*
+
+```
+[
+  "rw"
+  "intr"
+  "nolock"
+]
+```
+
+*Declared by:*
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
 
 
 
@@ -2043,7 +3052,7 @@ string
 ` "/ml_data" `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
 
 
 
@@ -2064,11 +3073,13 @@ string
 ` "nfs.example.com" `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
 
 
 
 ## perSystem\.ml-ops\.overridablePackage
+
+
 
 This option has no description\.
 
@@ -2083,7 +3094,7 @@ module
 ` { } `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -2104,7 +3115,7 @@ package
 ` <derivation hello-2.12.1> `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -2122,14 +3133,14 @@ package
 
 
 *Default:*
-applied ` base-package ` with ` override ` and ` overrideAttrs `
+applied ` base-package ` with ` pipe `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
-## perSystem\.ml-ops\.overridablePackage\.override
+## perSystem\.ml-ops\.overridablePackage\.pipe
 
 
 
@@ -2138,7 +3149,7 @@ This option has no description\.
 
 
 *Type:*
-list of anything
+list of function that evaluates to a(n) package
 
 
 
@@ -2146,28 +3157,7 @@ list of anything
 ` [ ] `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
-
-
-
-## perSystem\.ml-ops\.overridablePackage\.overrideAttrs
-
-
-
-This option has no description\.
-
-
-
-*Type:*
-list of anything
-
-
-
-*Default:*
-` [ ] `
-
-*Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -2188,7 +3178,7 @@ module
 ` { } `
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -2209,7 +3199,7 @@ strings concatenated with “:”
 ` "" `
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -2225,7 +3215,7 @@ This option has no description\.
 list of package
 
 *Declared by:*
- - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+ - [cuda\.nix, via option flake\.flakeModules\.cuda, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
 
 
 
@@ -2246,7 +3236,7 @@ package
 ` <derivation cuda-home> `
 
 *Declared by:*
- - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+ - [cuda\.nix, via option flake\.flakeModules\.cuda, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
 
 
 
@@ -2267,7 +3257,7 @@ module
 ` { } `
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -2282,8 +3272,13 @@ This option has no description\.
 *Type:*
 lazy attribute set of string
 
+
+
+*Default:*
+` { } `
+
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -2304,7 +3299,7 @@ module
 ` { } `
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -2320,7 +3315,7 @@ This option has no description\.
 attribute set of string
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -2341,7 +3336,7 @@ unspecified value
 ` <function> `
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
 
 
 
@@ -2362,7 +3357,7 @@ string
 ` "‹name›" `
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -2378,7 +3373,96 @@ This option has no description\.
 list of path
 
 *Declared by:*
- - [nix-ld\.nix, via option perSystem\.ml-ops\.common](flake-modules/nix-ld.nix)
+ - [nix-ld\.nix, via option flake\.flakeModules\.nixLd, via option perSystem\.ml-ops\.common](flake-modules/nix-ld.nix)
+
+
+
+## perSystem\.ml-ops\.runtime\.poetry2nix\.pkgs
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+pkgs\.appendOverlays \[
+(self: super: {
+${common\.config\.pythonPackage\.base-package\.pythonAttr} = lib\.pipe super\.${common\.config\.pythonPackage\.base-package\.pythonAttr} common\.config\.pythonPackage\.pipe;
+})
+]
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
+
+
+
+## perSystem\.ml-ops\.runtime\.poetry2nix\.poetry2nixLib
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+
+```
+{
+  callPackage = <function>;
+  cleanPythonSources = <function, args: {src}>;
+  cli = <derivation poetry2nix-cli-0>;
+  defaultPoetryOverrides = <function>;
+  mkDefaultPoetryOverrides = <function>;
+  mkPoetryApplication = <function, args: {checkGroups?, extras?, groups?, meta?, overrides?, poetrylock?, preferWheels?, projectDir?, pwd?, pyproject?, python?, src?}>;
+  mkPoetryEditablePackage = <function, args: {editablePackageSources, projectDir?, pyProject?, pyproject?, python?}>;
+  mkPoetryEnv = <function, args: {checkGroups?, editablePackageSources?, extraPackages?, extras?, groups?, overrides?, poetrylock?, preferWheels?, projectDir?, pwd?, pyproject?, python?}>;
+  mkPoetryPackages = <function, args: {checkGroups?, editablePackageSources?, extras?, groups?, overrides?, poetrylock?, poetrylockPos?, preferWheels?, projectDir?, pwd?, pyProject?, pyproject?, python?}>;
+  mkPoetryScriptsPackage = <function, args: {projectDir?, pyProject?, pyproject?, python?, scripts?}>;
+  newScope = <function>;
+  overrideScope = <function>;
+  overrideScope' = <function>;
+  overrides = {
+    withDefaults = <function>;
+    withoutDefaults = <function>;
+  };
+  packages = <function>;
+}
+```
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
+
+
+
+## perSystem\.ml-ops\.runtime\.poetry2nix\.python
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` <derivation python3-3.11.5> `
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
 
 
 
@@ -2399,7 +3483,7 @@ package
 ` <derivation python3-3.9.16-env> `
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
 
 
 
@@ -2415,7 +3499,91 @@ This option has no description\.
 attribute set of anything
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+
+
+
+## perSystem\.ml-ops\.runtime\.pythonPackage
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+submodule
+
+
+
+*Default:*
+` { } `
+
+*Declared by:*
+ - [python-package\.nix, via option flake\.flakeModules\.pythonPackage](flake-modules/python-package.nix)
+
+
+
+## perSystem\.ml-ops\.runtime\.pythonPackage\.base-package
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Example:*
+` <derivation hello-2.12.1> `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
+
+
+
+## perSystem\.ml-ops\.runtime\.pythonPackage\.overridden-package
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Default:*
+applied ` base-package ` with ` pipe `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
+
+
+
+## perSystem\.ml-ops\.runtime\.pythonPackage\.pipe
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+list of function that evaluates to a(n) package
+
+
+
+*Default:*
+` [ ] `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -2436,7 +3604,7 @@ string
 1\.0\.0+\<lastModifiedDate>\.\<hash>
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -2457,7 +3625,7 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
 
 
 
@@ -2478,7 +3646,7 @@ null or value “Memory” (singular enum)
 ` null `
 
 *Declared by:*
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
 
 
 
@@ -2499,7 +3667,35 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+
+
+
+## perSystem\.ml-ops\.runtime\.volumeMounts\.nfs\.\<name>\.mountOptions
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+list of string
+
+
+
+*Default:*
+
+```
+[
+  "rw"
+  "intr"
+  "nolock"
+]
+```
+
+*Declared by:*
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
 
 
 
@@ -2520,7 +3716,7 @@ string
 ` "/ml_data" `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
 
 
 
@@ -2541,7 +3737,7 @@ string
 ` "nfs.example.com" `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
 
 
 
@@ -2557,7 +3753,7 @@ This option has no description\.
 module
 
 *Declared by:*
- - [services\.nix](flake-modules/services.nix)
+ - [services\.nix, via option flake\.flakeModules\.services](flake-modules/services.nix)
 
 
 
@@ -2578,7 +3774,7 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [services\.nix](flake-modules/services.nix)
+ - [services\.nix, via option flake\.flakeModules\.services](flake-modules/services.nix)
 
 
 
@@ -2599,7 +3795,7 @@ strings concatenated with “:”
 ` "" `
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -2615,7 +3811,7 @@ This option has no description\.
 list of package
 
 *Declared by:*
- - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+ - [cuda\.nix, via option flake\.flakeModules\.cuda, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
 
 
 
@@ -2636,7 +3832,7 @@ package
 ` <derivation cuda-home> `
 
 *Declared by:*
- - [cuda\.nix, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
+ - [cuda\.nix, via option flake\.flakeModules\.cuda, via option perSystem\.ml-ops\.common](flake-modules/cuda.nix)
 
 
 
@@ -2657,7 +3853,7 @@ module
 ` { } `
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -2672,8 +3868,13 @@ This option has no description\.
 *Type:*
 lazy attribute set of string
 
+
+
+*Default:*
+` { } `
+
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -2694,7 +3895,7 @@ module
 ` { } `
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -2710,7 +3911,7 @@ This option has no description\.
 attribute set of string
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -2731,7 +3932,7 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [services\.nix, via option perSystem\.ml-ops\.service](flake-modules/services.nix)
+ - [services\.nix, via option flake\.flakeModules\.services, via option perSystem\.ml-ops\.service](flake-modules/services.nix)
 
 
 
@@ -2747,7 +3948,7 @@ This option has no description\.
 attribute set of string
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -2763,9 +3964,94 @@ This option has no description\.
 submodule
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
- - [gke-credential\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/gke-credential.nix)
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [gke-credential\.nix, via option flake\.flakeModules\.gkeCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/gke-credential.nix)
+ - [aks-credential\.nix, via option flake\.flakeModules\.aksCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/aks-credential.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.aks
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+null or (submodule)
+
+
+
+*Default:*
+` null `
+
+*Declared by:*
+ - [aks-credential\.nix, via option flake\.flakeModules\.aksCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/aks-credential.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.aks\.cluster
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "ml-aks" `
+
+*Declared by:*
+ - [aks-credential\.nix, via option flake\.flakeModules\.aksCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/aks-credential.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.aks\.registryName
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "mlsolutionregistry" `
+
+*Declared by:*
+ - [aks-credential\.nix, via option flake\.flakeModules\.aksCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/aks-credential.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.aks\.resourcegroup
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+
+
+*Default:*
+` "ml-solutions" `
+
+*Declared by:*
+ - [aks-credential\.nix, via option flake\.flakeModules\.aksCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/aks-credential.nix)
 
 
 
@@ -2786,7 +4072,7 @@ module
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -2807,14 +4093,14 @@ unspecified value
 
 ```
 {
-  CUDA_HOME = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
-  NIX_LD = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+  CUDA_HOME = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
+  NIX_LD = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
+  NIX_LD_LIBRARY_PATH = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
 }
 ```
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -2837,21 +4123,21 @@ unspecified value
 [
   {
     name = "CUDA_HOME";
-    value = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
+    value = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
   }
   {
     name = "NIX_LD";
-    value = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
+    value = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
   }
   {
     name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
   }
 ]
 ```
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -2869,10 +4155,26 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20231018231117.03c3329c" `
+` "registry.hub.docker.com/‹name›-‹name›:1.0.0_20231122210615.dirty" `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.name
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -2893,13 +4195,11 @@ unspecified value
 ` [ ] `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containers
-
-
 
 This option has no description\.
 
@@ -2914,7 +4214,7 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -2935,7 +4235,28 @@ module
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.gke
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+null or (submodule)
+
+
+
+*Default:*
+` null `
+
+*Declared by:*
+ - [gke-credential\.nix, via option flake\.flakeModules\.gkeCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/gke-credential.nix)
 
 
 
@@ -2951,7 +4272,7 @@ This option has no description\.
 string
 
 *Declared by:*
- - [gke-credential\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/gke-credential.nix)
+ - [gke-credential\.nix, via option flake\.flakeModules\.gkeCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/gke-credential.nix)
 
 
 
@@ -2967,28 +4288,7 @@ This option has no description\.
 string
 
 *Declared by:*
- - [gke-credential\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/gke-credential.nix)
-
-
-
-## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helm-archive
-
-
-
-This option has no description\.
-
-
-
-*Type:*
-package
-
-
-
-*Default:*
-` <derivation -name--helm-archive.tgz> `
-
-*Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [gke-credential\.nix, via option flake\.flakeModules\.gkeCredential, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/gke-credential.nix)
 
 
 
@@ -3009,28 +4309,7 @@ package
 ` <derivation helm-chart> `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
-
-
-
-## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helm-push
-
-
-
-This option has no description\.
-
-
-
-*Type:*
-package
-
-
-
-*Default:*
-` <derivation -name--helm-push.txt> `
-
-*Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3046,7 +4325,7 @@ This option has no description\.
 attribute set of anything
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3067,7 +4346,7 @@ submodule
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3088,7 +4367,7 @@ package
 ` <derivation hello-2.12.1> `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -3106,14 +4385,14 @@ package
 
 
 *Default:*
-applied ` base-package ` with ` override ` and ` overrideAttrs `
+applied ` base-package ` with ` pipe `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
-## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.override
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.pipe
 
 
 
@@ -3122,7 +4401,7 @@ This option has no description\.
 
 
 *Type:*
-list of anything
+list of function that evaluates to a(n) package
 
 
 
@@ -3130,28 +4409,7 @@ list of anything
 ` [ ] `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
-
-
-
-## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmDelete\.overrideAttrs
-
-
-
-This option has no description\.
-
-
-
-*Type:*
-list of anything
-
-
-
-*Default:*
-` [ ] `
-
-*Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -3172,7 +4430,7 @@ unspecified value
 ` "‹name›-‹name›" `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3193,8 +4451,8 @@ attribute set of attribute set of anything
 ` { } `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3215,7 +4473,7 @@ unspecified value
 ` "apps/v1" `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3236,7 +4494,7 @@ unspecified value
 ` "Deployment" `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3257,7 +4515,7 @@ unspecified value
 ` "‹name›-‹name›" `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3278,7 +4536,7 @@ unspecified value
 ` "‹name›-‹name›" `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3299,7 +4557,7 @@ unspecified value
 ` "‹name›-‹name›" `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3315,7 +4573,7 @@ This option has no description\.
 attribute set of (attribute set of anything)
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3336,14 +4594,14 @@ unspecified value
 
 ```
 {
-  CUDA_HOME = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
-  NIX_LD = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
-  NIX_LD_LIBRARY_PATH = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+  CUDA_HOME = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
+  NIX_LD = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
+  NIX_LD_LIBRARY_PATH = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
 }
 ```
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3366,21 +4624,21 @@ unspecified value
 [
   {
     name = "CUDA_HOME";
-    value = "/nix/store/iqj47w1mrspfcd2dz5v536hd2766cvam-cuda-home";
+    value = "/nix/store/bw66xqigkfv9a06cql6iabihrpjz94nw-cuda-home";
   }
   {
     name = "NIX_LD";
-    value = "/nix/store/jhbyh4fh6qfka5liz44lncdmlwh203ph-ld.so";
+    value = "/nix/store/91jmjsvgq5lcsk1dyxmbv8dpw72qlrpd-ld.so";
   }
   {
     name = "NIX_LD_LIBRARY_PATH";
-    value = "/nix/store/4rx3vkkd91wkbhpflsplfga603cp1l1c-zlib-1.3/lib:/nix/store/m875ridnpikvz339i31xs5ffbz18yrsq-zstd-1.5.5/lib:/nix/store/xpxln7rqi3pq4m0xpnawhxb2gs0mn1s0-gcc-12.3.0-lib/lib:/nix/store/jmq24f88d1v8aqqsq5pxz293gpziprjx-curl-8.2.1/lib:/nix/store/2kl52k9kclb82bg8nvf4paxb3v972c70-openssl-3.0.10/lib:/nix/store/srrs7gn04rwa4f6zhsjkdacxydwrmzhj-attr-2.5.1/lib:/nix/store/pf3i04kmn0mjicb0lij01j4pr3yhc3m6-libssh-0.10.5/lib:/nix/store/rmgpmxddh2hl3yl43f1kacrpd85cdrs4-bzip2-1.0.8/lib:/nix/store/qxaj0gbpc58ng6pkhcjbn6q955m51ndh-libxml2-2.11.5/lib:/nix/store/aj6gbshd8hvifpa1d8vy0iv688sm81wp-acl-2.3.1/lib:/nix/store/ycq60dgw6yybk84m9j0a9zvjn2wpbfl3-libsodium-1.0.18/lib:/nix/store/rg0kxqkz17y00y6ymfbxkcgqifmhwlmn-util-linux-2.39.2-lib/lib:/nix/store/kfrcs055nxbkwd6yy39h5xxyrj8wrb73-xz-5.4.4/lib:/nix/store/rjz12jr6wa46vcaj7v2nsi2x17jibipm-systemd-253.6/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
+    value = "/nix/store/s5gzrzha72q79v92wqq61x9ir8xiwbxk-zlib-1.3/lib:/nix/store/g1cigbjr62y1wzff83j3s4fj3hnd3j6g-zstd-1.5.5/lib:/nix/store/9fy9zzhf613xp0c3jsjxbjq6yp8afrsv-gcc-12.3.0-lib/lib:/nix/store/wxwljhqszqzg2wlvbckc7h61p5k8ap2v-curl-8.4.0/lib:/nix/store/vzajrlhsdv2d39s7v6zv09ggajs05gwj-openssl-3.0.11/lib:/nix/store/jbjamv1l5zxg2lz2ij0ygbddv0yvyn21-attr-2.5.1/lib:/nix/store/0m30dmdinyghkmryfkdbl852hr51zq1n-libssh-0.10.5/lib:/nix/store/7vg2sgzv2hidmj8plg4w31x2sqbbkfrg-bzip2-1.0.8/lib:/nix/store/9grbphisvxx14mpbx1n31hg48spca4bx-libxml2-2.11.5/lib:/nix/store/d3zxgr5xjn057j9kbhd80gmjpiq80n60-acl-2.3.1/lib:/nix/store/ck7a7ali8g50fzs3zqckhln816fb80lw-libsodium-1.0.18/lib:/nix/store/llbkaq8j232mc0nv2dk1ik3yl56xk044-util-linux-2.39.2-lib/lib:/nix/store/hx3fyk0d9wn7nir8m1qp0y93ixka09lb-xz-5.4.4/lib:/nix/store/vapnrxrw3b21c7ji61bmnbzl2cj1vl96-systemd-254.3/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib";
   }
 ]
 ```
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3398,10 +4656,26 @@ unspecified value
 
 
 *Default:*
-` "registry.hub.docker.com/library/‹name›-‹name›:1.0.0_20231018231117.03c3329c" `
+` "registry.hub.docker.com/‹name›-‹name›:1.0.0_20231122210615.dirty" `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.deployment\.spec\.template\.spec\.containers\.\<name>\.name
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3422,7 +4696,7 @@ unspecified value
 ` [ ] `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3443,7 +4717,7 @@ unspecified value
 ` [ ] `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3464,7 +4738,7 @@ unspecified value
 ` "v1" `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3485,7 +4759,7 @@ unspecified value
 ` "Service" `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3503,10 +4777,10 @@ unspecified value
 
 
 *Default:*
-` "‹name›-‹name›-20231018231117-03c3329c" `
+` "‹name›-‹name›-20231122210615-dirty" `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3527,7 +4801,7 @@ unspecified value
 ` "‹name›-‹name›" `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3548,7 +4822,7 @@ unspecified value
 ` "LoadBalancer" `
 
 *Declared by:*
- - [kubernetes-service\.nix, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
+ - [kubernetes-service\.nix, via option flake\.flakeModules\.kubernetesService, via option perSystem\.ml-ops\.service, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes-service.nix)
 
 
 
@@ -3569,7 +4843,7 @@ submodule
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3590,7 +4864,7 @@ package
 ` <derivation hello-2.12.1> `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -3608,14 +4882,14 @@ package
 
 
 *Default:*
-applied ` base-package ` with ` override ` and ` overrideAttrs `
+applied ` base-package ` with ` pipe `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
-## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.override
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.pipe
 
 
 
@@ -3624,7 +4898,7 @@ This option has no description\.
 
 
 *Type:*
-list of anything
+list of function that evaluates to a(n) package
 
 
 
@@ -3632,28 +4906,7 @@ list of anything
 ` [ ] `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
-
-
-
-## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.overrideAttrs
-
-
-
-This option has no description\.
-
-
-
-*Type:*
-list of anything
-
-
-
-*Default:*
-` [ ] `
-
-*Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -3666,7 +4919,7 @@ This option has no description\.
 
 
 *Type:*
-unspecified value
+string
 
 
 
@@ -3674,11 +4927,48 @@ unspecified value
 ` "registry.hub.docker.com" `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.imageRegistry\.path
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+null or string
+
+
+
+*Default:*
+` null `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+attribute set of (submodule)
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.apiVersion
 
 
 
@@ -3692,10 +4982,221 @@ unspecified value
 
 
 *Default:*
-` "library" `
+` "v1" `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.kind
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` "PersistentVolumeClaim" `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.metadata\.name
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.spec\.accessModes
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+
+```
+[
+  "ReadWriteMany"
+]
+```
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.spec\.resources\.requests\.storage
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` "1000Ti" `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.spec\.storageClassName
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` "" `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeClaimManifests\.\<name>\.spec\.volumeName
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeManifests
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+attribute set of (submodule)
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeManifests\.\<name>\.apiVersion
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` "v1" `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeManifests\.\<name>\.kind
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` "PersistentVolume" `
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeManifests\.\<name>\.metadata\.name
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+string
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.persistentVolumeManifests\.\<name>\.spec
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+attribute set of anything
+
+*Declared by:*
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3716,7 +5217,7 @@ submodule
 ` { } `
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3737,7 +5238,7 @@ package
 ` <derivation hello-2.12.1> `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -3755,14 +5256,14 @@ package
 
 
 *Default:*
-applied ` base-package ` with ` override ` and ` overrideAttrs `
+applied ` base-package ` with ` pipe `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
-## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.override
+## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.pipe
 
 
 
@@ -3771,7 +5272,7 @@ This option has no description\.
 
 
 *Type:*
-list of anything
+list of function that evaluates to a(n) package
 
 
 
@@ -3779,28 +5280,7 @@ list of anything
 ` [ ] `
 
 *Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
-
-
-
-## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.pushImage\.overrideAttrs
-
-
-
-This option has no description\.
-
-
-
-*Type:*
-list of anything
-
-
-
-*Default:*
-` [ ] `
-
-*Declared by:*
- - [overridable-package\.nix](flake-modules/overridable-package.nix)
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -3816,7 +5296,7 @@ This option has no description\.
 list of attribute set of anything
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3832,7 +5312,7 @@ This option has no description\.
 list of attribute set of anything
 
 *Declared by:*
- - [kubernetes\.nix, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
+ - [kubernetes\.nix, via option flake\.flakeModules\.kubernetes, via option perSystem\.ml-ops\.runtime, via option perSystem\.ml-ops\.services\.\<name>\.launcher](flake-modules/kubernetes.nix)
 
 
 
@@ -3853,7 +5333,7 @@ unspecified value
 ` <function> `
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
 
 
 
@@ -3874,7 +5354,7 @@ string
 ` "‹name›" `
 
 *Declared by:*
- - [runtime\.nix](flake-modules/runtime.nix)
+ - [runtime\.nix, via option flake\.flakeModules\.runtime](flake-modules/runtime.nix)
 
 
 
@@ -3890,11 +5370,11 @@ This option has no description\.
 list of path
 
 *Declared by:*
- - [nix-ld\.nix, via option perSystem\.ml-ops\.common](flake-modules/nix-ld.nix)
+ - [nix-ld\.nix, via option flake\.flakeModules\.nixLd, via option perSystem\.ml-ops\.common](flake-modules/nix-ld.nix)
 
 
 
-## perSystem\.ml-ops\.services\.\<name>\.poetryEnv
+## perSystem\.ml-ops\.services\.\<name>\.poetry2nix\.pkgs
 
 
 
@@ -3908,10 +5388,99 @@ unspecified value
 
 
 *Default:*
-` <derivation python3-3.10.12-env> `
+pkgs\.appendOverlays \[
+(self: super: {
+${common\.config\.pythonPackage\.base-package\.pythonAttr} = lib\.pipe super\.${common\.config\.pythonPackage\.base-package\.pythonAttr} common\.config\.pythonPackage\.pipe;
+})
+]
 
 *Declared by:*
- - [python-envs-poetry\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/python-envs-poetry.nix)
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.poetry2nix\.poetry2nixLib
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+
+```
+{
+  callPackage = <function>;
+  cleanPythonSources = <function, args: {src}>;
+  cli = <derivation poetry2nix-cli-0>;
+  defaultPoetryOverrides = <function>;
+  mkDefaultPoetryOverrides = <function>;
+  mkPoetryApplication = <function, args: {checkGroups?, extras?, groups?, meta?, overrides?, poetrylock?, preferWheels?, projectDir?, pwd?, pyproject?, python?, src?}>;
+  mkPoetryEditablePackage = <function, args: {editablePackageSources, projectDir?, pyProject?, pyproject?, python?}>;
+  mkPoetryEnv = <function, args: {checkGroups?, editablePackageSources?, extraPackages?, extras?, groups?, overrides?, poetrylock?, preferWheels?, projectDir?, pwd?, pyproject?, python?}>;
+  mkPoetryPackages = <function, args: {checkGroups?, editablePackageSources?, extras?, groups?, overrides?, poetrylock?, poetrylockPos?, preferWheels?, projectDir?, pwd?, pyProject?, pyproject?, python?}>;
+  mkPoetryScriptsPackage = <function, args: {projectDir?, pyProject?, pyproject?, python?, scripts?}>;
+  newScope = <function>;
+  overrideScope = <function>;
+  overrideScope' = <function>;
+  overrides = {
+    withDefaults = <function>;
+    withoutDefaults = <function>;
+  };
+  packages = <function>;
+}
+```
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.poetry2nix\.python
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+unspecified value
+
+
+
+*Default:*
+` <derivation python3-3.11.5> `
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.common](flake-modules/python-envs-poetry.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.poetryEnv
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Default:*
+` <derivation python3-3.11.5-env> `
+
+*Declared by:*
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.runtime](flake-modules/python-envs-poetry.nix)
 
 
 
@@ -3926,8 +5495,13 @@ This option has no description\.
 *Type:*
 attribute set of anything
 
+
+
+*Default:*
+` { } `
+
 *Declared by:*
- - [python-envs-poetry\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/python-envs-poetry.nix)
+ - [python-envs-poetry\.nix, via option flake\.flakeModules\.pythonEnvsPoetry, via option perSystem\.ml-ops\.runtime](flake-modules/python-envs-poetry.nix)
 
 
 
@@ -3948,7 +5522,7 @@ package
 ` <derivation python3-3.9.16-env> `
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
 
 
 
@@ -3964,7 +5538,91 @@ This option has no description\.
 attribute set of anything
 
 *Declared by:*
- - [python-envs-pep508\.nix, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+ - [python-envs-pep508\.nix, via option flake\.flakeModules\.pythonEnvsPep508, via option perSystem\.ml-ops\.common](flake-modules/python-envs-pep508.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.pythonPackage
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+submodule
+
+
+
+*Default:*
+` { } `
+
+*Declared by:*
+ - [python-package\.nix, via option flake\.flakeModules\.pythonPackage](flake-modules/python-package.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.pythonPackage\.base-package
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Example:*
+` <derivation hello-2.12.1> `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.pythonPackage\.overridden-package
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+package
+
+
+
+*Default:*
+applied ` base-package ` with ` pipe `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.pythonPackage\.pipe
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+list of function that evaluates to a(n) package
+
+
+
+*Default:*
+` [ ] `
+
+*Declared by:*
+ - [overridable-package\.nix, via option flake\.flakeModules\.overridablePackage](flake-modules/overridable-package.nix)
 
 
 
@@ -3985,7 +5643,7 @@ string
 1\.0\.0+\<lastModifiedDate>\.\<hash>
 
 *Declared by:*
- - [common\.nix](flake-modules/common.nix)
+ - [common\.nix, via option flake\.flakeModules\.common](flake-modules/common.nix)
 
 
 
@@ -4006,8 +5664,8 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-empty-dir.nix)
 
 
 
@@ -4035,7 +5693,7 @@ unspecified value
 ```
 
 *Declared by:*
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-empty-dir.nix)
 
 
 
@@ -4056,7 +5714,7 @@ null or value “Memory” (singular enum)
 ` null `
 
 *Declared by:*
- - [volume-mount-empty-dir\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
+ - [volume-mount-empty-dir\.nix, via option flake\.flakeModules\.volumeMountEmptyDir, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-empty-dir.nix)
 
 
 
@@ -4077,8 +5735,8 @@ attribute set of (submodule)
 ` { } `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-nfs.nix)
 
 
 
@@ -4098,7 +5756,35 @@ unspecified value
 *Default:*
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.runtime](flake-modules/volume-mount-nfs.nix)
+
+
+
+## perSystem\.ml-ops\.services\.\<name>\.volumeMounts\.nfs\.\<name>\.mountOptions
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+list of string
+
+
+
+*Default:*
+
+```
+[
+  "rw"
+  "intr"
+  "nolock"
+]
+```
+
+*Declared by:*
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
 
 
 
@@ -4119,11 +5805,13 @@ string
 ` "/ml_data" `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
 
 
 
 ## perSystem\.ml-ops\.services\.\<name>\.volumeMounts\.nfs\.\<name>\.server
+
+
 
 This option has no description\.
 
@@ -4138,6 +5826,6 @@ string
 ` "nfs.example.com" `
 
 *Declared by:*
- - [volume-mount-nfs\.nix, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
+ - [volume-mount-nfs\.nix, via option flake\.flakeModules\.volumeMountNfs, via option perSystem\.ml-ops\.common](flake-modules/volume-mount-nfs.nix)
 
 
