@@ -30,14 +30,12 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                               service = {
                                 apiVersion = "v1";
                                 kind = "Service";
-                                metadata.name = "${service.config._module.args.name}-${launcher.config._module.args.name}-${flakeModule.self.lastModifiedDate}-${builtins.substring 0 8 flakeModule.self.rev or "dirty"}";
                                 spec.selector."app.kubernetes.io/name" = "${service.config._module.args.name}-${launcher.config._module.args.name}";
                                 spec.type = "LoadBalancer";
                               };
                               deployment = {
                                 apiVersion = "apps/v1";
                                 kind = "Deployment";
-                                metadata.name = "${service.config._module.args.name}-${launcher.config._module.args.name}";
                                 spec.selector.matchLabels."app.kubernetes.io/name" =
                                   "${service.config._module.args.name}-${launcher.config._module.args.name}";
                                 spec.template.metadata.labels."app.kubernetes.io/name" = "${service.config._module.args.name}-${launcher.config._module.args.name}";
@@ -46,6 +44,19 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
                             };
                         }
                         {
+                          options.deployment.metadata.name = lib.mkOption {
+                            default = "${service.config._module.args.name}-${launcher.config._module.args.name}";
+                            defaultText = lib.literalExpression ''
+                              "''${service.config._module.args.name}-''${launcher.config._module.args.name}"
+                            '';
+                          };
+                          options.service.metadata.name = lib.mkOption {
+                            default = "${service.config._module.args.name}-${launcher.config._module.args.name}-${flakeModule.self.lastModifiedDate}-${builtins.substring 0 8 flakeModule.self.rev or "dirty"}";
+                            defaultText = lib.literalExpression ''
+                              "''${service.config._module.args.name}-''${launcher.config._module.args.name}-''${flakeModule.self.lastModifiedDate}-''${builtins.substring 0 8 flakeModule.self.rev or "dirty"}"
+                            '';
+                          };
+
                           config.deployment.spec.template.spec.containers =
                             lib.mapAttrs
                               (containerName: container: container.manifest)

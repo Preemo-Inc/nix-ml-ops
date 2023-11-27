@@ -17,7 +17,7 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
       ({ lib, system, pkgs, ... }: {
         ml-ops.common = common: {
           options.poetry2nix.pkgs = lib.mkOption {
-            defaultText = lib.literalMD ''
+            defaultText = lib.literalExpression ''
               pkgs.appendOverlays [
                 (self: super: {
                   ''${common.config.pythonPackage.base-package.pythonAttr} = lib.pipe super.''${common.config.pythonPackage.base-package.pythonAttr} common.config.pythonPackage.pipe;
