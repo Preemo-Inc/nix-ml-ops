@@ -114,7 +114,10 @@ module
 
 
 
-This option has no description\.
+Environment variables for either devcontainer, jobs or services\.
+
+For devcontainer, these variables will be copied to via ` devenv `’s [env](https://devenv\.sh/reference/options/\#env) config\.
+For kubernetes jobs and services, these variables will be copied to the Pods’ ` spec.containers.*.env ` field\.
 
 
 
@@ -219,7 +222,8 @@ list of function that evaluates to a(n) package
 
 
 
-This option has no description\.
+Version of job or service\.
+This will be used as the image tag\.
 
 
 
@@ -342,7 +346,10 @@ module
 
 
 
-This option has no description\.
+Environment variables for either devcontainer, jobs or services\.
+
+For devcontainer, these variables will be copied to via ` devenv `’s [env](https://devenv\.sh/reference/options/\#env) config\.
+For kubernetes jobs and services, these variables will be copied to the Pods’ ` spec.containers.*.env ` field\.
 
 
 
@@ -458,7 +465,9 @@ attribute set of module
 
 
 
-This option has no description\.
+The nix package set to use for poetry2nix\.
+
+It is by default set to the nixpkgs from ` nix-ml-ops `’s lock file with a python package specified by ` perSystem.ml-ops.common.pythonPackage `\.
 
 
 
@@ -672,7 +681,8 @@ list of function that evaluates to a(n) package
 
 
 
-This option has no description\.
+Version of job or service\.
+This will be used as the image tag\.
 
 
 
@@ -1184,7 +1194,10 @@ module
 
 
 
-This option has no description\.
+Environment variables for either devcontainer, jobs or services\.
+
+For devcontainer, these variables will be copied to via ` devenv `’s [env](https://devenv\.sh/reference/options/\#env) config\.
+For kubernetes jobs and services, these variables will be copied to the Pods’ ` spec.containers.*.env ` field\.
 
 
 
@@ -2608,7 +2621,9 @@ list of path
 
 
 
-This option has no description\.
+The nix package set to use for poetry2nix\.
+
+It is by default set to the nixpkgs from ` nix-ml-ops `’s lock file with a python package specified by ` perSystem.ml-ops.common.pythonPackage `\.
 
 
 
@@ -2864,7 +2879,8 @@ list of function that evaluates to a(n) package
 
 
 
-This option has no description\.
+Version of job or service\.
+This will be used as the image tag\.
 
 
 
@@ -3152,7 +3168,7 @@ list of function that evaluates to a(n) package
 
 
 
-Common config shared between ml-ops\.jobs and ml-ops\.services
+Common config shared among all ` ml-ops.jobs.<name> ` and ` ml-ops.services.<name> `\.
 
 
 
@@ -3254,7 +3270,10 @@ module
 
 
 
-This option has no description\.
+Environment variables for either devcontainer, jobs or services\.
+
+For devcontainer, these variables will be copied to via ` devenv `’s [env](https://devenv\.sh/reference/options/\#env) config\.
+For kubernetes jobs and services, these variables will be copied to the Pods’ ` spec.containers.*.env ` field\.
 
 
 
@@ -3370,7 +3389,9 @@ list of path
 
 
 
-This option has no description\.
+The nix package set to use for poetry2nix\.
+
+It is by default set to the nixpkgs from ` nix-ml-ops `’s lock file with a python package specified by ` perSystem.ml-ops.common.pythonPackage `\.
 
 
 
@@ -3584,7 +3605,8 @@ list of function that evaluates to a(n) package
 
 
 
-This option has no description\.
+Version of job or service\.
+This will be used as the image tag\.
 
 
 
@@ -3858,7 +3880,10 @@ module
 
 
 
-This option has no description\.
+Environment variables for either devcontainer, jobs or services\.
+
+For devcontainer, these variables will be copied to via ` devenv `’s [env](https://devenv\.sh/reference/options/\#env) config\.
+For kubernetes jobs and services, these variables will be copied to the Pods’ ` spec.containers.*.env ` field\.
 
 
 
@@ -5349,7 +5374,9 @@ list of path
 
 
 
-This option has no description\.
+The nix package set to use for poetry2nix\.
+
+It is by default set to the nixpkgs from ` nix-ml-ops `’s lock file with a python package specified by ` perSystem.ml-ops.common.pythonPackage `\.
 
 
 
@@ -5605,7 +5632,8 @@ list of function that evaluates to a(n) package
 
 
 
-This option has no description\.
+Version of job or service\.
+This will be used as the image tag\.
 
 
 

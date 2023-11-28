@@ -20,6 +20,10 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
                 type = lib.types.str;
                 defaultText = lib.literalMD "1.0.0+<lastModifiedDate>.<hash>";
                 default = "1.0.0+${flakeModule.self.lastModifiedDate}.${builtins.substring 0 8 flakeModule.self.rev or "dirty"}";
+                description = lib.mdDoc ''
+                  Version of job or service.
+                  This will be used as the image tag.
+                '';
               };
               options.LD_LIBRARY_PATH = lib.mkOption {
                 type = lib.types.envVar;
@@ -28,6 +32,12 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
               options.environmentVariables = lib.mkOption {
                 type = lib.types.lazyAttrsOf lib.types.str;
                 default = { };
+                description = lib.mdDoc ''
+                  Environment variables for either devcontainer, jobs or services.
+
+                  For devcontainer, these variables will be copied to via `devenv`'s [env](https://devenv.sh/reference/options/#env) config.
+                  For kubernetes jobs and services, these variables will be copied to the Pods' `spec.containers.*.env` field.
+                '';
               };
               options.devenvShellModule = lib.mkOption {
                 description = lib.mdDoc ''

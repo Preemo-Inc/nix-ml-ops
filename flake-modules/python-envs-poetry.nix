@@ -17,6 +17,11 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
       ({ lib, system, pkgs, ... }: {
         ml-ops.common = common: {
           options.poetry2nix.pkgs = lib.mkOption {
+            description = ''
+              The nix package set to use for poetry2nix.
+
+              It is by default set to the nixpkgs from `nix-ml-ops`'s lock file with a python package specified by `perSystem.ml-ops.common.pythonPackage`.
+            '';
             defaultText = lib.literalExpression ''
               pkgs.appendOverlays [
                 (self: super: {
