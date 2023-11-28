@@ -47,7 +47,8 @@ module
 
 
 
-Settings shared between devcontainer and all jobs\.
+Settings shared between devcontainer and all jobs and services\.
+For example, config of ` perSystem.ml-ops.common.xxx ` will be copied to ` perSystem.ml-ops.devcontainer.xxx `, all ` perSystem.ml-ops.jobs.<name>.xx ` and all ` perSystem.ml-ops.services.<name>.xxx `\.
 
 
 
@@ -90,7 +91,9 @@ strings concatenated with “:”
 
 
 
-Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell
+Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell\.
+
+See [devenv options](https://devenv\.sh/reference/options/) for supported nested options\.
 
 
 
@@ -316,7 +319,9 @@ package
 
 
 
-Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell
+Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell\.
+
+See [devenv options](https://devenv\.sh/reference/options/) for supported nested options\.
 
 
 
@@ -1059,7 +1064,9 @@ string
 
 
 
-This option has no description\.
+The shared options among all jobs\.
+
+For example, config of ` perSystem.ml-ops.job.xxx ` will be copied to all ` perSystem.ml-ops.jobs.<name>.xxx `\.
 
 
 
@@ -1154,7 +1161,9 @@ package
 
 
 
-Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell
+Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell\.
+
+See [devenv options](https://devenv\.sh/reference/options/) for supported nested options\.
 
 
 
@@ -3222,7 +3231,9 @@ package
 
 
 
-Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell
+Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell\.
+
+See [devenv options](https://devenv\.sh/reference/options/) for supported nested options\.
 
 
 
@@ -3727,7 +3738,9 @@ string
 
 
 
-This option has no description\.
+The shared options among all services\.
+
+For example, config of ` perSystem.ml-ops.service.xxx ` will be copied to all ` perSystem.ml-ops.services.<name>.xxx `\.
 
 
 
@@ -3822,7 +3835,9 @@ package
 
 
 
-Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell
+Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell\.
+
+See [devenv options](https://devenv\.sh/reference/options/) for supported nested options\.
 
 
 

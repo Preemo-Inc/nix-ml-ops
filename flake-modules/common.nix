@@ -31,7 +31,9 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
               };
               options.devenvShellModule = lib.mkOption {
                 description = lib.mdDoc ''
-                  Common config that will be copied to `config.devenv.shells.`*<shell_name>*`.config` for each shell
+                  Common config that will be copied to `config.devenv.shells.`*<shell_name>*`.config` for each shell.
+
+                  See [devenv options](https://devenv.sh/reference/options/) for supported nested options.
                 '';
                 default = { };
                 type = lib.types.deferredModuleWith {
@@ -47,7 +49,8 @@ topLevel@{ inputs, flake-parts-lib, ... }: {
           ];
         };
         description = lib.mdDoc ''
-          Settings shared between devcontainer and all jobs.
+          Settings shared between devcontainer and all jobs and services.
+          For example, config of `perSystem.ml-ops.common.xxx` will be copied to `perSystem.ml-ops.devcontainer.xxx`, all `perSystem.ml-ops.jobs.<name>.xx` and all `perSystem.ml-ops.services.<name>.xxx`.
         '';
       };
     });
