@@ -24,11 +24,19 @@ topLevel@{ inputs, lib, flake-parts-lib, ... }: {
               inputs.flake-parts.lib.evalFlakeModule
                 { inherit inputs; }
                 {
-                  imports = builtins.attrValues flakeModule.config.flake.flakeModules;
+                  imports =
+                    builtins.attrValues flakeModule.config.flake.flakeModules ++
+                    (lib.trivial.pipe "${flakeModule.inputs.self}/flake-modules" [
+                      builtins.readDir
+                      (lib.attrsets.filterAttrs (name: type: type == "regular" && lib.strings.hasSuffix ".nix" name))
+                      builtins.attrNames
+                      (builtins.map (name: "${flakeModule.inputs.self}/flake-modules/${name}"))
+                    ]);
 
                   options.perSystem = flake-parts-lib.mkPerSystemOption {
                     config._module.args = {
-                      system = lib.mkDefault system;
+                      # Generate document for Linux so that the document includes CUDA related options, which are not available on Darwin.
+                      system = lib.mkDefault "x86_64-linux";
                       pkgs = lib.mkDefault pkgs;
                       inputs' = lib.mkDefault inputs';
                       self' = lib.mkDefault self';

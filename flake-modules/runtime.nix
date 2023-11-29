@@ -14,7 +14,7 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
     options.perSystem = flake-parts-lib.mkPerSystemOption (perSystem@{ pkgs, ... }: {
       options.ml-ops.runtime = lib.mkOption {
         description = lib.mdDoc ''
-          Common config shared between ml-ops.jobs and ml-ops.services
+          Common config shared among all `ml-ops.jobs.<name>` and `ml-ops.services.<name>`.
         '';
         type = lib.types.deferredModuleWith {
           staticModules = [

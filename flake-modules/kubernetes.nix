@@ -200,6 +200,11 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                             };
 
                             options.helmTemplates = lib.mkOption {
+                              description = lib.mdDoc ''
+                                Kubernetes manifests to be templated by Helm.
+
+                                For each template, the key is the base file name of the template (extension is always `yaml`), and the value is the template itself.
+                              '';
                               type = lib.types.submoduleWith {
                                 modules = [
                                   {

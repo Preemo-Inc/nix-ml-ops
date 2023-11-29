@@ -12,6 +12,11 @@ topLevel@{ flake-parts-lib, inputs, ... }: {
     options.perSystem = flake-parts-lib.mkPerSystemOption (perSystem@{ lib, config, ... }: {
       options.ml-ops.service = lib.mkOption {
         type = lib.types.deferredModule;
+        description = lib.mdDoc ''
+          The shared options among all services.
+
+          For example, config of `perSystem.ml-ops.service.xxx` will be copied to all `perSystem.ml-ops.services.<name>.xxx`.
+        '';
       };
       config.ml-ops.service = { config, ... }: {
         imports = [ perSystem.config.ml-ops.runtime ];

@@ -1,4 +1,86 @@
+## flake
+
+Raw flake output attributes\. Any attribute can be set here, but some
+attributes are represented by options, to provide appropriate
+configuration merging\.
+
+
+
+*Type:*
+lazy attribute set of raw value
+
+*Declared by:*
+ - [lib\.nix, via option flake\.flakeModules\.lib](flake-modules/lib.nix)
+ - [kubernetes\.nix](flake-modules/kubernetes.nix)
+
+
+
+## flake\.lib\.findKubernetesPackages
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+function that evaluates to a(n) attribute set of package
+
+
+
+*Default:*
+` <function> `
+
+*Declared by:*
+ - [kubernetes\.nix](flake-modules/kubernetes.nix)
+
+
+
+## flake\.lib\.mkFlake
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+function that evaluates to a(n) function that evaluates to a(n) attribute set of anything
+
+
+
+*Default:*
+` <function> `
+
+*Declared by:*
+ - [lib\.nix, via option flake\.flakeModules\.lib](flake-modules/lib.nix)
+
+
+
+## flake\.lib\.pathToKubernetesName
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+function that evaluates to a(n) string
+
+
+
+*Default:*
+` <function> `
+
+*Declared by:*
+ - [kubernetes\.nix](flake-modules/kubernetes.nix)
+
+
+
 ## perSystem
+
+
 
 A function from system to flake-like attributes omitting the ` <system> ` attribute\.
 
@@ -47,7 +129,8 @@ module
 
 
 
-Settings shared between devcontainer and all jobs\.
+Settings shared between devcontainer and all jobs and services\.
+For example, config of ` perSystem.ml-ops.common.xxx ` will be copied to ` perSystem.ml-ops.devcontainer.xxx `, all ` perSystem.ml-ops.jobs.<name>.xx ` and all ` perSystem.ml-ops.services.<name>.xxx `\.
 
 
 
@@ -90,7 +173,9 @@ strings concatenated with “:”
 
 
 
-Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell
+Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell\.
+
+See [devenv options](https://devenv\.sh/reference/options/) for supported nested options\.
 
 
 
@@ -111,7 +196,10 @@ module
 
 
 
-This option has no description\.
+Environment variables for either devcontainer, jobs or services\.
+
+For devcontainer, these variables will be copied to via ` devenv `’s [env](https://devenv\.sh/reference/options/\#env) config\.
+For kubernetes jobs and services, these variables will be copied to the Pods’ ` spec.containers.*.env ` field\.
 
 
 
@@ -216,7 +304,8 @@ list of function that evaluates to a(n) package
 
 
 
-This option has no description\.
+Version of job or service\.
+This will be used as the image tag\.
 
 
 
@@ -237,7 +326,7 @@ string
 
 
 
-This option has no description\.
+Configuration for the development environment\.
 
 
 
@@ -316,7 +405,9 @@ package
 
 
 
-Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell
+Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell\.
+
+See [devenv options](https://devenv\.sh/reference/options/) for supported nested options\.
 
 
 
@@ -337,7 +428,10 @@ module
 
 
 
-This option has no description\.
+Environment variables for either devcontainer, jobs or services\.
+
+For devcontainer, these variables will be copied to via ` devenv `’s [env](https://devenv\.sh/reference/options/\#env) config\.
+For kubernetes jobs and services, these variables will be copied to the Pods’ ` spec.containers.*.env ` field\.
 
 
 
@@ -453,7 +547,9 @@ attribute set of module
 
 
 
-This option has no description\.
+The nix package set to use for poetry2nix\.
+
+It is by default set to the nixpkgs from ` nix-ml-ops `’s lock file with a python package specified by ` perSystem.ml-ops.common.pythonPackage `\.
 
 
 
@@ -667,7 +763,8 @@ list of function that evaluates to a(n) package
 
 
 
-This option has no description\.
+Version of job or service\.
+This will be used as the image tag\.
 
 
 
@@ -1059,7 +1156,9 @@ string
 
 
 
-This option has no description\.
+The shared options among all jobs\.
+
+For example, config of ` perSystem.ml-ops.job.xxx ` will be copied to all ` perSystem.ml-ops.jobs.<name>.xxx `\.
 
 
 
@@ -1154,7 +1253,9 @@ package
 
 
 
-Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell
+Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell\.
+
+See [devenv options](https://devenv\.sh/reference/options/) for supported nested options\.
 
 
 
@@ -1175,7 +1276,10 @@ module
 
 
 
-This option has no description\.
+Environment variables for either devcontainer, jobs or services\.
+
+For devcontainer, these variables will be copied to via ` devenv `’s [env](https://devenv\.sh/reference/options/\#env) config\.
+For kubernetes jobs and services, these variables will be copied to the Pods’ ` spec.containers.*.env ` field\.
 
 
 
@@ -1289,7 +1393,10 @@ submodule
 
 
 
-This option has no description\.
+The Azure Kubernetes Service (AKS) options\.
+
+When ` aks ` is ` null `, the AKS options are disabled\.
+When ` aks ` is ` {} `, the AKS options are enabled with default values\.
 
 
 
@@ -1310,7 +1417,7 @@ null or (submodule)
 
 
 
-This option has no description\.
+The name of the Azure Kubernetes Service (AKS) cluster to use\.
 
 
 
@@ -1331,7 +1438,7 @@ string
 
 
 
-This option has no description\.
+The name of the Azure Container Registry (ACR) to use\.
 
 
 
@@ -1352,7 +1459,7 @@ string
 
 
 
-This option has no description\.
+The name of the Azure Resource Group (ARG) to use\.
 
 
 
@@ -1542,7 +1649,10 @@ module
 
 
 
-This option has no description\.
+The Google Kubernetes Engine (GKE) options\.
+
+When ` gke ` is ` null `, the GKE options are disabled\.
+When ` gke ` is ` {} `, the GKE options are enabled with default values\.
 
 
 
@@ -1563,7 +1673,7 @@ null or (submodule)
 
 
 
-This option has no description\.
+The GKE cluster name\.
 
 
 
@@ -1579,7 +1689,7 @@ string
 
 
 
-This option has no description\.
+The GCP region\.
 
 
 
@@ -1737,7 +1847,9 @@ unspecified value
 
 
 
-This option has no description\.
+Kubernetes manifests to be templated by Helm\.
+
+For each template, the key is the base file name of the template (extension is always ` yaml `), and the value is the template itself\.
 
 
 
@@ -2071,6 +2183,8 @@ package
 
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.overridden-package
+
+
 
 This option has no description\.
 
@@ -2599,7 +2713,9 @@ list of path
 
 
 
-This option has no description\.
+The nix package set to use for poetry2nix\.
+
+It is by default set to the nixpkgs from ` nix-ml-ops `’s lock file with a python package specified by ` perSystem.ml-ops.common.pythonPackage `\.
 
 
 
@@ -2855,7 +2971,8 @@ list of function that evaluates to a(n) package
 
 
 
-This option has no description\.
+Version of job or service\.
+This will be used as the image tag\.
 
 
 
@@ -3143,7 +3260,7 @@ list of function that evaluates to a(n) package
 
 
 
-Common config shared between ml-ops\.jobs and ml-ops\.services
+Common config shared among all ` ml-ops.jobs.<name> ` and ` ml-ops.services.<name> `\.
 
 
 
@@ -3222,7 +3339,9 @@ package
 
 
 
-Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell
+Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell\.
+
+See [devenv options](https://devenv\.sh/reference/options/) for supported nested options\.
 
 
 
@@ -3243,7 +3362,10 @@ module
 
 
 
-This option has no description\.
+Environment variables for either devcontainer, jobs or services\.
+
+For devcontainer, these variables will be copied to via ` devenv `’s [env](https://devenv\.sh/reference/options/\#env) config\.
+For kubernetes jobs and services, these variables will be copied to the Pods’ ` spec.containers.*.env ` field\.
 
 
 
@@ -3359,7 +3481,9 @@ list of path
 
 
 
-This option has no description\.
+The nix package set to use for poetry2nix\.
+
+It is by default set to the nixpkgs from ` nix-ml-ops `’s lock file with a python package specified by ` perSystem.ml-ops.common.pythonPackage `\.
 
 
 
@@ -3573,7 +3697,8 @@ list of function that evaluates to a(n) package
 
 
 
-This option has no description\.
+Version of job or service\.
+This will be used as the image tag\.
 
 
 
@@ -3727,7 +3852,9 @@ string
 
 
 
-This option has no description\.
+The shared options among all services\.
+
+For example, config of ` perSystem.ml-ops.service.xxx ` will be copied to all ` perSystem.ml-ops.services.<name>.xxx `\.
 
 
 
@@ -3822,7 +3949,9 @@ package
 
 
 
-Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell
+Common config that will be copied to ` config.devenv.shells. `*\<shell_name>*` .config ` for each shell\.
+
+See [devenv options](https://devenv\.sh/reference/options/) for supported nested options\.
 
 
 
@@ -3843,7 +3972,10 @@ module
 
 
 
-This option has no description\.
+Environment variables for either devcontainer, jobs or services\.
+
+For devcontainer, these variables will be copied to via ` devenv `’s [env](https://devenv\.sh/reference/options/\#env) config\.
+For kubernetes jobs and services, these variables will be copied to the Pods’ ` spec.containers.*.env ` field\.
 
 
 
@@ -3957,7 +4089,10 @@ submodule
 
 
 
-This option has no description\.
+The Azure Kubernetes Service (AKS) options\.
+
+When ` aks ` is ` null `, the AKS options are disabled\.
+When ` aks ` is ` {} `, the AKS options are enabled with default values\.
 
 
 
@@ -3978,7 +4113,7 @@ null or (submodule)
 
 
 
-This option has no description\.
+The name of the Azure Kubernetes Service (AKS) cluster to use\.
 
 
 
@@ -3999,7 +4134,7 @@ string
 
 
 
-This option has no description\.
+The name of the Azure Container Registry (ACR) to use\.
 
 
 
@@ -4020,7 +4155,7 @@ string
 
 
 
-This option has no description\.
+The name of the Azure Resource Group (ARG) to use\.
 
 
 
@@ -4080,8 +4215,6 @@ unspecified value
 
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.env
-
-
 
 This option has no description\.
 
@@ -4166,6 +4299,8 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containers
 
+
+
 This option has no description\.
 
 
@@ -4208,7 +4343,10 @@ module
 
 
 
-This option has no description\.
+The Google Kubernetes Engine (GKE) options\.
+
+When ` gke ` is ` null `, the GKE options are disabled\.
+When ` gke ` is ` {} `, the GKE options are enabled with default values\.
 
 
 
@@ -4229,7 +4367,7 @@ null or (submodule)
 
 
 
-This option has no description\.
+The GKE cluster name\.
 
 
 
@@ -4245,7 +4383,7 @@ string
 
 
 
-This option has no description\.
+The GCP region\.
 
 
 
@@ -4403,7 +4541,9 @@ unspecified value
 
 
 
-This option has no description\.
+Kubernetes manifests to be templated by Helm\.
+
+For each template, the key is the base file name of the template (extension is always ` yaml `), and the value is the template itself\.
 
 
 
@@ -5334,7 +5474,9 @@ list of path
 
 
 
-This option has no description\.
+The nix package set to use for poetry2nix\.
+
+It is by default set to the nixpkgs from ` nix-ml-ops `’s lock file with a python package specified by ` perSystem.ml-ops.common.pythonPackage `\.
 
 
 
@@ -5590,7 +5732,8 @@ list of function that evaluates to a(n) package
 
 
 
-This option has no description\.
+Version of job or service\.
+This will be used as the image tag\.
 
 
 

@@ -50,15 +50,28 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                     in
                     {
                       options.gke = lib.mkOption {
+                        description = lib.mdDoc ''
+                          The Google Kubernetes Engine (GKE) options.
+
+                          When `gke` is `null`, the GKE options are disabled.
+                          When `gke` is `{}`, the GKE options are enabled with default values.
+                        '';
+
                         default = null;
                         type = lib.types.nullOr (lib.types.submoduleWith {
                           modules = [
                             {
                               options.region = lib.mkOption {
                                 type = lib.types.str;
+                                description = lib.mdDoc ''
+                                  The GCP region.
+                                '';
                               };
                               options.cluster = lib.mkOption {
                                 type = lib.types.str;
+                                description = lib.mdDoc ''
+                                  The GKE cluster name.
+                                '';
                               };
                             }
                           ];
