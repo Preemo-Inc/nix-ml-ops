@@ -326,7 +326,7 @@ string
 
 
 
-This option has no description\.
+Configuration for the development environment\.
 
 
 
@@ -4202,8 +4202,6 @@ unspecified value
 
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.env
-
-
 
 This option has no description\.
 

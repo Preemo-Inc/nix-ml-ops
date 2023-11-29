@@ -9,6 +9,9 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
     ];
     options.perSystem = flake-parts-lib.mkPerSystemOption (perSystem @{ system, pkgs, ... }: {
       options.ml-ops.devcontainer = lib.mkOption {
+        description = lib.mdDoc ''
+          Configuration for the development environment.
+        '';
         default = { };
         type = lib.types.submoduleWith {
           modules = [
