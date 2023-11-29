@@ -11,6 +11,28 @@ lazy attribute set of raw value
 
 *Declared by:*
  - [lib\.nix, via option flake\.flakeModules\.lib](flake-modules/lib.nix)
+ - [kubernetes\.nix](flake-modules/kubernetes.nix)
+
+
+
+## flake\.lib\.findKubernetesPackages
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+function that evaluates to a(n) attribute set of package
+
+
+
+*Default:*
+` <function> `
+
+*Declared by:*
+ - [kubernetes\.nix](flake-modules/kubernetes.nix)
 
 
 
@@ -32,6 +54,27 @@ function that evaluates to a(n) function that evaluates to a(n) attribute set of
 
 *Declared by:*
  - [lib\.nix, via option flake\.flakeModules\.lib](flake-modules/lib.nix)
+
+
+
+## flake\.lib\.pathToKubernetesName
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+function that evaluates to a(n) string
+
+
+
+*Default:*
+` <function> `
+
+*Declared by:*
+ - [kubernetes\.nix](flake-modules/kubernetes.nix)
 
 
 
@@ -2049,8 +2092,6 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.template\.spec\.restartPolicy
 
-
-
 This option has no description\.
 
 
@@ -2090,6 +2131,8 @@ unspecified value
 
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade
+
+
 
 This option has no description\.
 
@@ -4207,6 +4250,8 @@ unspecified value
 
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.name
+
+
 
 This option has no description\.
 
