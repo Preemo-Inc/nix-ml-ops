@@ -1393,7 +1393,10 @@ submodule
 
 
 
-This option has no description\.
+The Azure Kubernetes Service (AKS) options\.
+
+When ` aks ` is ` null `, the AKS options are disabled\.
+When ` aks ` is ` {} `, the AKS options are enabled with default values\.
 
 
 
@@ -1646,7 +1649,10 @@ module
 
 
 
-This option has no description\.
+The Google Kubernetes Engine (GKE) options\.
+
+When ` gke ` is ` null `, the GKE options are disabled\.
+When ` gke ` is ` {} `, the GKE options are enabled with default values\.
 
 
 
@@ -4079,7 +4085,10 @@ submodule
 
 
 
-This option has no description\.
+The Azure Kubernetes Service (AKS) options\.
+
+When ` aks ` is ` null `, the AKS options are disabled\.
+When ` aks ` is ` {} `, the AKS options are enabled with default values\.
 
 
 
@@ -4330,7 +4339,10 @@ module
 
 
 
-This option has no description\.
+The Google Kubernetes Engine (GKE) options\.
+
+When ` gke ` is ` null `, the GKE options are disabled\.
+When ` gke ` is ` {} `, the GKE options are enabled with default values\.
 
 
 
