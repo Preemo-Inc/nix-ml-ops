@@ -63,9 +63,15 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                             {
                               options.region = lib.mkOption {
                                 type = lib.types.str;
+                                description = lib.mdDoc ''
+                                  The GCP region.
+                                '';
                               };
                               options.cluster = lib.mkOption {
                                 type = lib.types.str;
+                                description = lib.mdDoc ''
+                                  The GKE cluster name.
+                                '';
                               };
                             }
                           ];

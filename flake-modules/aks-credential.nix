@@ -61,14 +61,23 @@ topLevel@{ flake-parts-lib, inputs, lib, ... }: {
                                   resourcegroup = lib.mkOption {
                                     type = lib.types.str;
                                     default = "ml-solutions";
+                                    description = lib.mdDoc ''
+                                      The name of the Azure Resource Group (ARG) to use.
+                                    '';
                                   };
                                   cluster = lib.mkOption {
                                     type = lib.types.str;
                                     default = "ml-aks";
+                                    description = lib.mdDoc ''
+                                      The name of the Azure Kubernetes Service (AKS) cluster to use.
+                                    '';
                                   };
                                   registryName = lib.mkOption {
                                     type = lib.types.str;
                                     default = "mlsolutionregistry";
+                                    description = lib.mdDoc ''
+                                      The name of the Azure Container Registry (ACR) to use.
+                                    '';
                                   };
                                 };
                               }

@@ -1417,7 +1417,7 @@ null or (submodule)
 
 
 
-This option has no description\.
+The name of the Azure Kubernetes Service (AKS) cluster to use\.
 
 
 
@@ -1438,7 +1438,7 @@ string
 
 
 
-This option has no description\.
+The name of the Azure Container Registry (ACR) to use\.
 
 
 
@@ -1459,7 +1459,7 @@ string
 
 
 
-This option has no description\.
+The name of the Azure Resource Group (ARG) to use\.
 
 
 
@@ -1673,7 +1673,7 @@ null or (submodule)
 
 
 
-This option has no description\.
+The GKE cluster name\.
 
 
 
@@ -1689,7 +1689,7 @@ string
 
 
 
-This option has no description\.
+The GCP region\.
 
 
 
@@ -1847,7 +1847,9 @@ unspecified value
 
 
 
-This option has no description\.
+Kubernetes manifests to be templated by Helm\.
+
+For each template, the key is the base file name of the template (extension is always ` yaml `), and the value is the template itself\.
 
 
 
@@ -2097,6 +2099,8 @@ unspecified value
 
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmTemplates\.job\.spec\.template\.spec\.restartPolicy
+
+
 
 This option has no description\.
 
@@ -4109,7 +4113,7 @@ null or (submodule)
 
 
 
-This option has no description\.
+The name of the Azure Kubernetes Service (AKS) cluster to use\.
 
 
 
@@ -4130,7 +4134,7 @@ string
 
 
 
-This option has no description\.
+The name of the Azure Container Registry (ACR) to use\.
 
 
 
@@ -4151,7 +4155,7 @@ string
 
 
 
-This option has no description\.
+The name of the Azure Resource Group (ARG) to use\.
 
 
 
@@ -4363,7 +4367,7 @@ null or (submodule)
 
 
 
-This option has no description\.
+The GKE cluster name\.
 
 
 
@@ -4379,7 +4383,7 @@ string
 
 
 
-This option has no description\.
+The GCP region\.
 
 
 
@@ -4537,7 +4541,9 @@ unspecified value
 
 
 
-This option has no description\.
+Kubernetes manifests to be templated by Helm\.
+
+For each template, the key is the base file name of the template (extension is always ` yaml `), and the value is the template itself\.
 
 
 
