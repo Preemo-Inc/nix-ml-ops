@@ -58,13 +58,14 @@
           ./flake-modules/devcontainer-azure-cli-tools.nix
           ./flake-modules/nix-ld.nix
           ./flake-modules/options-document.nix
+          ./flake-modules/lib.nix
         ];
 
       });
     in
     inputs.flake-parts.lib.mkFlake { inherit inputs; } ({ lib, ... }: {
       imports = [
-        ./lib.nix
+        bootstrap.flakeModules.lib
         bootstrap.flakeModules.nixIde
         bootstrap.flakeModules.devserver
         bootstrap.flakeModules.devcontainerGcpCliTools

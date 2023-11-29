@@ -1,4 +1,43 @@
+## flake
+
+Raw flake output attributes\. Any attribute can be set here, but some
+attributes are represented by options, to provide appropriate
+configuration merging\.
+
+
+
+*Type:*
+lazy attribute set of raw value
+
+*Declared by:*
+ - [lib\.nix, via option flake\.flakeModules\.lib](flake-modules/lib.nix)
+
+
+
+## flake\.lib\.mkFlake
+
+
+
+This option has no description\.
+
+
+
+*Type:*
+function that evaluates to a(n) function that evaluates to a(n) attribute set of anything
+
+
+
+*Default:*
+` <function> `
+
+*Declared by:*
+ - [lib\.nix, via option flake\.flakeModules\.lib](flake-modules/lib.nix)
+
+
+
 ## perSystem
+
+
 
 A function from system to flake-like attributes omitting the ` <system> ` attribute\.
 
@@ -2052,8 +2091,6 @@ unspecified value
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade
 
-
-
 This option has no description\.
 
 
@@ -2093,6 +2130,8 @@ package
 
 
 ## perSystem\.ml-ops\.jobs\.\<name>\.launchers\.\<name>\.kubernetes\.helmUpgrade\.overridden-package
+
+
 
 This option has no description\.
 
@@ -4169,8 +4208,6 @@ unspecified value
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containerManifest\.name
 
-
-
 This option has no description\.
 
 
@@ -4205,6 +4242,8 @@ unspecified value
 
 
 ## perSystem\.ml-ops\.services\.\<name>\.launchers\.\<name>\.kubernetes\.containers
+
+
 
 This option has no description\.
 
